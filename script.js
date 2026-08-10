@@ -1,172 +1,191 @@
-// ===========================
-// BESHA GROUP SCRIPT.JS
-// ===========================
+// =========================
+// BESHA GROUP
+// SCRIPT.JS
+// =========================
 
-// Header Shadow
+// MOBILE MENU
+function toggleMenu() {
+    const menu = document.querySelector(".menu");
+    menu.classList.toggle("active");
+}
 
-const header = document.querySelector("header");
+// Menyu linkini bosganda mobil menyuni yopish
+document.querySelectorAll(".menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.querySelector(".menu").classList.remove("active");
+    });
+});
 
-window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 50) {
+// CONTACT MODAL
+function openForm() {
+    const modal = document.getElementById("contactModal");
 
-        header.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
-
-    } else {
-
-        header.style.boxShadow = "none";
-
+    if (modal) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
     }
+}
 
-});
+function closeForm() {
+    const modal = document.getElementById("contactModal");
 
-
-// Hero Animation
-
-window.addEventListener("load", () => {
-
-    const hero = document.querySelector(".hero-content");
-
-    hero.style.opacity = "0";
-    hero.style.transform = "translateY(40px)";
-
-    setTimeout(() => {
-
-        hero.style.transition = "1s";
-
-        hero.style.opacity = "1";
-        hero.style.transform = "translateY(0)";
-
-    },300);
-
-});
-
-
-// Card Hover Animation
-
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-    card.addEventListener("mouseenter", () => {
-
-        card.style.transform = "translateY(-10px)";
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "translateY(0px)";
-
-    });
-
-});
-
-
-// Gallery Hover
-
-const gallery = document.querySelectorAll(".gallery-box");
-
-gallery.forEach(box => {
-
-    box.addEventListener("mouseenter", () => {
-
-        box.style.transform = "scale(1.05)";
-
-    });
-
-    box.addEventListener("mouseleave", () => {
-
-        box.style.transform = "scale(1)";
-
-    });
-
-});
-
-
-// Buttons Animation
-
-const buttons = document.querySelectorAll(".btn, .btn-outline");
-
-buttons.forEach(btn => {
-
-    btn.addEventListener("mouseenter", () => {
-
-        btn.style.transform = "scale(1.05)";
-
-    });
-
-    btn.addEventListener("mouseleave", () => {
-
-        btn.style.transform = "scale(1)";
-
-    });
-
-});
-
-
-// Current Year
-
-const footer = document.querySelector("footer p");
-
-if (footer) {
-
-    const year = new Date().getFullYear();
-
-    footer.innerHTML =
-    `� ${year} Besha Group. Barcha huquqlar himoyalangan.`;
-
+    if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    }
 }
 
 
-// Scroll Top Button (optional)
+// Modal tashqarisiga bosilganda yopish
+document.getElementById("contactModal").addEventListener("click", function (e) {
+    if (e.target === this) {
+        closeForm();
+    }
+});
 
-const topButton = document.createElement("button");
 
-topButton.innerHTML = "^";
+// ESC BOSILGANDA MODALNI YOPISH
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+        closeForm();
+    }
+});
 
-topButton.style.position = "fixed";
-topButton.style.bottom = "20px";
-topButton.style.right = "20px";
-topButton.style.width = "45px";
-topButton.style.height = "45px";
-topButton.style.border = "none";
-topButton.style.borderRadius = "50%";
-topButton.style.background = "#003366";
-topButton.style.color = "#fff";
-topButton.style.fontSize = "20px";
-topButton.style.cursor = "pointer";
-topButton.style.display = "none";
 
-document.body.appendChild(topButton);
+// TELEFON RAQAMINI FORMATLASH
+const phoneInput = document.querySelector('input[name="phone"]');
 
-window.addEventListener("scroll", () => {
+if (phoneInput) {
+    phoneInput.addEventListener("input", function () {
 
-    if (window.scrollY > 400) {
+        let value = this.value.replace(/\D/g, "");
 
-        topButton.style.display = "block";
+        if (value.startsWith("998")) {
+            value = value.substring(3);
+        }
 
+        value = value.substring(0, 9);
+
+        let result = "+998";
+
+        if (value.length > 0) {
+            result += " " + value.substring(0, 2);
+        }
+
+        if (value.length > 2) {
+            result += " " + value.substring(2, 5);
+        }
+
+        if (value.length > 5) {
+            result += " " + value.substring(5, 7);
+        }
+
+        if (value.length > 7) {
+            result += " " + value.substring(7, 9);
+        }
+
+        this.value = result;
+    });
+}
+
+
+// FORM SUBMIT
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const name = this.querySelector('[name="name"]').value.trim();
+        const phone = this.querySelector('[name="phone"]').value.trim();
+
+        if (!name || !phone) {
+            alert("Iltimos, ism va telefon raqamingizni kiriting.");
+            return;
+        }
+
+        if (phone.replace(/\D/g, "").length < 12) {
+            alert("Telefon raqamini to‘liq kiriting.");
+            return;
+        }
+
+        /*
+            Hozircha forma ma'lumotlari serverga yuborilmaydi.
+
+            Keyingi bosqichda bu joyga:
+            - Telegram Bot
+            - Database
+            - Email
+            yoki
+            - Backend API
+
+            ulaymiz.
+        */
+
+        alert(
+            "Rahmat, " + name + "!\n\n" +
+            "Murojaatingiz qabul qilindi. " +
+            "Tez orada siz bilan bog‘lanamiz."
+        );
+
+        this.reset();
+        closeForm();
+    });
+}
+
+
+// HEADER SCROLL EFFECT
+const header = document.querySelector(".header");
+
+window.addEventListener("scroll", function () {
+
+    if (window.scrollY > 50) {
+        header.style.boxShadow = "0 8px 30px rgba(0,0,0,.15)";
     } else {
-
-        topButton.style.display = "none";
-
+        header.style.boxShadow = "none";
     }
 
 });
 
-topButton.addEventListener("click", () => {
 
-    window.scrollTo({
+// SCROLL ANIMATION
+const animatedElements = document.querySelectorAll(
+    ".service-card, .advantage, .person, .about-card"
+);
 
-        top:0,
+const observer = new IntersectionObserver(
+    entries => {
 
-        behavior:"smooth"
+        entries.forEach(entry => {
 
-    });
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+
+// Boshlang‘ich holat
+animatedElements.forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(25px)";
+    element.style.transition =
+        "opacity .6s ease, transform .6s ease";
+
+    observer.observe(element);
 
 });
-
-
-// Console
-
-console.log("Besha Group Website Loaded Successfully");
