@@ -57,7 +57,6 @@ img {
     display: block;
 }
 
-
 /* =========================
    CONTAINER
 ========================= */
@@ -66,7 +65,6 @@ img {
     width: min(1120px, 90%);
     margin: auto;
 }
-
 
 /* =========================
    HEADER
@@ -78,7 +76,7 @@ img {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(11, 23, 38, 0.94);
+    background: rgba(11, 23, 38, 0.95);
     backdrop-filter: blur(12px);
     transition: 0.3s;
 }
@@ -151,7 +149,6 @@ img {
     color: var(--white);
     font-size: 26px;
 }
-
 
 /* =========================
    HERO
@@ -248,7 +245,6 @@ img {
     transform: translateY(-2px);
 }
 
-
 /* =========================
    SECTIONS
 ========================= */
@@ -268,7 +264,6 @@ img {
     color: var(--gray);
     line-height: 1.8;
 }
-
 
 /* =========================
    ABOUT
@@ -326,7 +321,6 @@ img {
     margin-bottom: 15px;
 }
 
-
 /* =========================
    SERVICES
 ========================= */
@@ -383,7 +377,6 @@ img {
 .service-card:hover {
     transform: translateY(-7px);
     box-shadow: 0 18px 45px rgba(17, 35, 58, 0.1);
-    border-color: #cbd8ec;
 }
 
 .service-number {
@@ -410,7 +403,6 @@ img {
     font-size: 21px;
     margin-bottom: 15px;
 }
-
 
 /* =========================
    ADVANTAGES
@@ -464,7 +456,6 @@ img {
 .advantage p {
     font-size: 14px;
 }
-
 
 /* =========================
    TEAM
@@ -534,7 +525,6 @@ img {
     font-weight: 700;
 }
 
-
 /* =========================
    PERSON MODAL
 ========================= */
@@ -547,7 +537,7 @@ img {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: rgba(4, 12, 22, 0.8);
+    background: rgba(4, 12, 22, 0.82);
     backdrop-filter: blur(8px);
 }
 
@@ -563,6 +553,7 @@ img {
     background: var(--white);
     border-radius: 18px;
     position: relative;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
     animation: modalIn 0.3s ease;
 }
 
@@ -575,9 +566,10 @@ img {
     height: 38px;
     border: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     font-size: 25px;
     color: var(--text);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 .person-modal-content {
@@ -641,7 +633,6 @@ img {
     font-size: 14px;
 }
 
-
 /* =========================
    CTA
 ========================= */
@@ -671,7 +662,6 @@ img {
 .cta .primary-btn {
     white-space: nowrap;
 }
-
 
 /* =========================
    FOOTER
@@ -717,7 +707,6 @@ footer {
     border-radius: 7px;
 }
 
-
 /* =========================
    COPYRIGHT
 ========================= */
@@ -729,7 +718,6 @@ footer {
     color: #728093;
     font-size: 13px;
 }
-
 
 /* =========================
    CONTACT MODAL
@@ -812,7 +800,6 @@ footer {
     margin-top: 5px;
 }
 
-
 /* =========================
    ANIMATIONS
 ========================= */
@@ -851,7 +838,6 @@ footer {
     }
 }
 
-
 /* =========================
    TABLET
 ========================= */
@@ -883,7 +869,6 @@ footer {
         border-bottom: 1px solid var(--border);
     }
 }
-
 
 /* =========================
    MOBILE
@@ -1037,13 +1022,17 @@ footer {
 
     /* PERSON MODAL */
 
+    .person-modal {
+        padding: 12px;
+    }
+
     .person-modal-content {
         grid-template-columns: 1fr;
     }
 
     .person-modal-image {
-        min-height: 300px;
-        max-height: 360px;
+        min-height: 280px;
+        max-height: 330px;
     }
 
     .person-modal-info {
@@ -1063,7 +1052,6 @@ footer {
         text-align: left;
     }
 }
-
 
 /* =========================
    SMALL PHONES
