@@ -294,7 +294,7 @@ const people = {
 
     director: {
 
-        name: "Ism Familiya",
+        name: "Shaxzod Zikirov",
 
         role: "BOSH DIREKTOR",
 
@@ -317,7 +317,7 @@ const people = {
 
     manager: {
 
-        name: "Ism Familiya",
+        name: "Bekzod Zikirov",
 
         role: "MENEJER",
 
