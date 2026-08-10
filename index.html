@@ -284,44 +284,56 @@
     <div class="container">
 
         <div class="center-head">
-
             <span class="section-label">JAMOA</span>
 
             <h2>
                 Besha Group rahbariyati
             </h2>
 
+            <p>
+                Kompaniyamiz faoliyatini boshqaruvchi
+                mutaxassislar bilan tanishing.
+            </p>
         </div>
-
 
         <div class="team-grid">
 
-            <div class="person">
+            <!-- DIRECTOR -->
+            <div class="person person-card"
+                 onclick="openPerson('director')">
 
                 <div class="person-image">
-                    <img src="images/director.jpg" alt="Besha Group direktori">
+                    <img src="images/director.jpg"
+                         alt="Besha Group direktori">
                 </div>
 
-                <h3>Direktor</h3>
-
-                <p>
-                    Besha Group rahbari
-                </p>
+                <div class="person-info">
+                    <h3>Ism Familiya</h3>
+                    <p>Bosh direktor</p>
+                    <span class="person-more">
+                        Batafsil →
+                    </span>
+                </div>
 
             </div>
 
 
-            <div class="person">
+            <!-- MANAGER -->
+            <div class="person person-card"
+                 onclick="openPerson('manager')">
 
                 <div class="person-image">
-                    <img src="images/manager.jpg" alt="Besha Group menejeri">
+                    <img src="images/manager.jpg"
+                         alt="Besha Group menejeri">
                 </div>
 
-                <h3>Menejer</h3>
-
-                <p>
-                    Hamkorlar va mijozlar bilan ishlash
-                </p>
+                <div class="person-info">
+                    <h3>Ism Familiya</h3>
+                    <p>Menejer</p>
+                    <span class="person-more">
+                        Batafsil →
+                    </span>
+                </div>
 
             </div>
 
@@ -331,6 +343,75 @@
 
 </section>
 
+
+<!-- PERSON MODAL -->
+<div class="person-modal" id="personModal">
+
+    <div class="person-modal-box">
+
+        <button class="person-close"
+                onclick="closePerson()">
+            ×
+        </button>
+
+        <div class="person-modal-content">
+
+            <div class="person-modal-image">
+                <img id="personModalImage"
+                     src=""
+                     alt="">
+            </div>
+
+            <div class="person-modal-info">
+
+                <span class="section-label"
+                      id="personModalRole">
+                    LAVOZIM
+                </span>
+
+                <h2 id="personModalName">
+                    Ism Familiya
+                </h2>
+
+                <div class="person-divider"></div>
+
+                <p id="personModalText">
+                    Bu yerga xodim haqida
+                    batafsil ma'lumot yoziladi.
+                </p>
+
+                <div class="person-details">
+
+                    <div>
+                        <span>Lavozimi</span>
+                        <strong id="personModalPosition">
+                            Bosh direktor
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Ma'lumoti</span>
+                        <strong>
+                            Oliy ma'lumot
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Tajriba</span>
+                        <strong>
+                            10+ yil
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <!-- CTA -->
 <section class="cta">
