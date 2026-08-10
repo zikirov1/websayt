@@ -3,349 +3,456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Besha Group | Ishonchli ishchi kuchi</title>
+    <meta name="description" content="Besha Group — korxonalar uchun ishchi kuchi bilan ta'minlash xizmatlari.">
+    <title>Besha Group | Ishchi kuchi bilan ta'minlash</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- HEADER -->
-    <header>
+<!-- HEADER -->
+<header class="header">
+    <div class="container nav">
 
-        <div class="container">
+        <a href="#" class="logo">
+            <img src="images/logo.png" alt="Besha Group">
+            <span>BESHA <b>GROUP</b></span>
+        </a>
 
-            <div class="logo">
-                <h2>Besha Group</h2>
-            </div>
+        <nav class="menu">
+            <a href="#about">Biz haqimizda</a>
+            <a href="#services">Xizmatlar</a>
+            <a href="#advantages">Afzalliklar</a>
+            <a href="#team">Jamoa</a>
+        </nav>
 
-            <nav>
+        <button class="nav-btn" onclick="openForm()">
+            Bog'lanish
+        </button>
 
-                <ul>
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
 
-                    <li>
-                        <a href="index.html">Bosh sahifa</a>
-                    </li>
-
-                    <li>
-                        <a href="about.html">Biz haqimizda</a>
-                    </li>
-
-                    <li>
-                        <a href="services.html">Xizmatlar</a>
-                    </li>
-
-                    <li>
-                        <a href="gallery.html">Galereya</a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">Kontakt</a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-            <a href="contact.html" class="btn">
-                Bog'lanish
-            </a>
-
-        </div>
-
-    </header>
+    </div>
+</header>
 
 
+<!-- HERO -->
+<section class="hero">
 
-    <!-- HERO -->
+    <div class="hero-overlay"></div>
 
-    <section class="hero">
+    <div class="container hero-content">
 
-        <div class="container hero-content">
+        <span class="eyebrow">BESHA GROUP</span>
 
-            <h1>
-                Korxonangiz uchun
-                <span>ishonchli ishchi kuchi</span>
-            </h1>
+        <h1>
+            Korxonangiz uchun
+            <strong>ishonchli ishchi kuchi</strong>
+        </h1>
 
-            <p>
+        <p>
+            Korxonalar ehtiyojiga mos ishchi kuchini
+            shakllantirish va ta'minlash bo'yicha
+            professional xizmatlar.
+        </p>
 
-                Besha Group ishlab chiqarish
-                korxonalari, zavodlar va logistika
-                markazlarini malakali ishchilar
-                bilan ta'minlaydi.
+        <div class="hero-actions">
+            <button class="primary-btn" onclick="openForm()">
+                Batafsil ma'lumot olish
+            </button>
 
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="contact.html" class="btn">
-                    Bog'lanish
-                </a>
-
-                <a href="services.html" class="btn-outline">
-                    Xizmatlar
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ABOUT -->
-
-    <section class="about">
-
-        <div class="container">
-
-            <h2>
+            <a href="#about" class="secondary-btn">
                 Biz haqimizda
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+
+    <div class="container about-grid">
+
+        <div class="about-text">
+
+            <span class="section-label">BIZ HAQIMIZDA</span>
+
+            <h2>
+                Ish beruvchi va ishchi
+                o'rtasidagi ishonchli hamkor
             </h2>
 
             <p>
-
-                Besha Group korxonalar uchun
-                professional ishchi kuchini
-                taqdim etuvchi kompaniya.
-
-                Bizning maqsadimiz
-                ishlab chiqarish jarayonini
-                tezkor va uzluksiz
-                davom ettirishga yordam berishdir.
-
+                Besha Group korxonalar uchun zarur bo'lgan
+                ishchi kuchini shakllantirish va ta'minlash
+                yo'nalishida faoliyat yurituvchi kompaniya.
             </p>
 
-            <a href="about.html" class="more">
-
-                Batafsil >
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- SERVICES -->
-
-    <section class="services">
-
-        <div class="container">
-
-            <h2>
-                Xizmatlar
-            </h2>
-
-            <div class="cards">
-
-                <div class="card">
-
-                    <h3>
-                        ?? Zavod ishchilari
-                    </h3>
-
-                    <p>
-
-                        Turli ishlab chiqarish
-                        korxonalari uchun
-                        malakali ishchilar.
-
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>
-                        ?? Ombor xodimlari
-                    </h3>
-
-                    <p>
-
-                        Ombor va logistika
-                        markazlari uchun
-                        xodimlar.
-
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>
-                        ?? Qurilish
-                    </h3>
-
-                    <p>
-
-                        Qurilish loyihalari
-                        uchun tajribali
-                        mutaxassislar.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <a href="services.html" class="more">
-
-                Barcha xizmatlar >
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ADVANTAGES -->
-
-    <section class="advantages">
-
-        <div class="container">
-
-            <h2>
-
-                Nima uchun aynan biz?
-
-            </h2>
-
-            <div class="cards">
-
-                <div class="card">
-
-                    <h3>?</h3>
-
-                    <p>
-
-                        Tezkor xizmat
-
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>?</h3>
-
-                    <p>
-
-                        Ishonchli jamoa
-
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>??</h3>
-
-                    <p>
-
-                        Doimiy hamkorlik
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- GALLERY -->
-
-    <section class="gallery">
-
-        <div class="container">
-
-            <h2>
-
-                Galereya
-
-            </h2>
-
-            <div class="gallery-grid">
-
-                <div class="gallery-box"></div>
-
-                <div class="gallery-box"></div>
-
-                <div class="gallery-box"></div>
-
-                <div class="gallery-box"></div>
-
-            </div>
-
-            <a href="gallery.html" class="more">
-
-                Barcha rasmlar >
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- CONTACT -->
-
-    <section class="contact">
-
-        <div class="container">
-
-            <h2>
-
-                Biz bilan bog'laning
-
-            </h2>
-
             <p>
-
-                Savollaringiz bo'lsa,
-                biz bilan bog'laning.
-
+                Biz korxonalarning ehtiyojlarini o'rganib,
+                ularga mos ishchi kuchini topish va
+                hamkorlik jarayonini samarali tashkil
+                etishga intilamiz.
             </p>
 
-            <a href="contact.html" class="btn">
-
-                Aloqa
-
-            </a>
+            <button class="text-btn" onclick="openForm()">
+                Biz bilan bog'laning →
+            </button>
 
         </div>
 
-    </section>
+        <div class="about-card">
 
+            <div class="about-line"></div>
 
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="container">
+            <h3>
+                Maqsadimiz
+            </h3>
 
             <p>
-
-                � 2026 Besha Group.
-                Barcha huquqlar himoyalangan.
-
+                Ish beruvchilar uchun ishonchli yechim,
+                ish izlovchilar uchun esa munosib
+                imkoniyat yaratish.
             </p>
 
         </div>
 
-    </footer>
+    </div>
 
-    <script src="script.js"></script>
+</section>
+
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+                <span class="section-label">XIZMATLAR</span>
+
+                <h2>
+                    Korxonangiz ehtiyojiga
+                    mos yechimlar
+                </h2>
+            </div>
+
+            <button class="outline-btn" onclick="openForm()">
+                Murojaat qoldirish
+            </button>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <article class="service-card">
+
+                <span class="service-number">01</span>
+
+                <div class="service-icon">01</div>
+
+                <h3>
+                    Ishchi kuchi bilan ta'minlash
+                </h3>
+
+                <p>
+                    Ishlab chiqarish va boshqa
+                    korxonalar uchun zarur ishchi
+                    kuchini shakllantirish.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <span class="service-number">02</span>
+
+                <div class="service-icon">02</div>
+
+                <h3>
+                    Xodimlarni tanlash
+                </h3>
+
+                <p>
+                    Korxona talablariga mos
+                    nomzodlarni tanlash va
+                    yo'naltirish.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <span class="service-number">03</span>
+
+                <div class="service-icon">03</div>
+
+                <h3>
+                    Hamkorlikni tashkil etish
+                </h3>
+
+                <p>
+                    Ish beruvchi ehtiyojini o'rganish
+                    va mos xizmat yechimini
+                    taklif qilish.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ADVANTAGES -->
+<section class="section advantages" id="advantages">
+
+    <div class="container">
+
+        <div class="center-head">
+
+            <span class="section-label">NIMA UCHUN BESHA GROUP?</span>
+
+            <h2>
+                Ishonchli hamkorlikka
+                e'tibor qaratamiz
+            </h2>
+
+        </div>
+
+
+        <div class="advantage-grid">
+
+            <div class="advantage">
+                <span>01</span>
+                <h3>Individual yondashuv</h3>
+                <p>
+                    Har bir korxonaning ehtiyojini
+                    alohida o'rganamiz.
+                </p>
+            </div>
+
+            <div class="advantage">
+                <span>02</span>
+                <h3>Mas'uliyat</h3>
+                <p>
+                    Hamkorlik jarayoniga jiddiy
+                    va mas'uliyatli yondashamiz.
+                </p>
+            </div>
+
+            <div class="advantage">
+                <span>03</span>
+                <h3>Tezkor aloqa</h3>
+                <p>
+                    Murojaatlarni qabul qilib,
+                    qisqa muddatda aloqaga chiqamiz.
+                </p>
+            </div>
+
+            <div class="advantage">
+                <span>04</span>
+                <h3>Uzoq muddatli hamkorlik</h3>
+                <p>
+                    Bir martalik xizmatdan ko'ra
+                    barqaror hamkorlikni maqsad qilamiz.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TEAM -->
+<section class="section team" id="team">
+
+    <div class="container">
+
+        <div class="center-head">
+
+            <span class="section-label">JAMOA</span>
+
+            <h2>
+                Besha Group rahbariyati
+            </h2>
+
+        </div>
+
+
+        <div class="team-grid">
+
+            <div class="person">
+
+                <div class="person-image">
+                    <img src="images/director.jpg" alt="Besha Group direktori">
+                </div>
+
+                <h3>Direktor</h3>
+
+                <p>
+                    Besha Group rahbari
+                </p>
+
+            </div>
+
+
+            <div class="person">
+
+                <div class="person-image">
+                    <img src="images/manager.jpg" alt="Besha Group menejeri">
+                </div>
+
+                <h3>Menejer</h3>
+
+                <p>
+                    Hamkorlar va mijozlar bilan ishlash
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="cta">
+
+    <div class="container cta-box">
+
+        <div>
+            <span class="section-label">HAMKORLIK</span>
+
+            <h2>
+                Batafsil ma'lumot kerakmi?
+            </h2>
+
+            <p>
+                Telefon raqamingizni qoldiring.
+                Mutaxassisimiz siz bilan bog'lanadi.
+            </p>
+        </div>
+
+        <button class="primary-btn" onclick="openForm()">
+            Murojaat qoldirish
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="container footer">
+
+        <div>
+            <h3>BESHA GROUP</h3>
+            <p>
+                Ishchi kuchi bilan ta'minlash
+                bo'yicha hamkor.
+            </p>
+        </div>
+
+        <div class="footer-contact">
+            <a href="tel:+998000000000">
+                +998 XX XXX XX XX
+            </a>
+
+            <button onclick="openForm()">
+                Bog'lanish
+            </button>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 Besha Group. Barcha huquqlar himoyalangan.
+    </div>
+
+</footer>
+
+
+<!-- CONTACT FORM -->
+<div class="modal" id="contactModal">
+
+    <div class="modal-box">
+
+        <button class="close-btn" onclick="closeForm()">
+            ×
+        </button>
+
+        <span class="section-label">
+            BOG'LANISH
+        </span>
+
+        <h2>
+            Batafsil ma'lumot oling
+        </h2>
+
+        <p>
+            Ma'lumotlaringizni qoldiring.
+            Biz siz bilan qayta bog'lanamiz.
+        </p>
+
+        <form id="contactForm">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Ism va familiyangiz"
+                required
+            >
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="+998 __ ___ __ __"
+                required
+            >
+
+            <input
+                type="text"
+                name="company"
+                placeholder="Kompaniya nomi"
+            >
+
+            <textarea
+                name="message"
+                placeholder="Sizni nima qiziqtirdi?"
+                rows="4"
+            ></textarea>
+
+            <button type="submit" class="primary-btn">
+                Murojaat yuborish
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
