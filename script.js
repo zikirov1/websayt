@@ -189,167 +189,102 @@ animatedElements.forEach(element => {
     observer.observe(element);
 
 });
-/* PERSON CARD */
+// =========================
+// PERSON INFORMATION
+// =========================
 
-.person-card {
-    cursor: pointer;
-}
+const people = {
 
-.person-info {
-    padding: 20px 22px 22px;
-}
+    director: {
+        name: "Ism Familiya",
+        role: "BOSH DIREKTOR",
+        position: "Bosh direktor",
+        image: "images/director.jpg",
 
-.person-info h3 {
-    padding: 0;
-}
+        text: `
+            Bu yerga direktor haqida batafsil ma'lumot
+            yoziladi. Masalan, uning professional
+            faoliyati, kompaniyadagi vazifalari,
+            tajribasi va Besha Group rivojiga
+            qo'shayotgan hissasi haqida ma'lumot.
+        `
+    },
 
-.person-info p {
-    padding: 0;
-    margin-top: 3px;
-}
+    manager: {
+        name: "Ism Familiya",
+        role: "MENEJER",
+        position: "Menejer",
+        image: "images/manager.jpg",
 
-.person-more {
-    display: inline-block;
-    margin-top: 15px;
-    color: var(--blue);
-    font-size: 14px;
-    font-weight: 700;
-}
-
-
-/* PERSON MODAL */
-
-.person-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 2500;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(4, 12, 22, .8);
-    backdrop-filter: blur(8px);
-}
-
-.person-modal.active {
-    display: flex;
-    animation: fadeIn .25s ease;
-}
-
-.person-modal-box {
-    width: min(850px, 100%);
-    max-height: 90vh;
-    overflow: auto;
-    background: white;
-    border-radius: 18px;
-    position: relative;
-    animation: modalIn .3s ease;
-}
-
-.person-close {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    z-index: 5;
-    width: 38px;
-    height: 38px;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,.9);
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.person-modal-content {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-}
-
-.person-modal-image {
-    min-height: 480px;
-    background: #dce3eb;
-}
-
-.person-modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.person-modal-info {
-    padding: 55px 45px;
-}
-
-.person-modal-info h2 {
-    font-size: 36px;
-    margin: 10px 0 20px;
-}
-
-.person-divider {
-    width: 50px;
-    height: 3px;
-    background: var(--blue);
-    margin-bottom: 22px;
-}
-
-.person-modal-info > p {
-    color: var(--gray);
-    line-height: 1.8;
-}
-
-.person-details {
-    display: grid;
-    gap: 18px;
-    margin-top: 30px;
-    padding-top: 25px;
-    border-top: 1px solid var(--border);
-}
-
-.person-details div {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.person-details span {
-    color: var(--gray);
-    font-size: 14px;
-}
-
-.person-details strong {
-    text-align: right;
-    font-size: 14px;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-    .person-modal-content {
-        grid-template-columns: 1fr;
+        text: `
+            Bu yerga menejer haqida batafsil ma'lumot
+            yoziladi. Masalan, uning vazifalari,
+            mijozlar bilan ishlashi, ish tajribasi
+            va kompaniyadagi faoliyati haqida
+            ma'lumot berish mumkin.
+        `
     }
 
-    .person-modal-image {
-        min-height: 300px;
-        max-height: 360px;
-    }
+};
 
-    .person-modal-info {
-        padding: 30px 25px;
-    }
 
-    .person-modal-info h2 {
-        font-size: 28px;
-    }
+function openPerson(person) {
 
-    .person-details div {
-        flex-direction: column;
-        gap: 3px;
-    }
+    const data = people[person];
 
-    .person-details strong {
-        text-align: left;
-    }
+    if (!data) return;
 
+    document.getElementById("personModalName").textContent =
+        data.name;
+
+    document.getElementById("personModalRole").textContent =
+        data.role;
+
+    document.getElementById("personModalPosition").textContent =
+        data.position;
+
+    document.getElementById("personModalText").textContent =
+        data.text.trim();
+
+    document.getElementById("personModalImage").src =
+        data.image;
+
+    document.getElementById("personModalImage").alt =
+        data.name;
+
+    document.getElementById("personModal").classList.add("active");
+
+    document.body.style.overflow = "hidden";
 }
+
+
+function closePerson() {
+
+    document.getElementById("personModal")
+        .classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+// Modal tashqarisiga bosilganda yopish
+
+document.getElementById("personModal")
+    .addEventListener("click", function(e) {
+
+        if (e.target === this) {
+            closePerson();
+        }
+
+    });
+
+
+// ESC tugmasi
+
+document.addEventListener("keydown", function(e) {
+
+    if (e.key === "Escape") {
+        closePerson();
+    }
+
+});
