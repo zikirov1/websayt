@@ -33,6 +33,10 @@ body {
     line-height: 1.6;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 button,
 input,
 textarea {
@@ -53,14 +57,20 @@ img {
     display: block;
 }
 
-/* CONTAINER */
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container {
     width: min(1120px, 90%);
     margin: auto;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 .header {
     position: fixed;
@@ -68,9 +78,9 @@ img {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(11, 23, 38, .94);
+    background: rgba(11, 23, 38, 0.94);
     backdrop-filter: blur(12px);
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .nav {
@@ -110,7 +120,7 @@ img {
 .menu a {
     color: #dbe4f0;
     font-size: 14px;
-    transition: .25s;
+    transition: 0.25s;
 }
 
 .menu a:hover {
@@ -125,7 +135,7 @@ img {
     padding: 13px 22px;
     border-radius: 8px;
     font-weight: 600;
-    transition: .25s;
+    transition: 0.25s;
 }
 
 .nav-btn:hover,
@@ -142,7 +152,10 @@ img {
     font-size: 26px;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 720px;
@@ -150,8 +163,12 @@ img {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background:
-        linear-gradient(110deg, #0b1726 20%, #102944 65%, #17477a);
+    background: linear-gradient(
+        110deg,
+        #0b1726 20%,
+        #102944 65%,
+        #17477a
+    );
 }
 
 .hero::after {
@@ -162,14 +179,17 @@ img {
     right: -180px;
     bottom: -230px;
     border-radius: 50%;
-    background: rgba(21, 94, 239, .18);
+    background: rgba(21, 94, 239, 0.18);
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background:
-        radial-gradient(circle at 75% 30%, rgba(44, 126, 255, .18), transparent 35%);
+    background: radial-gradient(
+        circle at 75% 30%,
+        rgba(44, 126, 255, 0.18),
+        transparent 35%
+    );
 }
 
 .hero-content {
@@ -177,7 +197,7 @@ img {
     z-index: 2;
     max-width: 760px;
     padding-top: 70px;
-    animation: heroIn .9s ease forwards;
+    animation: heroIn 0.9s ease forwards;
 }
 
 .eyebrow,
@@ -217,18 +237,21 @@ img {
 
 .secondary-btn {
     padding: 12px 22px;
-    border: 1px solid rgba(255,255,255,.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     color: var(--white);
-    transition: .25s;
+    transition: 0.25s;
 }
 
 .secondary-btn:hover {
-    background: rgba(255,255,255,.08);
+    background: rgba(255, 255, 255, 0.08);
     transform: translateY(-2px);
 }
 
-/* SECTIONS */
+
+/* =========================
+   SECTIONS
+========================= */
 
 .section {
     padding: 110px 0;
@@ -246,7 +269,10 @@ img {
     line-height: 1.8;
 }
 
-/* ABOUT */
+
+/* =========================
+   ABOUT
+========================= */
 
 .about {
     background: var(--white);
@@ -254,7 +280,7 @@ img {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1.3fr .7fr;
+    grid-template-columns: 1.3fr 0.7fr;
     gap: 80px;
     align-items: center;
 }
@@ -300,7 +326,10 @@ img {
     margin-bottom: 15px;
 }
 
-/* SERVICES */
+
+/* =========================
+   SERVICES
+========================= */
 
 .services {
     background: var(--light);
@@ -327,7 +356,7 @@ img {
     padding: 12px 20px;
     border-radius: 8px;
     font-weight: 600;
-    transition: .25s;
+    transition: 0.25s;
 }
 
 .outline-btn:hover {
@@ -348,12 +377,12 @@ img {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     position: relative;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .service-card:hover {
     transform: translateY(-7px);
-    box-shadow: 0 18px 45px rgba(17, 35, 58, .1);
+    box-shadow: 0 18px 45px rgba(17, 35, 58, 0.1);
     border-color: #cbd8ec;
 }
 
@@ -382,7 +411,10 @@ img {
     margin-bottom: 15px;
 }
 
-/* ADVANTAGES */
+
+/* =========================
+   ADVANTAGES
+========================= */
 
 .advantages {
     background: var(--white);
@@ -396,6 +428,10 @@ img {
 
 .center-head h2 {
     margin-bottom: 0;
+}
+
+.center-head > p {
+    margin-top: 15px;
 }
 
 .advantage-grid {
@@ -429,7 +465,10 @@ img {
     font-size: 14px;
 }
 
-/* TEAM */
+
+/* =========================
+   TEAM
+========================= */
 
 .team {
     background: var(--light);
@@ -447,12 +486,16 @@ img {
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--border);
-    transition: .3s;
+    transition: 0.3s;
+}
+
+.person-card {
+    cursor: pointer;
 }
 
 .person:hover {
     transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(17, 35, 58, .1);
+    box-shadow: 0 18px 40px rgba(17, 35, 58, 0.1);
 }
 
 .person-image {
@@ -470,17 +513,138 @@ img {
     object-fit: cover;
 }
 
-.person h3 {
-    padding: 20px 22px 3px;
+.person-info {
+    padding: 20px 22px 22px;
+}
+
+.person-info h3 {
     font-size: 19px;
 }
 
-.person p {
-    padding: 0 22px 22px;
+.person-info p {
+    margin-top: 3px;
     font-size: 14px;
 }
 
-/* CTA */
+.person-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   PERSON MODAL
+========================= */
+
+.person-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(4, 12, 22, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.person-modal.active {
+    display: flex;
+    animation: fadeIn 0.25s ease;
+}
+
+.person-modal-box {
+    width: min(850px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    background: var(--white);
+    border-radius: 18px;
+    position: relative;
+    animation: modalIn 0.3s ease;
+}
+
+.person-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 5;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 25px;
+    color: var(--text);
+}
+
+.person-modal-content {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+}
+
+.person-modal-image {
+    min-height: 480px;
+    background: #dce3eb;
+}
+
+.person-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.person-modal-info {
+    padding: 55px 45px;
+}
+
+.person-modal-info h2 {
+    font-size: 36px;
+    margin: 10px 0 20px;
+}
+
+.person-divider {
+    width: 50px;
+    height: 3px;
+    background: var(--blue);
+    margin-bottom: 22px;
+}
+
+.person-modal-info > p {
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+.person-details {
+    display: grid;
+    gap: 18px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border);
+}
+
+.person-details div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.person-details span {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.person-details strong {
+    text-align: right;
+    font-size: 14px;
+}
+
+
+/* =========================
+   CTA
+========================= */
 
 .cta {
     padding: 80px 0;
@@ -508,7 +672,10 @@ img {
     white-space: nowrap;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     background: #07111e;
@@ -545,10 +712,15 @@ footer {
 .footer-contact button {
     border: 1px solid #34465c;
     background: transparent;
-    color: white;
+    color: var(--white);
     padding: 10px 18px;
     border-radius: 7px;
 }
+
+
+/* =========================
+   COPYRIGHT
+========================= */
 
 .copyright {
     border-top: 1px solid #1d2a39;
@@ -558,13 +730,16 @@ footer {
     font-size: 13px;
 }
 
-/* MODAL */
+
+/* =========================
+   CONTACT MODAL
+========================= */
 
 .modal {
     position: fixed;
     inset: 0;
     z-index: 2000;
-    background: rgba(4, 12, 22, .75);
+    background: rgba(4, 12, 22, 0.75);
     backdrop-filter: blur(8px);
     display: none;
     align-items: center;
@@ -574,7 +749,7 @@ footer {
 
 .modal.active {
     display: flex;
-    animation: fadeIn .25s ease;
+    animation: fadeIn 0.25s ease;
 }
 
 .modal-box {
@@ -585,7 +760,7 @@ footer {
     border-radius: 16px;
     padding: 40px;
     position: relative;
-    animation: modalIn .3s ease;
+    animation: modalIn 0.3s ease;
 }
 
 .modal-box h2 {
@@ -624,20 +799,23 @@ footer {
     padding: 14px 15px;
     outline: none;
     resize: vertical;
-    transition: .2s;
+    transition: 0.2s;
 }
 
 #contactForm input:focus,
 #contactForm textarea:focus {
     border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(21, 94, 239, .08);
+    box-shadow: 0 0 0 3px rgba(21, 94, 239, 0.08);
 }
 
 #contactForm .primary-btn {
     margin-top: 5px;
 }
 
-/* ANIMATIONS */
+
+/* =========================
+   ANIMATIONS
+========================= */
 
 @keyframes heroIn {
     from {
@@ -664,7 +842,7 @@ footer {
 @keyframes modalIn {
     from {
         opacity: 0;
-        transform: translateY(20px) scale(.98);
+        transform: translateY(20px) scale(0.98);
     }
 
     to {
@@ -673,7 +851,10 @@ footer {
     }
 }
 
-/* TABLET */
+
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 900px) {
 
@@ -698,13 +879,15 @@ footer {
         border-right: 0;
     }
 
-    .advantage:nth-child(-n+2) {
+    .advantage:nth-child(-n + 2) {
         border-bottom: 1px solid var(--border);
     }
-
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
 
@@ -852,166 +1035,7 @@ footer {
         padding: 30px 22px;
     }
 
-}
-
-/* SMALL PHONES */
-
-@media (max-width: 400px) {
-
-    .hero h1 {
-        font-size: 35px;
-    }
-
-    .hero {
-        min-height: 620px;
-    }
-
-    .section h2 {
-        font-size: 30px;
-    }
-
-    .service-card {
-        padding: 28px;
-    }
-
-}
-
-/* PERSON CARD */
-
-.person-card {
-    cursor: pointer;
-}
-
-.person-info {
-    padding: 20px 22px 22px;
-}
-
-.person-info h3 {
-    padding: 0;
-}
-
-.person-info p {
-    padding: 0;
-    margin-top: 3px;
-}
-
-.person-more {
-    display: inline-block;
-    margin-top: 15px;
-    color: var(--blue);
-    font-size: 14px;
-    font-weight: 700;
-}
-
-
-/* PERSON MODAL */
-
-.person-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 2500;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(4, 12, 22, .8);
-    backdrop-filter: blur(8px);
-}
-
-.person-modal.active {
-    display: flex;
-    animation: fadeIn .25s ease;
-}
-
-.person-modal-box {
-    width: min(850px, 100%);
-    max-height: 90vh;
-    overflow: auto;
-    background: white;
-    border-radius: 18px;
-    position: relative;
-    animation: modalIn .3s ease;
-}
-
-.person-close {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    z-index: 5;
-    width: 38px;
-    height: 38px;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,.9);
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.person-modal-content {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-}
-
-.person-modal-image {
-    min-height: 480px;
-    background: #dce3eb;
-}
-
-.person-modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.person-modal-info {
-    padding: 55px 45px;
-}
-
-.person-modal-info h2 {
-    font-size: 36px;
-    margin: 10px 0 20px;
-}
-
-.person-divider {
-    width: 50px;
-    height: 3px;
-    background: var(--blue);
-    margin-bottom: 22px;
-}
-
-.person-modal-info > p {
-    color: var(--gray);
-    line-height: 1.8;
-}
-
-.person-details {
-    display: grid;
-    gap: 18px;
-    margin-top: 30px;
-    padding-top: 25px;
-    border-top: 1px solid var(--border);
-}
-
-.person-details div {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.person-details span {
-    color: var(--gray);
-    font-size: 14px;
-}
-
-.person-details strong {
-    text-align: right;
-    font-size: 14px;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 700px) {
+    /* PERSON MODAL */
 
     .person-modal-content {
         grid-template-columns: 1fr;
@@ -1038,5 +1062,36 @@ footer {
     .person-details strong {
         text-align: left;
     }
+}
 
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero {
+        min-height: 620px;
+    }
+
+    .section h2 {
+        font-size: 30px;
+    }
+
+    .service-card {
+        padding: 28px;
+    }
+
+    .person-modal-box {
+        border-radius: 12px;
+    }
+
+    .person-modal-image {
+        min-height: 250px;
+    }
 }
