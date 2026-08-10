@@ -3,22 +3,40 @@
 // SCRIPT.JS
 // =========================
 
+
+// =========================
 // MOBILE MENU
+// =========================
+
 function toggleMenu() {
     const menu = document.querySelector(".menu");
-    menu.classList.toggle("active");
+
+    if (menu) {
+        menu.classList.toggle("active");
+    }
 }
 
-// Menyu linkini bosganda mobil menyuni yopish
+
+// Menyu linkini bosganda menyuni yopish
 document.querySelectorAll(".menu a").forEach(link => {
     link.addEventListener("click", () => {
-        document.querySelector(".menu").classList.remove("active");
+
+        const menu = document.querySelector(".menu");
+
+        if (menu) {
+            menu.classList.remove("active");
+        }
+
     });
 });
 
 
+// =========================
 // CONTACT MODAL
+// =========================
+
 function openForm() {
+
     const modal = document.getElementById("contactModal");
 
     if (modal) {
@@ -27,7 +45,9 @@ function openForm() {
     }
 }
 
+
 function closeForm() {
+
     const modal = document.getElementById("contactModal");
 
     if (modal) {
@@ -37,26 +57,48 @@ function closeForm() {
 }
 
 
-// Modal tashqarisiga bosilganda yopish
-document.getElementById("contactModal").addEventListener("click", function (e) {
-    if (e.target === this) {
-        closeForm();
-    }
-});
+// Kontakt modal tashqarisiga bosilganda yopish
+const contactModal = document.getElementById("contactModal");
+
+if (contactModal) {
+
+    contactModal.addEventListener("click", function (e) {
+
+        if (e.target === this) {
+            closeForm();
+        }
+
+    });
+
+}
 
 
-// ESC BOSILGANDA MODALNI YOPISH
+// =========================
+// ESC - MODALLARNI YOPISH
+// =========================
+
 document.addEventListener("keydown", function (e) {
+
     if (e.key === "Escape") {
+
         closeForm();
+        closePerson();
+
     }
+
 });
 
 
-// TELEFON RAQAMINI FORMATLASH
-const phoneInput = document.querySelector('input[name="phone"]');
+// =========================
+// PHONE FORMAT
+// =========================
+
+const phoneInput = document.querySelector(
+    'input[name="phone"]'
+);
 
 if (phoneInput) {
+
     phoneInput.addEventListener("input", function () {
 
         let value = this.value.replace(/\D/g, "");
@@ -86,147 +128,221 @@ if (phoneInput) {
         }
 
         this.value = result;
+
     });
+
 }
 
 
-// FORM SUBMIT
-const contactForm = document.getElementById("contactForm");
+// =========================
+// CONTACT FORM
+// =========================
+
+const contactForm =
+    document.getElementById("contactForm");
+
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", function (e) {
+    contactForm.addEventListener(
+        "submit",
+        function (e) {
 
-        e.preventDefault();
+            e.preventDefault();
 
-        const name = this.querySelector('[name="name"]').value.trim();
-        const phone = this.querySelector('[name="phone"]').value.trim();
+            const name =
+                this.querySelector('[name="name"]')
+                    ?.value.trim();
 
-        if (!name || !phone) {
-            alert("Iltimos, ism va telefon raqamingizni kiriting.");
-            return;
+            const phone =
+                this.querySelector('[name="phone"]')
+                    ?.value.trim();
+
+
+            if (!name || !phone) {
+
+                alert(
+                    "Iltimos, ism va telefon raqamingizni kiriting."
+                );
+
+                return;
+            }
+
+
+            if (phone.replace(/\D/g, "").length < 12) {
+
+                alert(
+                    "Telefon raqamini to‘liq kiriting."
+                );
+
+                return;
+            }
+
+
+            alert(
+                "Rahmat, " + name + "!\n\n" +
+                "Murojaatingiz qabul qilindi.\n" +
+                "Tez orada siz bilan bog‘lanamiz."
+            );
+
+
+            this.reset();
+
+            closeForm();
+
         }
+    );
 
-        if (phone.replace(/\D/g, "").length < 12) {
-            alert("Telefon raqamini to‘liq kiriting.");
-            return;
-        }
-
-        /*
-            Hozircha forma ma'lumotlari serverga yuborilmaydi.
-
-            Keyingi bosqichda bu joyga:
-            - Telegram Bot
-            - Database
-            - Email
-            yoki
-            - Backend API
-
-            ulaymiz.
-        */
-
-        alert(
-            "Rahmat, " + name + "!\n\n" +
-            "Murojaatingiz qabul qilindi. " +
-            "Tez orada siz bilan bog‘lanamiz."
-        );
-
-        this.reset();
-        closeForm();
-    });
 }
 
 
+// =========================
 // HEADER SCROLL EFFECT
-const header = document.querySelector(".header");
+// =========================
 
-window.addEventListener("scroll", function () {
+const header =
+    document.querySelector(".header");
 
-    if (window.scrollY > 50) {
-        header.style.boxShadow = "0 8px 30px rgba(0,0,0,.15)";
-    } else {
-        header.style.boxShadow = "none";
+
+window.addEventListener(
+    "scroll",
+    function () {
+
+        if (!header) return;
+
+        if (window.scrollY > 50) {
+
+            header.style.boxShadow =
+                "0 8px 30px rgba(0,0,0,.15)";
+
+        } else {
+
+            header.style.boxShadow = "none";
+
+        }
+
     }
+);
 
-});
 
-
+// =========================
 // SCROLL ANIMATION
-const animatedElements = document.querySelectorAll(
-    ".service-card, .advantage, .person, .about-card"
-);
+// =========================
 
-const observer = new IntersectionObserver(
-    entries => {
+const animatedElements =
+    document.querySelectorAll(
+        ".service-card, .advantage, .person, .about-card"
+    );
 
-        entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
+if ("IntersectionObserver" in window) {
 
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
+    const observer =
+        new IntersectionObserver(
+            entries => {
 
-                observer.unobserve(entry.target);
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
             }
-
-        });
-
-    },
-    {
-        threshold: 0.12
-    }
-);
+        );
 
 
-// Boshlang‘ich holat
-animatedElements.forEach(element => {
+    animatedElements.forEach(element => {
 
-    element.style.opacity = "0";
-    element.style.transform = "translateY(25px)";
-    element.style.transition =
-        "opacity .6s ease, transform .6s ease";
+        element.style.opacity = "0";
 
-    observer.observe(element);
+        element.style.transform =
+            "translateY(25px)";
 
-});
+        element.style.transition =
+            "opacity .6s ease, transform .6s ease";
+
+        observer.observe(element);
+
+    });
+
+}
+
+
 // =========================
 // PERSON INFORMATION
 // =========================
 
+
+// Bu yerlarni keyinchalik o'zingiz
+// haqiqiy ma'lumotlar bilan almashtirasiz.
+
 const people = {
 
     director: {
+
         name: "Ism Familiya",
+
         role: "BOSH DIREKTOR",
+
         position: "Bosh direktor",
+
         image: "images/director.jpg",
 
         text: `
-            Bu yerga direktor haqida batafsil ma'lumot
-            yoziladi. Masalan, uning professional
-            faoliyati, kompaniyadagi vazifalari,
-            tajribasi va Besha Group rivojiga
-            qo'shayotgan hissasi haqida ma'lumot.
+            Bu yerga direktor haqida batafsil
+            ma'lumot yoziladi.
+
+            Masalan, uning professional faoliyati,
+            ish tajribasi, kompaniyadagi vazifalari
+            va Besha Group rivojiga qo'shayotgan
+            hissasi haqida ma'lumot berish mumkin.
         `
+
     },
 
+
     manager: {
+
         name: "Ism Familiya",
+
         role: "MENEJER",
+
         position: "Menejer",
+
         image: "images/manager.jpg",
 
         text: `
-            Bu yerga menejer haqida batafsil ma'lumot
-            yoziladi. Masalan, uning vazifalari,
-            mijozlar bilan ishlashi, ish tajribasi
-            va kompaniyadagi faoliyati haqida
-            ma'lumot berish mumkin.
+            Bu yerga menejer haqida batafsil
+            ma'lumot yoziladi.
+
+            Masalan, uning ish tajribasi,
+            mijozlar bilan ishlashi, vazifalari
+            va Besha Group kompaniyasidagi
+            faoliyati haqida ma'lumot berish mumkin.
         `
+
     }
 
 };
 
+
+// =========================
+// OPEN PERSON
+// =========================
 
 function openPerson(person) {
 
@@ -234,57 +350,101 @@ function openPerson(person) {
 
     if (!data) return;
 
-    document.getElementById("personModalName").textContent =
-        data.name;
 
-    document.getElementById("personModalRole").textContent =
-        data.role;
+    const modal =
+        document.getElementById("personModal");
 
-    document.getElementById("personModalPosition").textContent =
-        data.position;
+    const name =
+        document.getElementById("personModalName");
 
-    document.getElementById("personModalText").textContent =
-        data.text.trim();
+    const role =
+        document.getElementById("personModalRole");
 
-    document.getElementById("personModalImage").src =
-        data.image;
+    const position =
+        document.getElementById("personModalPosition");
 
-    document.getElementById("personModalImage").alt =
-        data.name;
+    const text =
+        document.getElementById("personModalText");
 
-    document.getElementById("personModal").classList.add("active");
+    const image =
+        document.getElementById("personModalImage");
+
+
+    if (!modal) return;
+
+
+    if (name) {
+        name.textContent = data.name;
+    }
+
+
+    if (role) {
+        role.textContent = data.role;
+    }
+
+
+    if (position) {
+        position.textContent = data.position;
+    }
+
+
+    if (text) {
+        text.textContent = data.text.trim();
+    }
+
+
+    if (image) {
+        image.src = data.image;
+        image.alt = data.name;
+    }
+
+
+    modal.classList.add("active");
 
     document.body.style.overflow = "hidden";
+
 }
 
+
+// =========================
+// CLOSE PERSON
+// =========================
 
 function closePerson() {
 
-    document.getElementById("personModal")
-        .classList.remove("active");
+    const modal =
+        document.getElementById("personModal");
+
+
+    if (!modal) return;
+
+
+    modal.classList.remove("active");
 
     document.body.style.overflow = "";
+
 }
 
 
-// Modal tashqarisiga bosilganda yopish
+// =========================
+// PERSON MODAL OUTSIDE CLICK
+// =========================
 
-document.getElementById("personModal")
-    .addEventListener("click", function(e) {
+const personModal =
+    document.getElementById("personModal");
 
-        if (e.target === this) {
-            closePerson();
+
+if (personModal) {
+
+    personModal.addEventListener(
+        "click",
+        function (e) {
+
+            if (e.target === this) {
+                closePerson();
+            }
+
         }
+    );
 
-    });
-
-
-// ESC tugmasi
-
-document.addEventListener("keydown", function(e) {
-
-    if (e.key === "Escape") {
-        closePerson();
-    }
-
-});
+}
