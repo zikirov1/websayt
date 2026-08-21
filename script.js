@@ -766,24 +766,24 @@ function setTelegramUsername(ZBB010) {
      * https://t.me/besha_group
      */
 
-    if (!username) {
+    if (!ZBB010) {
         return;
     }
 
 
-    const cleanUsername =
+    const cleanZBB010 =
         username
             .replace("@", "")
             .trim();
 
 
-    if (!cleanUsername) {
+    if (!cleanZBB010) {
         return;
     }
 
 
     telegramButton.href =
-        `https://t.me/${cleanUsername}`;
+        `https://t.me/${cleanZBB010}`;
 
 }
 
