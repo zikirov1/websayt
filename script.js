@@ -6,7 +6,7 @@
 /* =========================================================
    INTRO
    ========================================================= */
-
+alert("JS ISHLAYAPTI");
 document.addEventListener("DOMContentLoaded", () => {
 
     const intro = document.getElementById("intro");
