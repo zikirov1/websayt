@@ -13,12 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initIntro();
     initHeader();
-    initReveal();
-    initMenu();
-    initPersonModal();
-    initLanguage();
-    initTelegramLinks();
+    initMobileMenu();
+    initLanguageMenu();
+    initRevealAnimations();
     initActiveNavigation();
+    initPersonModal();
+    initTelegramLinks();
+    initExternalLinks();
 
 });
 
@@ -34,27 +35,23 @@ function initIntro() {
     if (!intro) return;
 
     /*
-        Sayt ochilganda BESHA GROUP intro ko‘rinadi.
-        Keyin avtomatik yo‘qoladi.
+        Intro bir marta ko‘rsatiladi.
+        Sahifa yuklangandan keyin avtomatik yopiladi.
     */
 
-    const hideIntro = () => {
+    const INTRO_DURATION = 1700;
+
+    setTimeout(() => {
+
+        intro.classList.add("intro-hidden");
 
         setTimeout(() => {
 
-            intro.classList.add("intro-hidden");
+            intro.style.display = "none";
 
-        }, 1500);
+        }, 900);
 
-    };
-
-
-    /*
-        Agar foydalanuvchi sahifani qayta yuklasa ham
-        intro ishlaydi.
-    */
-
-    window.addEventListener("load", hideIntro);
+    }, INTRO_DURATION);
 
 }
 
@@ -69,7 +66,6 @@ function initHeader() {
 
     if (!header) return;
 
-
     function updateHeader() {
 
         if (window.scrollY > 30) {
@@ -83,7 +79,6 @@ function initHeader() {
         }
 
     }
-
 
     updateHeader();
 
@@ -100,85 +95,462 @@ function initHeader() {
    MOBILE MENU
 ============================================================ */
 
-function initMenu() {
+function initMobileMenu() {
 
     const menu = document.getElementById("menu");
 
-    if (!menu) return;
+    const menuButton =
+        document.querySelector(".menu-btn");
+
+    if (!menu || !menuButton) return;
+
+
+    function openMenu() {
+
+        menu.classList.add("open");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        menuButton.innerHTML = "×";
+
+    }
+
+
+    function closeMenu() {
+
+        menu.classList.remove("open");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuButton.innerHTML = "☰";
+
+    }
+
+
+    function toggle() {
+
+        if (menu.classList.contains("open")) {
+
+            closeMenu();
+
+        } else {
+
+            openMenu();
+
+        }
+
+    }
+
+
+    menuButton.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            toggle();
+
+        }
+    );
 
 
     /*
-        HTML ichidagi:
-
-        onclick="toggleMenu()"
-
-        shu funksiya bilan ishlaydi.
+        Menu ichidagi link bosilganda yopiladi.
     */
 
-    window.toggleMenu = function () {
+    menu.querySelectorAll("a").forEach(link => {
 
-        menu.classList.toggle("open");
+        link.addEventListener(
+            "click",
+            () => {
+
+                closeMenu();
+
+            }
+        );
+
+    });
+
+
+    /*
+        Menu tashqarisiga bosilganda yopiladi.
+    */
+
+    document.addEventListener(
+        "click",
+        (event) => {
+
+            if (!menu.classList.contains("open")) {
+                return;
+            }
+
+            if (
+                !menu.contains(event.target) &&
+                !menuButton.contains(event.target)
+            ) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+
+    /*
+        Ekran katta bo‘lsa mobil menu yopiladi.
+    */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (window.innerWidth > 850) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   LANGUAGE MENU
+============================================================ */
+
+/*
+    HTMLda quyidagi struktura bo‘lishi mumkin:
+
+    <div class="language-selector">
+
+        <button class="language-current">
+            ◉ UZ ▾
+        </button>
+
+        <div class="language-dropdown">
+
+            <button data-lang="uz">
+                O‘zbekcha UZ
+            </button>
+
+            <button data-lang="en">
+                English EN
+            </button>
+
+            <button data-lang="ru">
+                Русский RU
+            </button>
+
+        </div>
+
+    </div>
+
+*/
+
+
+function initLanguageMenu() {
+
+    const languageSelector =
+        document.querySelector(".language-selector");
+
+    if (!languageSelector) return;
+
+
+    const languageButton =
+        languageSelector.querySelector(
+            ".language-current"
+        );
+
+
+    const dropdown =
+        languageSelector.querySelector(
+            ".language-dropdown"
+        );
+
+
+    if (!languageButton || !dropdown) return;
+
+
+    /*
+        Boshlanishida dropdown yopiq.
+    */
+
+    dropdown.classList.remove("open");
+
+
+    languageButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+
+    /*
+        Til tugmasi bosilganda ochiladi.
+    */
+
+    languageButton.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            const isOpen =
+                dropdown.classList.contains("open");
+
+
+            /*
+                Boshqa ochiq dropdown bo‘lsa yopamiz.
+            */
+
+            document
+                .querySelectorAll(".language-dropdown.open")
+                .forEach(item => {
+
+                    item.classList.remove("open");
+
+                });
+
+
+            if (!isOpen) {
+
+                dropdown.classList.add("open");
+
+                languageButton.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            } else {
+
+                languageButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+
+    /*
+        Til tanlanganda.
+    */
+
+    const languageOptions =
+        dropdown.querySelectorAll(
+            "[data-lang]"
+        );
+
+
+    languageOptions.forEach(option => {
+
+        option.addEventListener(
+            "click",
+            () => {
+
+                const language =
+                    option.dataset.lang;
+
+                setLanguage(language);
+
+                dropdown.classList.remove(
+                    "open"
+                );
+
+                languageButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+        );
+
+    });
+
+
+    /*
+        Tashqariga bosilganda yopiladi.
+    */
+
+    document.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                !languageSelector.contains(
+                    event.target
+                )
+            ) {
+
+                dropdown.classList.remove(
+                    "open"
+                );
+
+                languageButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ============================================================
+   LANGUAGE SELECTION
+============================================================ */
+
+function setLanguage(language) {
+
+    /*
+        Hozircha tilni localStorage'da saqlaymiz.
+
+        Keyinchalik alohida:
+        uz.html
+        en.html
+        ru.html
+
+        qilib to‘liq professional 3 tilli versiyaga
+        o'tkazish mumkin.
+    */
+
+    localStorage.setItem(
+        "besha-language",
+        language
+    );
+
+
+    /*
+        Agar HTMLda data-lang-link bo‘lsa,
+        shu sahifaga o'tadi.
+    */
+
+    const selectedLink =
+        document.querySelector(
+            `[data-lang-link="${language}"]`
+        );
+
+
+    if (selectedLink) {
+
+        const url =
+            selectedLink.getAttribute("href");
+
+        if (url) {
+
+            window.location.href = url;
+
+            return;
+
+        }
+
+    }
+
+
+    /*
+        Hozircha til tanlanganda
+        foydalanuvchiga tanlangan tilni ko‘rsatamiz.
+    */
+
+    const currentLanguage =
+        document.querySelector(
+            ".language-current"
+        );
+
+
+    if (!currentLanguage) return;
+
+
+    const labels = {
+
+        uz: "◉ UZ ▾",
+
+        en: "◉ EN ▾",
+
+        ru: "◉ RU ▾"
 
     };
 
 
-    /*
-        Menyudagi link bosilganda menyuni yopish.
-    */
-
-    const menuLinks = menu.querySelectorAll("a");
-
-    menuLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            menu.classList.remove("open");
-
-        });
-
-    });
-
-
-    /*
-        Menyudan tashqariga bosilganda yopish.
-    */
-
-    document.addEventListener("click", event => {
-
-        const menuButton = document.querySelector(".menu-btn");
-
-        if (!menuButton) return;
-
-
-        if (
-            menu.classList.contains("open") &&
-            !menu.contains(event.target) &&
-            !menuButton.contains(event.target)
-        ) {
-
-            menu.classList.remove("open");
-
-        }
-
-    });
+    currentLanguage.textContent =
+        labels[language] || labels.uz;
 
 }
+
+
+/* ============================================================
+   LOAD SAVED LANGUAGE
+============================================================ */
+
+function loadSavedLanguage() {
+
+    const savedLanguage =
+        localStorage.getItem(
+            "besha-language"
+        );
+
+
+    if (!savedLanguage) return;
+
+
+    const currentLanguage =
+        document.querySelector(
+            ".language-current"
+        );
+
+
+    if (!currentLanguage) return;
+
+
+    const labels = {
+
+        uz: "◉ UZ ▾",
+
+        en: "◉ EN ▾",
+
+        ru: "◉ RU ▾"
+
+    };
+
+
+    currentLanguage.textContent =
+        labels[savedLanguage] || labels.uz;
+
+}
+
+
+loadSavedLanguage();
 
 
 /* ============================================================
    SCROLL REVEAL
 ============================================================ */
 
-function initReveal() {
+function initRevealAnimations() {
 
-    const elements = document.querySelectorAll(".reveal");
+    const elements =
+        document.querySelectorAll(".reveal");
+
 
     if (!elements.length) return;
 
 
     /*
-        Brauzer IntersectionObserver qo‘llamasa,
-        elementlarni oddiy ko‘rsatamiz.
+        Browser IntersectionObserver
+        qo‘llamasa ham sayt buzilmaydi.
     */
 
     if (!("IntersectionObserver" in window)) {
@@ -194,27 +566,34 @@ function initReveal() {
     }
 
 
-    const observer = new IntersectionObserver(
-        entries => {
+    const observer =
+        new IntersectionObserver(
+            (entries, obs) => {
 
-            entries.forEach(entry => {
+                entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                    entry.target.classList.add("visible");
+                        entry.target.classList.add(
+                            "visible"
+                        );
 
-                    observer.unobserve(entry.target);
+                        obs.unobserve(
+                            entry.target
+                        );
 
-                }
+                    }
 
-            });
+                });
 
-        },
-        {
-            threshold: 0.12,
-            rootMargin: "0px 0px -50px 0px"
-        }
-    );
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
+            }
+        );
 
 
     elements.forEach(element => {
@@ -232,52 +611,67 @@ function initReveal() {
 
 function initActiveNavigation() {
 
-    const sections = document.querySelectorAll("main section[id]");
-    const links = document.querySelectorAll(".menu a");
+    const sections =
+        document.querySelectorAll(
+            "main section[id]"
+        );
 
-    if (!sections.length || !links.length) return;
+
+    const links =
+        document.querySelectorAll(
+            ".menu a[href^='#']"
+        );
 
 
-    function setActive(id) {
-
-        links.forEach(link => {
-
-            const href = link.getAttribute("href");
-
-            if (href === `#${id}`) {
-
-                link.classList.add("active");
-
-            } else {
-
-                link.classList.remove("active");
-
-            }
-
-        });
-
+    if (!sections.length || !links.length) {
+        return;
     }
 
 
-    const observer = new IntersectionObserver(
-        entries => {
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
 
-            entries.forEach(entry => {
+                entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
 
-                    setActive(entry.target.id);
 
-                }
+                    const id =
+                        entry.target.id;
 
-            });
 
-        },
-        {
-            threshold: 0.25,
-            rootMargin: "-20% 0px -55% 0px"
-        }
-    );
+                    links.forEach(link => {
+
+                        link.classList.remove(
+                            "active"
+                        );
+
+
+                        if (
+                            link.getAttribute("href") ===
+                            `#${id}`
+                        ) {
+
+                            link.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    });
+
+                });
+
+            },
+            {
+                rootMargin:
+                    "-35% 0px -55% 0px",
+                threshold: 0
+            }
+        );
 
 
     sections.forEach(section => {
@@ -293,13 +687,10 @@ function initActiveNavigation() {
    PERSON MODAL
 ============================================================ */
 
-
 /*
-    Rahbariyat ma’lumotlari.
-
-    Keyinchalik haqiqiy ism-familiya va ma’lumotlarni
-    shu yerdan o‘zgartirish mumkin.
+    Rahbariyat ma'lumotlarini shu yerda o‘zgartirish mumkin.
 */
+
 
 const people = {
 
@@ -312,7 +703,7 @@ const people = {
         position: "Direktor",
 
         text:
-            "Besha Group faoliyatini strategik boshqarish, kompaniyaning rivojlanish yo‘nalishlarini belgilash va tashkilotlar bilan samarali hamkorlikni yo‘lga qo‘yish uchun mas’ul."
+            "Besha Group faoliyatining strategik yo‘nalishlarini belgilaydi, kompaniyaning rivojlanishi va hamkorlar bilan munosabatlarini boshqaradi."
 
     },
 
@@ -326,7 +717,7 @@ const people = {
         position: "Menejer",
 
         text:
-            "Besha Group mijozlari bilan muloqot qilish, tashkilotlarning ehtiyojlarini o‘rganish va hamkorlik jarayonlarini muvofiqlashtirish bilan shug‘ullanadi."
+            "Hamkorlar bilan kundalik muloqotni tashkil etish, murojaatlarni ko‘rib chiqish va ish jarayonlarini muvofiqlashtirish bilan shug‘ullanadi."
 
     }
 
@@ -335,468 +726,298 @@ const people = {
 
 function initPersonModal() {
 
-    const modal = document.getElementById("personModal");
+    const modal =
+        document.getElementById(
+            "personModal"
+        );
+
 
     if (!modal) return;
 
 
     /*
-        HTML ichidagi:
-
-        onclick="openPerson('director')"
-
-        shu funksiya orqali ishlaydi.
+        Modal tashqarisiga bosilganda yopiladi.
     */
 
-    window.openPerson = function (personId) {
+    modal.addEventListener(
+        "click",
+        (event) => {
 
-        const person = people[personId];
+            if (
+                event.target === modal
+            ) {
 
-        if (!person) return;
+                closePerson();
 
-
-        const role =
-            document.getElementById("personModalRole");
-
-        const name =
-            document.getElementById("personModalName");
-
-        const text =
-            document.getElementById("personModalText");
-
-        const position =
-            document.getElementById("personModalPosition");
-
-
-        if (role) {
-
-            role.textContent = person.role;
+            }
 
         }
-
-
-        if (name) {
-
-            name.textContent = person.name;
-
-        }
-
-
-        if (text) {
-
-            text.textContent = person.text;
-
-        }
-
-
-        if (position) {
-
-            position.textContent = person.position;
-
-        }
-
-
-        modal.classList.add("open");
-
-        document.body.classList.add("modal-open");
-
-    };
-
-
-    window.closePerson = function () {
-
-        modal.classList.remove("open");
-
-        document.body.classList.remove("modal-open");
-
-    };
-
-
-    /*
-        Modal foniga bosilganda yopiladi.
-    */
-
-    modal.addEventListener("click", event => {
-
-        if (event.target === modal) {
-
-            window.closePerson();
-
-        }
-
-    });
-
-
-    /*
-        ESC tugmasi bilan yopish.
-    */
-
-    document.addEventListener("keydown", event => {
-
-        if (event.key === "Escape") {
-
-            window.closePerson();
-
-        }
-
-    });
+    );
 
 }
 
 
 /* ============================================================
-   LANGUAGE SYSTEM
+   OPEN PERSON
 ============================================================ */
 
-function initLanguage() {
+function openPerson(personId) {
 
-    /*
-        Agar HTML ichida til tizimi hali bo‘lmasa,
-        bu kod xatolik bermaydi.
-    */
-
-    const languageButton =
-        document.querySelector(".language-btn");
-
-    const languageDropdown =
-        document.querySelector(".language-dropdown");
-
-    if (!languageButton || !languageDropdown) return;
+    const modal =
+        document.getElementById(
+            "personModal"
+        );
 
 
-    /*
-        UZ tugmasini bosganda:
-        UZ
-        EN
-        RU
-
-        variantlari chiqadi.
-    */
-
-    languageButton.addEventListener("click", event => {
-
-        event.stopPropagation();
-
-        languageDropdown.classList.toggle("open");
-
-    });
+    if (!modal) return;
 
 
-    /*
-        Tashqariga bosilganda yopiladi.
-    */
-
-    document.addEventListener("click", event => {
-
-        if (
-            !languageDropdown.contains(event.target) &&
-            !languageButton.contains(event.target)
-        ) {
-
-            languageDropdown.classList.remove("open");
-
-        }
-
-    });
+    const person =
+        people[personId];
 
 
-    /*
-        Til tanlanganda dropdown yopiladi.
-    */
-
-    const languageOptions =
-        languageDropdown.querySelectorAll("[data-language]");
+    if (!person) return;
 
 
-    languageOptions.forEach(option => {
-
-        option.addEventListener("click", () => {
-
-            const language =
-                option.dataset.language;
-
-            if (!language) return;
-
-            setLanguage(language);
-
-            languageDropdown.classList.remove("open");
-
-        });
-
-    });
-
-}
+    const role =
+        document.getElementById(
+            "personModalRole"
+        );
 
 
-/*
-    Hozircha bu funksiya tanlangan tilni saqlaydi.
-
-    Keyinchalik barcha matnlarni real tarjima qilish
-    tizimini shu funksiyaga ulaymiz.
-*/
-
-function setLanguage(language) {
-
-    const supportedLanguages = [
-        "uz",
-        "en",
-        "ru"
-    ];
+    const name =
+        document.getElementById(
+            "personModalName"
+        );
 
 
-    if (!supportedLanguages.includes(language)) {
+    const text =
+        document.getElementById(
+            "personModalText"
+        );
 
-        return;
+
+    const position =
+        document.getElementById(
+            "personModalPosition"
+        );
+
+
+    if (role) {
+
+        role.textContent =
+            person.role;
 
     }
 
 
-    localStorage.setItem(
-        "besha_language",
-        language
+    if (name) {
+
+        name.textContent =
+            person.name;
+
+    }
+
+
+    if (text) {
+
+        text.textContent =
+            person.text;
+
+    }
+
+
+    if (position) {
+
+        position.textContent =
+            person.position;
+
+    }
+
+
+    modal.classList.add(
+        "open"
     );
 
 
-    /*
-        Til tugmasida tanlangan til ko‘rsatiladi.
-    */
-
-    const currentLanguage =
-        document.querySelector("[data-current-language]");
-
-
-    if (currentLanguage) {
-
-        currentLanguage.textContent =
-            language.toUpperCase();
-
-    }
-
-
-    /*
-        Agar sahifada data-lang elementlari bo‘lsa,
-        tarjima tizimi shu yerda ishlaydi.
-    */
-
-    applyTranslations(language);
+    document.body.classList.add(
+        "modal-open"
+    );
 
 }
 
 
 /* ============================================================
-   TRANSLATIONS
+   CLOSE PERSON
 ============================================================ */
 
-const translations = {
+function closePerson() {
 
-    uz: {
-
-        "nav.about": "Biz haqimizda",
-
-        "nav.services": "Faoliyatimiz",
-
-        "nav.approach": "Yondashuv",
-
-        "nav.team": "Rahbariyat",
-
-        "nav.contact": "Bog‘lanish",
-
-        "button.contact": "Bog‘lanish"
-
-    },
+    const modal =
+        document.getElementById(
+            "personModal"
+        );
 
 
-    en: {
-
-        "nav.about": "About us",
-
-        "nav.services": "Our activities",
-
-        "nav.approach": "Our approach",
-
-        "nav.team": "Management",
-
-        "nav.contact": "Contact",
-
-        "button.contact": "Contact us"
-
-    },
+    if (!modal) return;
 
 
-    ru: {
-
-        "nav.about": "О нас",
-
-        "nav.services": "Наша деятельность",
-
-        "nav.approach": "Наш подход",
-
-        "nav.team": "Руководство",
-
-        "nav.contact": "Контакты",
-
-        "button.contact": "Связаться"
-
-    }
-
-};
+    modal.classList.remove(
+        "open"
+    );
 
 
-function applyTranslations(language) {
-
-    const dictionary =
-        translations[language];
-
-    if (!dictionary) return;
-
-
-    const elements =
-        document.querySelectorAll("[data-lang]");
-
-
-    elements.forEach(element => {
-
-        const key =
-            element.dataset.lang;
-
-        if (
-            dictionary[key] !== undefined
-        ) {
-
-            element.textContent =
-                dictionary[key];
-
-        }
-
-    });
+    document.body.classList.remove(
+        "modal-open"
+    );
 
 }
-
-
-/* ============================================================
-   LOAD SAVED LANGUAGE
-============================================================ */
-
-function loadSavedLanguage() {
-
-    const savedLanguage =
-        localStorage.getItem("besha_language");
-
-
-    if (!savedLanguage) return;
-
-
-    if (
-        ["uz", "en", "ru"].includes(savedLanguage)
-    ) {
-
-        applyTranslations(savedLanguage);
-
-
-        const currentLanguage =
-            document.querySelector(
-                "[data-current-language]"
-            );
-
-
-        if (currentLanguage) {
-
-            currentLanguage.textContent =
-                savedLanguage.toUpperCase();
-
-        }
-
-    }
-
-}
-
-
-document.addEventListener(
-    "DOMContentLoaded",
-    loadSavedLanguage
-);
 
 
 /* ============================================================
    TELEGRAM
 ============================================================ */
 
-
 /*
-    MUHIM:
-
-    Quyidagi username'ni o‘zingizning Telegram
-    username'ingizga almashtiring.
+    TELEGRAM USERNAME'NI SHU YERDA YOZING.
 
     Masalan:
 
-    const telegramUsername = "besha_group";
+    const TELEGRAM_USERNAME = "besha_group";
 
     @ belgisi yozilmaydi.
 */
 
-const telegramUsername =
+
+const TELEGRAM_USERNAME =
     "USERNAME";
 
 
 /*
-    Ish beruvchi uchun tayyor murojaat.
+    Telegram uchun tayyor xabar.
+
+    Foydalanuvchi Telegramga kirganda
+    xabar yozish oynasida shu matn chiqadi.
 */
 
-const telegramEmployerMessage =
-    "Assalomu alaykum. Biz siz bilan ishlamoqchimiz. Kompaniyamiz uchun ishchi kuchi bo‘yicha hamkorlik masalasida bog‘lanmoqchiman. Iltimos, biz bilan telefon orqali bog‘lanishingizni so‘rayman.";
+
+const TELEGRAM_MESSAGE =
+    "Assalomu alaykum. Siz bilan ishlamoqchimiz. Bizga telefon qiling.";
 
 
-/*
-    Telegram URL yaratish.
-*/
+/* ============================================================
+   TELEGRAM LINK GENERATOR
+============================================================ */
 
-function createTelegramUrl(message) {
+function createTelegramLink() {
 
-    const encodedMessage =
-        encodeURIComponent(message);
+    const username =
+        TELEGRAM_USERNAME
+            .replace("@", "")
+            .trim();
 
-    return `https://t.me/${telegramUsername}?text=${encodedMessage}`;
+
+    const message =
+        encodeURIComponent(
+            TELEGRAM_MESSAGE
+        );
+
+
+    /*
+        Telegram username linki.
+    */
+
+    return `https://t.me/${username}?text=${message}`;
 
 }
 
 
-/*
-    HTML ichidagi .telegram-btn
-    avtomatik Telegramga tayyor matn bilan olib boradi.
-*/
+/* ============================================================
+   TELEGRAM LINKS INITIALIZATION
+============================================================ */
 
 function initTelegramLinks() {
 
     const telegramLinks =
-        document.querySelectorAll(".telegram-btn");
+        document.querySelectorAll(
+            ".telegram-btn, [data-telegram]"
+        );
+
+
+    if (!telegramLinks.length) {
+        return;
+    }
 
 
     telegramLinks.forEach(link => {
 
         /*
-            USERNAME hali almashtirilmagan bo‘lsa,
-            hozirgi href ishlatiladi.
+            Agar USERNAME hali o‘zgartirilmagan bo‘lsa,
+            linkni buzmaslik uchun ishlamaydi.
         */
 
         if (
-            telegramUsername !== "USERNAME"
+            TELEGRAM_USERNAME ===
+            "USERNAME"
         ) {
 
-            link.href =
-                createTelegramUrl(
-                    telegramEmployerMessage
-                );
+            return;
 
         }
 
 
-        link.target = "_blank";
+        link.setAttribute(
+            "href",
+            createTelegramLink()
+        );
 
-        link.rel =
-            "noopener noreferrer";
+
+        link.setAttribute(
+            "target",
+            "_blank"
+        );
+
+
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
 
     });
+
+}
+
+
+/* ============================================================
+   TELEGRAM CUSTOM MESSAGE
+============================================================ */
+
+/*
+    Agar keyinchalik turli tugmalarga
+    turli tayyor matn kerak bo‘lsa:
+
+    <a
+        data-telegram-message="Korxonamiz uchun ishchi kuchi bo‘yicha hamkorlik qilmoqchimiz."
+    >
+
+*/
+
+
+function createTelegramMessageLink(message) {
+
+    const username =
+        TELEGRAM_USERNAME
+            .replace("@", "")
+            .trim();
+
+
+    const encodedMessage =
+        encodeURIComponent(
+            message
+        );
+
+
+    return `https://t.me/${username}?text=${encodedMessage}`;
 
 }
 
@@ -805,72 +1026,185 @@ function initTelegramLinks() {
    PHONE LINKS
 ============================================================ */
 
-
 /*
-    Saytda:
+    HTML:
 
     <a href="tel:+998901234567">
+        +998 90 123 45 67
+    </a>
 
-    ko‘rinishidagi link bo‘lsa,
-    telefonda bosilganda qo‘ng‘iroq qilish ochiladi.
+    bosilganda telefon qo‘ng‘irog‘i ochiladi.
 */
 
 
-document.addEventListener(
-    "click",
-    event => {
+function initPhoneLinks() {
 
-        const phoneLink =
-            event.target.closest(
-                'a[href^="tel:"]'
-            );
+    const phoneLinks =
+        document.querySelectorAll(
+            'a[href^="tel:"]'
+        );
 
 
-        if (!phoneLink) return;
+    phoneLinks.forEach(link => {
+
+        link.setAttribute(
+            "aria-label",
+            "Telefon orqali bog‘lanish"
+        );
+
+    });
+
+}
 
 
-        /*
-            Telefon linklari uchun
-            brauzerning standart ishlashi saqlanadi.
-        */
-
-    }
-);
+initPhoneLinks();
 
 
 /* ============================================================
    INSTAGRAM
 ============================================================ */
 
-
 /*
-    Instagram linki HTML'da:
+    HTML:
 
-    <a href="https://instagram.com/USERNAME">
+    <a
+        href="https://instagram.com/BESHA_USERNAME"
+        target="_blank"
+        class="instagram-btn"
+    >
+        Instagram
+    </a>
 
-    ko‘rinishida bo‘lishi mumkin.
-
-    Target avtomatik yangi oynada ochiladi.
+    Shu holatda avtomatik ishlaydi.
 */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
 
-        const instagramLinks =
-            document.querySelectorAll(
-                'a[href*="instagram.com"]'
+function initInstagramLinks() {
+
+    const links =
+        document.querySelectorAll(
+            ".instagram-btn, [data-instagram]"
+        );
+
+
+    links.forEach(link => {
+
+        link.setAttribute(
+            "target",
+            "_blank"
+        );
+
+
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
+
+    });
+
+}
+
+
+initInstagramLinks();
+
+
+/* ============================================================
+   EXTERNAL LINKS
+============================================================ */
+
+function initExternalLinks() {
+
+    const links =
+        document.querySelectorAll(
+            'a[target="_blank"]'
+        );
+
+
+    links.forEach(link => {
+
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
+
+    });
+
+}
+
+
+/* ============================================================
+   ESC KEY
+============================================================ */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key !== "Escape") {
+            return;
+        }
+
+
+        /*
+            Modalni yopish
+        */
+
+        closePerson();
+
+
+        /*
+            Mobil menyuni yopish
+        */
+
+        const menu =
+            document.getElementById(
+                "menu"
             );
 
 
-        instagramLinks.forEach(link => {
+        const menuButton =
+            document.querySelector(
+                ".menu-btn"
+            );
 
-            link.target = "_blank";
 
-            link.rel =
-                "noopener noreferrer";
+        if (menu) {
 
-        });
+            menu.classList.remove(
+                "open"
+            );
+
+        }
+
+
+        if (menuButton) {
+
+            menuButton.innerHTML =
+                "☰";
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+
+        /*
+            Til menyusini yopish
+        */
+
+        document
+            .querySelectorAll(
+                ".language-dropdown.open"
+            )
+            .forEach(dropdown => {
+
+                dropdown.classList.remove(
+                    "open"
+                );
+
+            });
 
     }
 );
@@ -882,7 +1216,7 @@ document.addEventListener(
 
 document.addEventListener(
     "click",
-    event => {
+    (event) => {
 
         const link =
             event.target.closest(
@@ -908,7 +1242,9 @@ document.addEventListener(
 
 
         const target =
-            document.querySelector(href);
+            document.querySelector(
+                href
+            );
 
 
         if (!target) return;
@@ -918,7 +1254,9 @@ document.addEventListener(
 
 
         const header =
-            document.querySelector(".header");
+            document.querySelector(
+                ".header"
+            );
 
 
         const headerHeight =
@@ -931,7 +1269,7 @@ document.addEventListener(
             target.getBoundingClientRect().top +
             window.scrollY -
             headerHeight -
-            10;
+            15;
 
 
         window.scrollTo({
@@ -947,42 +1285,45 @@ document.addEventListener(
 
 
 /* ============================================================
-   FORM PROTECTION
+   BUTTON RIPPLE EFFECT
 ============================================================ */
 
+function initButtonEffect() {
 
-/*
-    Agar kelajakda forma qo‘shilsa,
-    Enter bosilganda tasodifiy reloadni oldini olish
-    va status chiqarish uchun tayyor.
-*/
-
-document.addEventListener(
-    "submit",
-    event => {
-
-        const form =
-            event.target;
+    const buttons =
+        document.querySelectorAll(
+            ".primary-btn, .secondary-btn, .telegram-btn, .form-submit"
+        );
 
 
-        if (
-            !form.classList.contains(
-                "contact-form"
-            )
-        ) {
+    buttons.forEach(button => {
 
-            return;
+        button.addEventListener(
+            "click",
+            () => {
 
-        }
+                button.classList.add(
+                    "clicked"
+                );
 
 
-        /*
-            Hozircha backend yo‘q.
-            Formani Telegram bilan bog‘lash mumkin.
-        */
+                setTimeout(() => {
 
-    }
-);
+                    button.classList.remove(
+                        "clicked"
+                    );
+
+                }, 250);
+
+            }
+        );
+
+    });
+
+}
+
+
+initButtonEffect();
 
 
 /* ============================================================
@@ -993,17 +1334,14 @@ document.addEventListener(
     "visibilitychange",
     () => {
 
-        /*
-            Foydalanuvchi boshqa tabga o‘tganda
-            yoki qaytganda sayt normal ishlaydi.
-        */
-
         if (
-            document.visibilityState === "visible"
+            document.visibilityState ===
+            "visible"
         ) {
 
-            document.documentElement.style
-                .scrollBehavior = "smooth";
+            document.body.classList.add(
+                "page-visible"
+            );
 
         }
 
@@ -1012,15 +1350,15 @@ document.addEventListener(
 
 
 /* ============================================================
-   CONSOLE BRAND MESSAGE
+   CONSOLE
 ============================================================ */
 
 console.log(
     "%cBESHA GROUP",
-    "font-size: 24px; font-weight: 800; color: #0b63ce;"
+    "font-size:24px;font-weight:800;"
 );
 
 console.log(
     "%cInsonlar va imkoniyatlarni bog‘laymiz.",
-    "font-size: 13px; color: #475467;"
+    "font-size:14px;"
 );
