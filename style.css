@@ -51,6 +51,218 @@
 
 }
 
+/* ============================================================
+   LANGUAGE SWITCHER
+============================================================ */
+
+.language-switcher {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+
+/* CURRENT LANGUAGE */
+
+.language-current {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 42px;
+    padding: 0 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
+}
+
+.language-current:hover {
+    border-color: rgba(11, 99, 206, 0.25);
+
+    color: var(--primary);
+
+    box-shadow:
+        0 6px 20px rgba(16, 24, 40, 0.07);
+}
+
+
+/* LANGUAGE DROPDOWN */
+
+.language-dropdown {
+    position: absolute;
+
+    top: calc(100% + 9px);
+    right: 0;
+
+    width: 180px;
+
+    padding: 7px;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    box-shadow: var(--shadow);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity var(--transition),
+        visibility var(--transition),
+        transform var(--transition);
+
+    z-index: 2000;
+}
+
+
+/* DROPDOWN OCHILGANDA */
+
+.language-switcher.open .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+
+/* LANGUAGE ITEM */
+
+.language-dropdown button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 11px 12px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+
+.language-dropdown button:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+
+/* UZ / EN / RU */
+
+.language-dropdown button strong {
+    color: var(--text-muted);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    transition:
+        color var(--transition);
+}
+
+
+.language-dropdown button:hover strong {
+    color: var(--primary);
+}
+
+
+/* ACTIVE LANGUAGE */
+
+.language-dropdown button.active {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.language-dropdown button.active strong {
+    color: var(--primary);
+}
+
+
+/* ============================================================
+   LANGUAGE SWITCHER — TABLET
+============================================================ */
+
+@media (max-width: 1050px) {
+
+    .language-current {
+        padding: 0 11px;
+    }
+
+}
+
+
+/* ============================================================
+   LANGUAGE SWITCHER — MOBILE
+============================================================ */
+
+@media (max-width: 850px) {
+
+    .language-switcher {
+        margin-left: auto;
+        margin-right: 8px;
+    }
+
+    .language-current {
+        min-height: 42px;
+    }
+
+}
+
+
+/* ============================================================
+   LANGUAGE SWITCHER — SMALL MOBILE
+============================================================ */
+
+@media (max-width: 400px) {
+
+    .language-current {
+        min-height: 40px;
+        padding: 0 9px;
+
+        font-size: 12px;
+    }
+
+    .language-dropdown {
+        width: 165px;
+    }
+
+}
+
 
 /* ============================================================
    RESET
