@@ -398,7 +398,7 @@ const personData = {
 
         role: "DIREKTOR",
 
-        name: "Ism Familiya",
+        name: "Hamdamov Bekmurod",
 
         position: "Direktor",
 
@@ -412,7 +412,7 @@ const personData = {
 
         role: "MENEJER",
 
-        name: "Ism Familiya",
+        name: "Zikirov Bekzod",
 
         position: "Menejer",
 
@@ -744,7 +744,7 @@ window.addEventListener(
    11. TELEGRAM LINK
    ========================================================= */
 
-function setTelegramUsername(username) {
+function setTelegramUsername(ZBB010) {
 
     const telegramButton =
         document.querySelector(
