@@ -1,71 +1,260 @@
-// =========================
-// BESHA GROUP
-// SCRIPT.JS
-// =========================
+/* =========================================================
+   BESHA GROUP — SCRIPT
+   ========================================================= */
 
 
-// =========================
-// MOBILE MENU
-// =========================
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const intro = document.getElementById("intro");
+
+    if (!intro) return;
+
+    // Intro animatsiyasi tugagach saytni ochamiz
+    setTimeout(() => {
+        intro.classList.add("hide");
+
+        // Intro DOM'da qoladi, lekin foydalanuvchiga xalaqit bermaydi
+        setTimeout(() => {
+            intro.style.display = "none";
+        }, 900);
+
+    }, 1800);
+
+});
+
+
+/* =========================================================
+   HEADER — SCROLL
+   ========================================================= */
+
+const header = document.querySelector(".header");
+
+function handleHeader() {
+
+    if (!header) return;
+
+    if (window.scrollY > 40) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+
+}
+
+window.addEventListener("scroll", handleHeader);
+
+handleHeader();
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
 
 function toggleMenu() {
-    const menu = document.querySelector(".menu");
 
-    if (menu) {
-        menu.classList.toggle("active");
-    }
+    const menu = document.getElementById("menu");
+
+    if (!menu) return;
+
+    menu.classList.toggle("active");
+
 }
 
 
-// Menyu linkini bosganda menyuni yopish
+/*
+   Mobil menyudagi link bosilganda menyuni yopamiz
+*/
+
 document.querySelectorAll(".menu a").forEach(link => {
+
     link.addEventListener("click", () => {
 
-        const menu = document.querySelector(".menu");
+        const menu = document.getElementById("menu");
 
         if (menu) {
             menu.classList.remove("active");
         }
 
     });
+
 });
 
 
-// =========================
-// CONTACT MODAL
-// =========================
+/*
+   Menyudan tashqariga bosilganda yopish
+*/
 
-function openForm() {
+document.addEventListener("click", (event) => {
 
-    const modal = document.getElementById("contactModal");
+    const menu = document.getElementById("menu");
+    const menuButton = document.querySelector(".menu-btn");
 
-    if (modal) {
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
+    if (!menu || !menuButton) return;
+
+    if (
+        menu.classList.contains("active") &&
+        !menu.contains(event.target) &&
+        !menuButton.contains(event.target)
+    ) {
+
+        menu.classList.remove("active");
+
     }
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                // Bir marta animatsiya bo'lgandan keyin
+                // qayta kuzatish shart emas
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px"
+    }
+
+);
+
+
+revealElements.forEach((element) => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   PERSON DATA
+   ========================================================= */
+
+const people = {
+
+    director: {
+
+        role: "DIREKTOR",
+
+        name: "Ism Familiya",
+
+        position: "Direktor",
+
+        text:
+            "Besha Group kompaniyasining strategik rivojlanishi, " +
+            "hamkorlik yo‘nalishlari va umumiy faoliyatini boshqaradi."
+
+    },
+
+
+    manager: {
+
+        role: "MENEJER",
+
+        name: "Ism Familiya",
+
+        position: "Menejer",
+
+        text:
+            "Hamkorlar va nomzodlar bilan ishlash, " +
+            "muloqot va hamkorlik jarayonlarini muvofiqlashtirish " +
+            "bilan shug‘ullanadi."
+
+    }
+
+};
+
+
+/* =========================================================
+   OPEN PERSON MODAL
+   ========================================================= */
+
+function openPerson(personId) {
+
+    const modal = document.getElementById("personModal");
+
+    const role = document.getElementById("personModalRole");
+    const name = document.getElementById("personModalName");
+    const text = document.getElementById("personModalText");
+    const position = document.getElementById("personModalPosition");
+
+    if (!modal) return;
+
+    const person = people[personId];
+
+    if (!person) return;
+
+
+    role.textContent = person.role;
+
+    name.textContent = person.name;
+
+    text.textContent = person.text;
+
+    position.textContent = person.position;
+
+
+    modal.classList.add("active");
+
+    document.body.classList.add("modal-open");
+
 }
 
 
-function closeForm() {
+/* =========================================================
+   CLOSE PERSON MODAL
+   ========================================================= */
 
-    const modal = document.getElementById("contactModal");
+function closePerson() {
 
-    if (modal) {
-        modal.classList.remove("active");
-        document.body.style.overflow = "";
-    }
+    const modal = document.getElementById("personModal");
+
+    if (!modal) return;
+
+    modal.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+
 }
 
 
-// Kontakt modal tashqarisiga bosilganda yopish
-const contactModal = document.getElementById("contactModal");
+/* =========================================================
+   CLOSE MODAL — BACKGROUND CLICK
+   ========================================================= */
 
-if (contactModal) {
+const personModal = document.getElementById("personModal");
 
-    contactModal.addEventListener("click", function (e) {
+if (personModal) {
 
-        if (e.target === this) {
-            closeForm();
+    personModal.addEventListener("click", (event) => {
+
+        if (event.target === personModal) {
+
+            closePerson();
+
         }
 
     });
@@ -73,15 +262,14 @@ if (contactModal) {
 }
 
 
-// =========================
-// ESC - MODALLARNI YOPISH
-// =========================
+/* =========================================================
+   CLOSE MODAL — ESC
+   ========================================================= */
 
-document.addEventListener("keydown", function (e) {
+document.addEventListener("keydown", (event) => {
 
-    if (e.key === "Escape") {
+    if (event.key === "Escape") {
 
-        closeForm();
         closePerson();
 
     }
@@ -89,362 +277,145 @@ document.addEventListener("keydown", function (e) {
 });
 
 
-// =========================
-// PHONE FORMAT
-// =========================
+/* =========================================================
+   SMOOTH ANCHOR SCROLL
+   ========================================================= */
 
-const phoneInput = document.querySelector(
-    'input[name="phone"]'
-);
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-if (phoneInput) {
+    anchor.addEventListener("click", function (event) {
 
-    phoneInput.addEventListener("input", function () {
+        const targetId = this.getAttribute("href");
 
-        let value = this.value.replace(/\D/g, "");
+        if (!targetId || targetId === "#") return;
 
-        if (value.startsWith("998")) {
-            value = value.substring(3);
-        }
+        const target = document.querySelector(targetId);
 
-        value = value.substring(0, 9);
+        if (!target) return;
 
-        let result = "+998";
+        event.preventDefault();
 
-        if (value.length > 0) {
-            result += " " + value.substring(0, 2);
-        }
+        const headerHeight =
+            document.querySelector(".header")?.offsetHeight || 0;
 
-        if (value.length > 2) {
-            result += " " + value.substring(2, 5);
-        }
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            headerHeight -
+            15;
 
-        if (value.length > 5) {
-            result += " " + value.substring(5, 7);
-        }
+        window.scrollTo({
 
-        if (value.length > 7) {
-            result += " " + value.substring(7, 9);
-        }
+            top: targetPosition,
 
-        this.value = result;
+            behavior: "smooth"
+
+        });
+
+    });
+
+});
+
+
+/* =========================================================
+   HERO PARALLAX
+   ========================================================= */
+
+const hero = document.querySelector(".hero");
+
+const shapes = document.querySelectorAll(".hero-shape");
+
+if (hero && shapes.length > 0) {
+
+    window.addEventListener("mousemove", (event) => {
+
+        const x = (event.clientX / window.innerWidth - 0.5);
+        const y = (event.clientY / window.innerHeight - 0.5);
+
+        shapes.forEach((shape, index) => {
+
+            const speed = (index + 1) * 8;
+
+            shape.style.transform =
+                `translate(${x * speed}px, ${y * speed}px)`;
+
+        });
 
     });
 
 }
 
 
-// =========================
-// CONTACT FORM
-// =========================
+/* =========================================================
+   SERVICE CARD STAGGER
+   ========================================================= */
 
-const contactForm =
-    document.getElementById("contactForm");
+const serviceCards =
+    document.querySelectorAll(".service-card");
 
+serviceCards.forEach((card, index) => {
 
-if (contactForm) {
+    card.style.transitionDelay = `${index * 100}ms`;
 
-    contactForm.addEventListener(
-        "submit",
-        function (e) {
-
-            e.preventDefault();
-
-            const name =
-                this.querySelector('[name="name"]')
-                    ?.value.trim();
-
-            const phone =
-                this.querySelector('[name="phone"]')
-                    ?.value.trim();
+});
 
 
-            if (!name || !phone) {
+/* =========================================================
+   PROCESS ITEM STAGGER
+   ========================================================= */
 
-                alert(
-                    "Iltimos, ism va telefon raqamingizni kiriting."
-                );
+const processItems =
+    document.querySelectorAll(".process-item");
 
-                return;
-            }
+processItems.forEach((item, index) => {
 
+    item.style.transitionDelay = `${index * 80}ms`;
 
-            if (phone.replace(/\D/g, "").length < 12) {
-
-                alert(
-                    "Telefon raqamini to‘liq kiriting."
-                );
-
-                return;
-            }
+});
 
 
-            alert(
-                "Rahmat, " + name + "!\n\n" +
-                "Murojaatingiz qabul qilindi.\n" +
-                "Tez orada siz bilan bog‘lanamiz."
-            );
+/* =========================================================
+   CURRENT YEAR
+   ========================================================= */
 
+const copyright =
+    document.querySelector(".copyright");
 
-            this.reset();
+if (copyright) {
 
-            closeForm();
+    const currentYear = new Date().getFullYear();
 
-        }
-    );
+    copyright.textContent =
+        `© ${currentYear} BESHA GROUP. Barcha huquqlar himoyalangan.`;
 
 }
 
 
-// =========================
-// HEADER SCROLL EFFECT
-// =========================
+/* =========================================================
+   TELEGRAM BUTTON
+   ========================================================= */
 
-const header =
-    document.querySelector(".header");
+/*
+   Hozir HTML'da:
 
+   https://t.me/USERNAME
 
-window.addEventListener(
-    "scroll",
-    function () {
+   turibdi.
 
-        if (!header) return;
+   Keyinchalik USERNAME ni o'zgartiramiz.
 
-        if (window.scrollY > 50) {
+   Masalan:
 
-            header.style.boxShadow =
-                "0 8px 30px rgba(0,0,0,.15)";
+   https://t.me/beshagroup
+*/
 
-        } else {
 
-            header.style.boxShadow = "none";
+/* =========================================================
+   PAGE LOADED
+   ========================================================= */
 
-        }
+window.addEventListener("load", () => {
 
-    }
-);
+    document.body.classList.add("page-loaded");
 
-
-// =========================
-// SCROLL ANIMATION
-// =========================
-
-const animatedElements =
-    document.querySelectorAll(
-        ".service-card, .advantage, .person, .about-card"
-    );
-
-
-if ("IntersectionObserver" in window) {
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.style.opacity = "1";
-
-                        entry.target.style.transform =
-                            "translateY(0)";
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-
-    animatedElements.forEach(element => {
-
-        element.style.opacity = "0";
-
-        element.style.transform =
-            "translateY(25px)";
-
-        element.style.transition =
-            "opacity .6s ease, transform .6s ease";
-
-        observer.observe(element);
-
-    });
-
-}
-
-
-// =========================
-// PERSON INFORMATION
-// =========================
-
-
-// Bu yerlarni keyinchalik o'zingiz
-// haqiqiy ma'lumotlar bilan almashtirasiz.
-
-const people = {
-
-    director: {
-
-        name: "Shaxzod Zikirov",
-
-        role: "BOSH DIREKTOR",
-
-        position: "Bosh direktor",
-
-        image: "images/director.jpg",
-
-        text: `
-            Bu yerga direktor haqida batafsil
-            ma'lumot yoziladi.
-
-            Masalan, uning professional faoliyati,
-            ish tajribasi, kompaniyadagi vazifalari
-            va Besha Group rivojiga qo'shayotgan
-            hissasi haqida ma'lumot berish mumkin.
-        `
-
-    },
-
-
-    manager: {
-
-        name: "Bekzod Zikirov",
-
-        role: "MENEJER",
-
-        position: "Menejer",
-
-        image: "images/manager.jpg",
-
-        text: `
-            Bu yerga menejer haqida batafsil
-            ma'lumot yoziladi.
-
-            Masalan, uning ish tajribasi,
-            mijozlar bilan ishlashi, vazifalari
-            va Besha Group kompaniyasidagi
-            faoliyati haqida ma'lumot berish mumkin.
-        `
-
-    }
-
-};
-
-
-// =========================
-// OPEN PERSON
-// =========================
-
-function openPerson(person) {
-
-    const data = people[person];
-
-    if (!data) return;
-
-
-    const modal =
-        document.getElementById("personModal");
-
-    const name =
-        document.getElementById("personModalName");
-
-    const role =
-        document.getElementById("personModalRole");
-
-    const position =
-        document.getElementById("personModalPosition");
-
-    const text =
-        document.getElementById("personModalText");
-
-    const image =
-        document.getElementById("personModalImage");
-
-
-    if (!modal) return;
-
-
-    if (name) {
-        name.textContent = data.name;
-    }
-
-
-    if (role) {
-        role.textContent = data.role;
-    }
-
-
-    if (position) {
-        position.textContent = data.position;
-    }
-
-
-    if (text) {
-        text.textContent = data.text.trim();
-    }
-
-
-    if (image) {
-        image.src = data.image;
-        image.alt = data.name;
-    }
-
-
-    modal.classList.add("active");
-
-    document.body.style.overflow = "hidden";
-
-}
-
-
-// =========================
-// CLOSE PERSON
-// =========================
-
-function closePerson() {
-
-    const modal =
-        document.getElementById("personModal");
-
-
-    if (!modal) return;
-
-
-    modal.classList.remove("active");
-
-    document.body.style.overflow = "";
-
-}
-
-
-// =========================
-// PERSON MODAL OUTSIDE CLICK
-// =========================
-
-const personModal =
-    document.getElementById("personModal");
-
-
-if (personModal) {
-
-    personModal.addEventListener(
-        "click",
-        function (e) {
-
-            if (e.target === this) {
-                closePerson();
-            }
-
-        }
-    );
-
-}
+});
