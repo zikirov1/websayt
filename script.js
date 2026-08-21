@@ -141,7 +141,40 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     });
+const translations = {
+    uz: {
+        heroTitle: "Korxonalar uchun ishonchli ishchi kuchi"
+    },
 
+    ru: {
+        heroTitle: "Надёжная рабочая сила для предприятий"
+    },
+
+    en: {
+        heroTitle: "Reliable workforce for businesses"
+    }
+};
+
+function changeLanguage(lang) {
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+
+        const key = element.dataset.i18n;
+
+        if (
+            translations[lang] &&
+            translations[lang][key]
+        ) {
+            element.textContent =
+                translations[lang][key];
+        }
+
+    });
+
+    localStorage.setItem("language", lang);
+}
 
     /* =====================================================
        MOBILE MENU
