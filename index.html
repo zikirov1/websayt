@@ -2,29 +2,41 @@
 <html lang="uz">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color"
-          content="#0b63ce">
-
-    <title>
-        BESHA GROUP — Korxonalar uchun ishchi kuchi yechimlari
-    </title>
+    <title>Besha Group — Insonlar va imkoniyatlarni bog‘laymiz</title>
 
     <meta name="description"
-          content="BESHA GROUP — korxonalar va ishlab chiqarish tashkilotlari uchun ishchi kuchi bilan ta’minlash yo‘nalishida xizmat ko‘rsatuvchi kompaniya.">
+          content="Besha Group — korxonalar va ishlab chiqarish tashkilotlari uchun ishchi kuchi bilan ta’minlash va kadrlar bilan bog‘liq jarayonlarni samarali tashkil etishga ko‘maklashuvchi kompaniya.">
 
     <meta name="keywords"
-          content="BESHA GROUP, ishchi kuchi, korxonalar, zavodlar, ishlab chiqarish, Uzbekistan">
+          content="Besha Group, ishchi kuchi, kadrlar, korxonalar, zavodlar, ishlab chiqarish, Uzbekistan">
 
     <meta name="author"
-          content="BESHA GROUP">
+          content="Besha Group">
+
+
+    <!-- Open Graph -->
+
+    <meta property="og:title"
+          content="Besha Group — Insonlar va imkoniyatlarni bog‘laymiz">
+
+    <meta property="og:description"
+          content="Korxonalar uchun ishchi kuchi va kadrlar bilan bog‘liq jarayonlarni samarali tashkil etishga ko‘maklashamiz.">
+
+    <meta property="og:type"
+          content="website">
+
+
+    <!-- CSS -->
 
     <link rel="stylesheet"
           href="style.css">
+
 
 </head>
 
@@ -63,8 +75,7 @@
      HEADER
 ========================================================= -->
 
-<header class="header"
-        id="header">
+<header class="header">
 
     <div class="container nav">
 
@@ -73,11 +84,11 @@
 
         <a href="#home"
            class="logo"
-           aria-label="BESHA GROUP">
+           aria-label="Besha Group">
 
             <span>BESHA</span>
 
-            <strong>GROUP</strong>
+            GROUP
 
         </a>
 
@@ -86,38 +97,39 @@
         <!-- NAVIGATION -->
 
         <nav class="menu"
-             id="menu">
+             id="menu"
+             aria-label="Asosiy menyu">
 
             <a href="#about"
-               data-i18n="nav_about">
+               data-lang="nav.about">
 
                 Biz haqimizda
 
             </a>
 
             <a href="#services"
-               data-i18n="nav_services">
+               data-lang="nav.services">
 
                 Faoliyatimiz
 
             </a>
 
             <a href="#approach"
-               data-i18n="nav_approach">
+               data-lang="nav.approach">
 
                 Yondashuv
 
             </a>
 
             <a href="#team"
-               data-i18n="nav_team">
+               data-lang="nav.team">
 
                 Rahbariyat
 
             </a>
 
             <a href="#contact"
-               data-i18n="nav_contact">
+               data-lang="nav.contact">
 
                 Bog‘lanish
 
@@ -127,108 +139,98 @@
 
 
 
-        <!-- RIGHT SIDE -->
+        <!-- LANGUAGE -->
 
-        <div class="nav-right">
+        <div class="language-selector">
+
+            <button
+                type="button"
+                class="language-btn"
+                aria-label="Tilni tanlash">
+
+                ◉
+
+                <span data-current-language>
+                    UZ
+                </span>
+
+                <span>
+                    ▾
+                </span>
+
+            </button>
 
 
-            <!-- LANGUAGE -->
+            <div class="language-dropdown">
 
-            <div class="language-selector"
-                 id="languageSelector">
+                <button
+                    type="button"
+                    data-language="uz">
 
-                <button class="language-button"
-                        id="languageButton"
-                        type="button"
-                        aria-expanded="false">
+                    O‘zbekcha
 
-                    <span class="language-current">
+                    <strong>
                         UZ
-                    </span>
-
-                    <span class="language-arrow">
-                        ▾
-                    </span>
+                    </strong>
 
                 </button>
 
 
-                <div class="language-dropdown"
-                     id="languageDropdown">
+                <button
+                    type="button"
+                    data-language="en">
 
-                    <button type="button"
-                            data-lang="uz">
+                    English
 
-                        <span>
-                            O‘zbekcha
-                        </span>
+                    <strong>
+                        EN
+                    </strong>
 
-                        <strong>
-                            UZ
-                        </strong>
-
-                    </button>
+                </button>
 
 
-                    <button type="button"
-                            data-lang="en">
+                <button
+                    type="button"
+                    data-language="ru">
 
-                        <span>
-                            English
-                        </span>
+                    Русский
 
-                        <strong>
-                            EN
-                        </strong>
+                    <strong>
+                        RU
+                    </strong>
 
-                    </button>
-
-
-                    <button type="button"
-                            data-lang="ru">
-
-                        <span>
-                            Русский
-                        </span>
-
-                        <strong>
-                            RU
-                        </strong>
-
-                    </button>
-
-                </div>
+                </button>
 
             </div>
 
-
-
-            <!-- HEADER CONTACT -->
-
-            <a href="#contact"
-               class="nav-btn"
-               data-i18n="nav_button">
-
-                Bog‘lanish
-
-            </a>
-
-
-
-            <!-- MOBILE MENU -->
-
-            <button class="menu-btn"
-                    id="menuButton"
-                    type="button"
-                    aria-label="Menyu">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </button>
-
         </div>
+
+
+
+        <!-- HEADER CONTACT -->
+
+        <a href="#contact"
+           class="nav-btn"
+           data-lang="button.contact">
+
+            Bog‘lanish
+
+        </a>
+
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            type="button"
+            class="menu-btn"
+            onclick="toggleMenu()"
+            aria-label="Menyuni ochish">
+
+            ☰
+
+        </button>
+
 
     </div>
 
@@ -236,12 +238,7 @@
 
 
 
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
 <main>
-
 
 
 <!-- =========================================================
@@ -262,31 +259,32 @@
     <div class="container hero-content">
 
 
-        <div class="hero-tag"
-             data-i18n="hero_tag">
+        <div class="hero-tag">
 
             BESHA GROUP
 
         </div>
 
 
-        <h1 data-i18n-html="hero_title">
+        <h1>
 
             Korxonalar uchun
+
             <span>
-                ishchi kuchi
+                ishonchli ishchi kuchi
             </span>
+
             yechimlari.
 
         </h1>
 
 
-        <p data-i18n="hero_text">
+        <p>
 
-            Biz korxona va ishlab chiqarish tashkilotlarining
-            ishchi kuchiga bo‘lgan ehtiyojini o‘rganish,
-            mos nomzodlarni izlash va ishga jalb qilish
-            jarayonlarini tashkil etishga ko‘maklashamiz.
+            Biz korxonalar va ishlab chiqarish tashkilotlarining
+            ishchi kuchiga bo‘lgan ehtiyojini o‘rganib,
+            mos kadrlarni izlash va ishga jalb etish jarayonlarini
+            samarali tashkil etishga ko‘maklashamiz.
 
         </p>
 
@@ -294,38 +292,21 @@
         <div class="hero-actions">
 
 
-            <a href="#contact"
-               class="primary-btn"
-               data-i18n="hero_contact">
-
-                Biz bilan bog‘laning
-
-            </a>
-
-
             <a href="#about"
-               class="secondary-btn"
-               data-i18n="hero_about">
+               class="primary-btn">
 
-                Kompaniya haqida
+                Biz haqimizda
 
             </a>
 
 
-        </div>
+            <a href="#contact"
+               class="secondary-btn">
 
+                Bog‘lanish
 
-        <!-- HERO CONTACT INFO -->
-
-        <div class="hero-contact-mini">
-
-            <span data-i18n="hero_available">
-                Murojaatlar uchun:
-            </span>
-
-            <a href="tel:+998000000000">
-                +998 XX XXX XX XX
             </a>
+
 
         </div>
 
@@ -343,46 +324,51 @@
 <section class="section about"
          id="about">
 
+
     <div class="container about-grid">
 
 
         <div class="reveal">
 
 
-            <span class="section-label"
-                  data-i18n="about_label">
+            <span class="section-label">
 
-                BIZ HAQIMIZDA
+                BIZ KIMMIZ?
 
             </span>
 
 
-            <h2 data-i18n-html="about_title">
+            <h2>
 
-                Korxonalar uchun
+                Korxonalarning
+
                 <span>
-                    ishonchli ishchi kuchi
+                    ishchi kuchiga bo‘lgan
+                    ehtiyojini
                 </span>
-                yechimlari.
+
+                tushunamiz.
 
             </h2>
 
 
-            <p data-i18n="about_text_1">
+            <p>
 
-                BESHA GROUP korxonalar va ishlab chiqarish
+                Besha Group korxonalar va ishlab chiqarish
                 tashkilotlarining ishchi kuchiga bo‘lgan
-                ehtiyojlarini qondirish yo‘nalishida faoliyat yuritadi.
+                ehtiyojini aniqlash hamda ushbu ehtiyojga
+                mos kadrlarni izlash jarayonlarini tashkil
+                etishga ko‘maklashadi.
 
             </p>
 
 
-            <p data-i18n="about_text_2">
+            <p>
 
-                Bizning vazifamiz — korxona ehtiyojini
-                to‘g‘ri tushunish, talabga mos nomzodlarni
-                izlash va ish beruvchi uchun jarayonni
-                imkon qadar tizimli tashkil etishga yordam berish.
+                Bizning faoliyatimizning asosiy yo‘nalishi —
+                ish beruvchining real ehtiyojini tushunish,
+                talab qilinadigan mezonlarni aniqlash va
+                jarayonni tizimli ravishda tashkil etishdir.
 
             </p>
 
@@ -397,18 +383,18 @@
             <div class="highlight-line"></div>
 
 
-            <span data-i18n="about_goal_label">
-
-                BIZNING MAQSADIMIZ
-
+            <span>
+                BIZNING VAZIFAMIZ
             </span>
 
 
-            <h3 data-i18n="about_goal">
+            <h3>
 
-                Ish beruvchilar uchun
-                ishchi kuchi bilan bog‘liq
-                jarayonlarni samarali tashkil etishga
+                Korxonalar uchun
+                ishchi kuchi bilan
+                bog‘liq jarayonlarni
+                sodda va samarali
+                tashkil etishga
                 ko‘maklashish.
 
             </h3>
@@ -429,36 +415,37 @@
 
 <section class="section problem-section">
 
+
     <div class="container">
 
 
         <div class="section-heading reveal">
 
 
-            <span class="section-label"
-                  data-i18n="why_label">
+            <span class="section-label">
 
-                NIMA UCHUN BESHA GROUP?
+                ISH BERUVCHILAR UCHUN
 
             </span>
 
 
-            <h2 data-i18n-html="why_title">
+            <h2>
 
                 Ishchi kuchi masalasida
+
                 <span>
-                    aniq yondashuv.
+                    tizimli yondashuv.
                 </span>
 
             </h2>
 
 
-            <p data-i18n="why_text">
+            <p>
 
-                Ishlab chiqarish jarayonining uzluksizligi
-                ko‘p jihatdan yetarli va mos ishchi kuchiga
-                bog‘liq. Shu sababli biz korxonaning real
-                ehtiyojini tushunishdan boshlaymiz.
+                Ishchi kuchiga bo‘lgan ehtiyojni to‘g‘ri
+                aniqlash va mos nomzodlarni izlash korxona
+                faoliyatining uzluksizligi uchun muhim
+                omillardan biridir.
 
             </p>
 
@@ -470,79 +457,96 @@
         <div class="problem-grid">
 
 
-            <article class="problem-card reveal">
+            <div class="problem-card reveal">
+
 
                 <div class="card-number">
                     01
                 </div>
 
 
-                <h3 data-i18n="why_card_1_title">
-                    Korxona ehtiyojini o‘rganish
+                <h3>
+
+                    Ehtiyojni aniqlash
+
                 </h3>
 
 
-                <p data-i18n="why_card_1_text">
+                <p>
 
-                    Ishchi kuchiga bo‘lgan talab,
-                    lavozimlar va ish sharoitlari
-                    bo‘yicha ma’lumotlarni o‘rganamiz.
+                    Korxonadagi mavjud ehtiyoj,
+                    ish o‘rinlari va nomzodlarga
+                    qo‘yiladigan talablarni
+                    aniqlashga e’tibor qaratamiz.
 
                 </p>
 
-            </article>
+
+            </div>
 
 
 
-            <article class="solution-card reveal">
+            <div class="solution-card reveal">
+
 
                 <div class="card-number">
                     BG
                 </div>
 
 
-                <h3 data-i18n="why_card_2_title">
+                <h3>
+
                     Tizimli yondashuv
+
                 </h3>
 
 
-                <p data-i18n="why_card_2_text">
+                <p>
 
-                    Murojaatdan boshlab nomzodlarni
-                    izlash va ish beruvchi bilan
-                    muloqotgacha bo‘lgan jarayonni
-                    tartibli tashkil etishga intilamiz.
+                    Har bir korxonaning talabi
+                    bir xil emas. Shu sababli
+                    jarayonni tashkilotning
+                    aniq ehtiyojidan kelib
+                    chiqib shakllantiramiz.
 
                 </p>
 
-            </article>
+
+            </div>
 
 
 
-            <article class="problem-card reveal">
+            <div class="problem-card reveal">
+
 
                 <div class="card-number">
                     02
                 </div>
 
 
-                <h3 data-i18n="why_card_3_title">
+                <h3>
+
                     Mos nomzodlarni izlash
+
                 </h3>
 
 
-                <p data-i18n="why_card_3_text">
+                <p>
 
-                    Korxona tomonidan belgilangan
-                    talablar asosida mos keluvchi
-                    nomzodlarni izlash jarayonini tashkil qilamiz.
+                    Belgilangan talablar asosida
+                    tegishli nomzodlarni izlash
+                    va ularni ish beruvchi
+                    ehtiyojiga moslashtirishga
+                    ko‘maklashamiz.
 
                 </p>
 
-            </article>
+
+            </div>
 
 
         </div>
+
 
     </div>
 
@@ -557,29 +561,39 @@
 <section class="section services"
          id="services">
 
+
     <div class="container">
 
 
         <div class="section-heading reveal">
 
 
-            <span class="section-label"
-                  data-i18n="services_label">
+            <span class="section-label">
 
-                FAOLIYATIMIZ
+                BIZ NIMA QILAMIZ?
 
             </span>
 
 
-            <h2 data-i18n-html="services_title">
+            <h2>
 
-                Ish beruvchi uchun
+                Ish beruvchi ehtiyojidan
+
                 <span>
-                    muhim bo‘lgan jarayonlarda
+                    aniq jarayongacha.
                 </span>
-                yordam beramiz.
 
             </h2>
+
+
+            <p>
+
+                Faoliyatimiz korxonaning ishchi kuchiga
+                bo‘lgan ehtiyojini tushunishdan boshlanadi
+                va mos nomzodlarni izlash jarayonigacha
+                bo‘lgan bosqichlarni qamrab oladi.
+
+            </p>
 
 
         </div>
@@ -591,151 +605,89 @@
 
             <article class="service-card reveal">
 
+
                 <span>
                     01
                 </span>
 
 
-                <h3 data-i18n="service_1_title">
-                    Ehtiyojni aniqlash
+                <h3>
+
+                    Korxona ehtiyojini o‘rganish
+
                 </h3>
 
 
-                <p data-i18n="service_1_text">
+                <p>
 
-                    Korxonaning ishchi kuchiga bo‘lgan
-                    ehtiyoji, lavozimlar va asosiy
-                    talablarini o‘rganamiz.
+                    Ish beruvchining mavjud vazifalari,
+                    ish o‘rinlari va talablarini
+                    batafsil o‘rganamiz.
 
                 </p>
+
 
             </article>
 
 
 
             <article class="service-card reveal">
+
 
                 <span>
                     02
                 </span>
 
 
-                <h3 data-i18n="service_2_title">
-                    Nomzodlarni izlash
+                <h3>
+
+                    Kadrlarni izlash
+
                 </h3>
 
 
-                <p data-i18n="service_2_text">
+                <p>
 
-                    Belgilangan talablar asosida
-                    mos nomzodlarni izlash va
-                    dastlabki ma’lumotlarni yig‘ish
-                    jarayonini tashkil qilamiz.
+                    Belgilangan mezonlar asosida
+                    tegishli nomzodlarni izlash
+                    jarayonini tashkil etamiz.
 
                 </p>
+
 
             </article>
 
 
 
             <article class="service-card reveal">
+
 
                 <span>
                     03
                 </span>
 
 
-                <h3 data-i18n="service_3_title">
-                    Ish beruvchi bilan muloqot
-                </h3>
+                <h3>
 
-
-                <p data-i18n="service_3_text">
-
-                    Jarayon davomida korxona bilan
-                    muntazam aloqa qilib, mavjud
-                    ehtiyoj va talablarning to‘g‘ri
-                    tushunilishini ta’minlashga harakat qilamiz.
-
-                </p>
-
-            </article>
-
-
-
-            <article class="service-card reveal">
-
-                <span>
-                    04
-                </span>
-
-
-                <h3 data-i18n="service_4_title">
-                    Nomzodlarni moslashtirish
-                </h3>
-
-
-                <p data-i18n="service_4_text">
-
-                    Nomzodlarning mavjud imkoniyatlari
-                    va korxona talablarini o‘zaro
-                    moslashtirishga ko‘maklashamiz.
-
-                </p>
-
-            </article>
-
-
-
-            <article class="service-card reveal">
-
-                <span>
-                    05
-                </span>
-
-
-                <h3 data-i18n="service_5_title">
                     Jarayonni muvofiqlashtirish
+
                 </h3>
 
 
-                <p data-i18n="service_5_text">
+                <p>
 
                     Ish beruvchi va nomzod o‘rtasidagi
-                    zarur muloqot va tashkiliy
-                    jarayonlarni muvofiqlashtirishga yordam beramiz.
+                    muloqot hamda keyingi jarayonlarni
+                    muvofiqlashtirishga ko‘maklashamiz.
 
                 </p>
 
-            </article>
-
-
-
-            <article class="service-card reveal">
-
-                <span>
-                    06
-                </span>
-
-
-                <h3 data-i18n="service_6_title">
-                    Uzoq muddatli yondashuv
-                </h3>
-
-
-                <p data-i18n="service_6_text">
-
-                    Biz uchun asosiy maqsad faqat
-                    bir martalik murojaat emas,
-                    balki ish beruvchi bilan samarali
-                    va barqaror hamkorlikni shakllantirishdir.
-
-                </p>
 
             </article>
 
 
         </div>
+
 
     </div>
 
@@ -744,10 +696,11 @@
 
 
 <!-- =========================================================
-     AUDIENCE
+     FOR WHOM
 ========================================================= -->
 
 <section class="section audience">
+
 
     <div class="container">
 
@@ -755,26 +708,27 @@
         <div class="section-heading center reveal">
 
 
-            <span class="section-label"
-                  data-i18n="audience_label">
+            <span class="section-label">
 
                 KIMLAR BILAN ISHLAYMIZ?
 
             </span>
 
 
-            <h2 data-i18n="audience_title">
+            <h2>
 
-                Korxonalar va ish beruvchilar.
+                Ishchi kuchiga ehtiyoj
+                sezayotgan korxonalar.
 
             </h2>
 
 
-            <p data-i18n="audience_text">
+            <p>
 
-                Bizning asosiy yo‘nalishimiz —
-                ishchi kuchiga ehtiyoji mavjud bo‘lgan
-                korxona va tashkilotlar bilan ishlash.
+                Bizning asosiy mijozlarimiz —
+                ishlab chiqarish va boshqa sohalarda
+                ishchi kuchiga ehtiyoj sezayotgan
+                korxona va tashkilotlardir.
 
             </p>
 
@@ -794,18 +748,19 @@
                 </div>
 
 
-                <h3 data-i18n="audience_1_title">
+                <h3>
 
                     Ishlab chiqarish korxonalari
 
                 </h3>
 
 
-                <p data-i18n="audience_1_text">
+                <p>
 
-                    Ishlab chiqarish jarayonlari uchun
-                    ishchi kuchiga ehtiyoj sezayotgan
-                    zavod va korxonalar.
+                    Zavodlar, fabrikalar va ishlab chiqarish
+                    korxonalarining ishchi kuchiga bo‘lgan
+                    ehtiyojini qoplash jarayonlariga
+                    ko‘maklashamiz.
 
                 </p>
 
@@ -822,18 +777,18 @@
                 </div>
 
 
-                <h3 data-i18n="audience_2_title">
+                <h3>
 
-                    Yirik ish beruvchilar
+                    Yirik tashkilotlar
 
                 </h3>
 
 
-                <p data-i18n="audience_2_text">
+                <p>
 
-                    Doimiy yoki davriy ravishda
-                    yangi xodimlarga ehtiyoj sezayotgan
-                    tashkilot va kompaniyalar.
+                    Doimiy yoki muayyan davr uchun
+                    ishchi kuchiga ehtiyoj sezayotgan
+                    tashkilotlar bilan ishlashga tayyormiz.
 
                 </p>
 
@@ -842,6 +797,7 @@
 
 
         </div>
+
 
     </div>
 
@@ -856,28 +812,38 @@
 <section class="section approach"
          id="approach">
 
+
     <div class="container">
 
 
         <div class="section-heading reveal">
 
 
-            <span class="section-label"
-                  data-i18n="approach_label">
+            <span class="section-label">
 
                 BIZNING YONDASHUVIMIZ
 
             </span>
 
 
-            <h2 data-i18n-html="approach_title">
+            <h2>
 
-                Ehtiyojdan
+                Har bir ehtiyojga
+
                 <span>
-                    natijagacha.
+                    aniq yondashuv.
                 </span>
 
             </h2>
+
+
+            <p>
+
+                Biz jarayonni taxminlar asosida emas,
+                ish beruvchining aniq talablari asosida
+                tashkil etishga intilamiz.
+
+            </p>
 
 
         </div>
@@ -897,15 +863,16 @@
 
                 <div>
 
-                    <h3 data-i18n="process_1_title">
-                        Ehtiyojni tushunamiz
+                    <h3>
+                        Tushunamiz
                     </h3>
 
-                    <p data-i18n="process_1_text">
 
-                        Korxonaning mavjud ehtiyoji,
-                        ish sharoitlari va talablarini
-                        aniqlashtiramiz.
+                    <p>
+
+                        Korxonaning ishchi kuchiga bo‘lgan
+                        ehtiyoji va nomzodlarga qo‘yiladigan
+                        talablarni o‘rganamiz.
 
                     </p>
 
@@ -926,15 +893,16 @@
 
                 <div>
 
-                    <h3 data-i18n="process_2_title">
-                        Talablarni aniqlashtiramiz
+                    <h3>
+                        Belgilaymiz
                     </h3>
 
-                    <p data-i18n="process_2_text">
 
-                        Kerakli lavozimlar va
-                        nomzodlarga qo‘yiladigan
-                        asosiy mezonlarni belgilaymiz.
+                    <p>
+
+                        Kerakli lavozim, ish sharoiti,
+                        malaka va boshqa muhim mezonlarni
+                        aniqlashtiramiz.
 
                     </p>
 
@@ -955,15 +923,16 @@
 
                 <div>
 
-                    <h3 data-i18n="process_3_title">
-                        Izlashni tashkil qilamiz
+                    <h3>
+                        Izlaymiz
                     </h3>
 
-                    <p data-i18n="process_3_text">
 
-                        Belgilangan mezonlar asosida
+                    <p>
+
+                        Belgilangan mezonlarga mos
                         nomzodlarni izlash jarayonini
-                        amalga oshiramiz.
+                        tashkil qilamiz.
 
                     </p>
 
@@ -984,15 +953,16 @@
 
                 <div>
 
-                    <h3 data-i18n="process_4_title">
-                        Muloqotni muvofiqlashtiramiz
+                    <h3>
+                        Muvofiqlashtiramiz
                     </h3>
 
-                    <p data-i18n="process_4_text">
+
+                    <p>
 
                         Ish beruvchi va nomzod o‘rtasidagi
-                        keyingi muloqot va tashkiliy
-                        jarayonlarni muvofiqlashtirishga yordam beramiz.
+                        keyingi muloqot va jarayonlarni
+                        muvofiqlashtirishga ko‘maklashamiz.
 
                     </p>
 
@@ -1003,6 +973,7 @@
 
 
         </div>
+
 
     </div>
 
@@ -1016,23 +987,25 @@
 
 <section class="section values">
 
+
     <div class="container">
 
 
         <div class="section-heading center reveal">
 
 
-            <span class="section-label"
-                  data-i18n="values_label">
+            <span class="section-label">
 
                 TAMOYILLARIMIZ
 
             </span>
 
 
-            <h2 data-i18n="values_title">
+            <h2>
 
-                Ishonchli hamkorlik asoslari.
+                Biz ishimizda
+                muhim deb biladigan
+                tamoyillar.
 
             </h2>
 
@@ -1046,17 +1019,20 @@
 
             <div class="value reveal">
 
-                <h3 data-i18n="value_1_title">
+
+                <h3>
                     Ishonch
                 </h3>
 
-                <p data-i18n="value_1_text">
 
-                    Ish beruvchi bilan ochiq
-                    va mas’uliyatli muloqotni
-                    asosiy tamoyil deb bilamiz.
+                <p>
+
+                    Uzoq muddatli hamkorlik ochiq
+                    va ishonchli munosabatlardan
+                    boshlanadi.
 
                 </p>
+
 
             </div>
 
@@ -1064,34 +1040,40 @@
 
             <div class="value reveal">
 
-                <h3 data-i18n="value_2_title">
+
+                <h3>
+                    Aniqlik
+                </h3>
+
+
+                <p>
+
+                    Ish beruvchining talablarini
+                    aniq tushunish samarali
+                    natijaning muhim qismidir.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="value reveal">
+
+
+                <h3>
                     Mas’uliyat
                 </h3>
 
-                <p data-i18n="value_2_text">
 
-                    Har bir murojaat va kelishuvga
+                <p>
+
+                    Har bir murojaat va topshiriqqa
                     mas’uliyat bilan yondashamiz.
 
                 </p>
 
-            </div>
-
-
-
-            <div class="value reveal">
-
-                <h3 data-i18n="value_3_title">
-                    Aniqlik
-                </h3>
-
-                <p data-i18n="value_3_text">
-
-                    Talablar va ish shartlari
-                    bo‘yicha aniq ma’lumotga
-                    tayanishga intilamiz.
-
-                </p>
 
             </div>
 
@@ -1099,22 +1081,26 @@
 
             <div class="value reveal">
 
-                <h3 data-i18n="value_4_title">
+
+                <h3>
                     Rivojlanish
                 </h3>
 
-                <p data-i18n="value_4_text">
 
-                    Ish beruvchilar uchun yanada
-                    samarali xizmat va yechimlarni
-                    rivojlantirishga intilamiz.
+                <p>
+
+                    Faoliyatimizni doimiy takomillashtirish
+                    va yangi imkoniyatlarni izlashga
+                    intilamiz.
 
                 </p>
+
 
             </div>
 
 
         </div>
+
 
     </div>
 
@@ -1123,11 +1109,12 @@
 
 
 <!-- =========================================================
-     TEAM
+     MANAGEMENT
 ========================================================= -->
 
 <section class="section team"
          id="team">
+
 
     <div class="container">
 
@@ -1135,25 +1122,25 @@
         <div class="section-heading center reveal">
 
 
-            <span class="section-label"
-                  data-i18n="team_label">
+            <span class="section-label">
 
                 RAHBARIYAT
 
             </span>
 
 
-            <h2 data-i18n="team_title">
+            <h2>
 
-                BESHA GROUP rahbariyati.
+                Besha Group
+                rahbariyati.
 
             </h2>
 
 
-            <p data-i18n="team_text">
+            <p>
 
-                Kompaniya faoliyati va asosiy
-                yo‘nalishlarini boshqaruvchi rahbariyat.
+                Kompaniya faoliyatini boshqarish va
+                rivojlantirish uchun mas’ul rahbariyat.
 
             </p>
 
@@ -1165,18 +1152,20 @@
         <div class="team-grid">
 
 
-            <button class="person-card reveal"
-                    type="button"
-                    onclick="openPerson('director')">
+            <button
+                type="button"
+                class="person-card reveal"
+                onclick="openPerson('director')">
 
 
                 <div class="person-icon">
+
                     BG
+
                 </div>
 
 
-                <span class="person-role"
-                      data-i18n="director_role">
+                <span class="person-role">
 
                     DIREKTOR
 
@@ -1184,12 +1173,13 @@
 
 
                 <h3>
+
                     Ism Familiya
+
                 </h3>
 
 
-                <span class="person-more"
-                      data-i18n="person_more">
+                <span class="person-more">
 
                     Batafsil →
 
@@ -1200,18 +1190,20 @@
 
 
 
-            <button class="person-card reveal"
-                    type="button"
-                    onclick="openPerson('manager')">
+            <button
+                type="button"
+                class="person-card reveal"
+                onclick="openPerson('manager')">
 
 
                 <div class="person-icon">
+
                     BG
+
                 </div>
 
 
-                <span class="person-role"
-                      data-i18n="manager_role">
+                <span class="person-role">
 
                     MENEJER
 
@@ -1219,12 +1211,13 @@
 
 
                 <h3>
+
                     Ism Familiya
+
                 </h3>
 
 
-                <span class="person-more"
-                      data-i18n="person_more">
+                <span class="person-more">
 
                     Batafsil →
 
@@ -1235,6 +1228,7 @@
 
 
         </div>
+
 
     </div>
 
@@ -1252,32 +1246,33 @@
     <div class="container future-content reveal">
 
 
-        <span data-i18n="future_label">
+        <span>
 
             KELAJAKKA QARASH
 
         </span>
 
 
-        <h2 data-i18n-html="future_title">
+        <h2>
 
-            Kuchli korxonalar
+            Ish beruvchilar uchun
+
             <br>
 
             <strong>
-                kuchli jamoalardan boshlanadi.
+                ishonchli yechimlar.
             </strong>
 
         </h2>
 
 
-        <p data-i18n="future_text">
+        <p>
 
-            BESHA GROUP ish beruvchilar uchun
+            Besha Group korxonalar bilan uzoq muddatli
+            va professional hamkorlikni yo‘lga qo‘yish,
             ishchi kuchi bilan bog‘liq jarayonlarni
-            yanada samarali tashkil etish va
-            uzoq muddatli professional aloqalarni
-            rivojlantirishni maqsad qiladi.
+            samarali tashkil etish hamda faoliyatini
+            izchil rivojlantirishni maqsad qiladi.
 
         </p>
 
@@ -1295,187 +1290,204 @@
 <section class="section contact"
          id="contact">
 
+
     <div class="container">
 
 
-        <div class="section-heading center reveal">
-
-
-            <span class="section-label"
-                  data-i18n="contact_label">
-
-                BOG‘LANISH
-
-            </span>
-
-
-            <h2 data-i18n="contact_title">
-
-                Biz bilan bog‘laning.
-
-            </h2>
-
-
-            <p data-i18n="contact_text">
-
-                Korxonangiz uchun ishchi kuchiga
-                ehtiyoj mavjud bo‘lsa, biz bilan
-                qulay usulda bog‘lanishingiz mumkin.
-
-            </p>
-
-
-        </div>
-
-
-
-        <!-- CONTACT CARDS -->
-
-        <div class="contact-grid">
-
-
-            <!-- PHONE -->
-
-            <a href="tel:+998000000000"
-               class="contact-card reveal">
-
-
-                <div class="contact-card-icon">
-                    ☎
-                </div>
-
-
-                <span data-i18n="contact_phone_label">
-                    TELEFON
-                </span>
-
-
-                <h3>
-                    +998 XX XXX XX XX
-                </h3>
-
-
-                <p data-i18n="contact_phone_text">
-                    Telefon orqali bog‘lanish
-                </p>
-
-
-            </a>
-
-
-
-            <!-- TELEGRAM -->
-
-            <a href="https://t.me/share/url?url=https://t.me/USERNAME&text=Assalomu%20alaykum.%20Siz%20bilan%20ishlamoqchimiz.%20Bizga%20telefon%20qiling."
-               target="_blank"
-               rel="noopener noreferrer"
-               class="contact-card telegram-contact reveal">
-
-
-                <div class="contact-card-icon">
-                    TG
-                </div>
-
-
-                <span>
-                    TELEGRAM
-                </span>
-
-
-                <h3>
-                    @USERNAME
-                </h3>
-
-
-                <p data-i18n="contact_telegram_text">
-
-                    Tayyor murojaat matni bilan yozish →
-
-                </p>
-
-
-            </a>
-
-
-
-            <!-- INSTAGRAM -->
-
-            <a href="https://instagram.com/USERNAME"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="contact-card instagram-contact reveal">
-
-
-                <div class="contact-card-icon">
-                    IG
-                </div>
-
-
-                <span>
-                    INSTAGRAM
-                </span>
-
-
-                <h3>
-                    @USERNAME
-                </h3>
-
-
-                <p data-i18n="contact_instagram_text">
-
-                    Instagram sahifamizga o‘tish →
-
-                </p>
-
-
-            </a>
-
-
-        </div>
-
-
-
-        <!-- FINAL CONTACT MESSAGE -->
-
-        <div class="contact-final reveal">
+        <div class="contact-box reveal">
 
 
             <div>
 
-                <span data-i18n="contact_final_label">
-                    ISH BERUVCHILAR UCHUN
+
+                <span class="section-label">
+
+                    BOG‘LANISH
+
                 </span>
 
 
-                <h3 data-i18n="contact_final_title">
+                <h2>
 
-                    Korxonangizda ishchi kuchiga
-                    ehtiyoj bormi?
+                    Biz bilan
+                    bog‘laning.
 
-                </h3>
+                </h2>
 
 
-                <p data-i18n="contact_final_text">
+                <p>
 
-                    Biz bilan telefon, Telegram yoki
-                    Instagram orqali bog‘laning.
-                    Murojaatingiz bo‘yicha keyingi
-                    muloqotni boshlaymiz.
+                    Korxonangizda ishchi kuchiga ehtiyoj
+                    mavjud bo‘lsa yoki Besha Group faoliyati
+                    bo‘yicha qo‘shimcha ma’lumot olishni
+                    istasangiz, biz bilan bevosita bog‘laning.
 
                 </p>
+
 
             </div>
 
 
-            <a href="https://t.me/share/url?url=https://t.me/USERNAME&text=Assalomu%20alaykum.%20Siz%20bilan%20ishlamoqchimiz.%20Bizga%20telefon%20qiling."
-               target="_blank"
-               rel="noopener noreferrer"
-               class="telegram-btn"
-               data-i18n="contact_telegram_button">
 
-                Telegram orqali yozish →
+            <div class="contact-actions">
 
-            </a>
+
+                <!-- TELEGRAM -->
+
+                <a
+                    href="https://t.me/USERNAME"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="telegram-btn">
+
+
+                    Telegram orqali yozish →
+
+                </a>
+
+
+                <!-- PHONE -->
+
+                <a
+                    href="tel:+998901234567"
+                    class="contact-phone">
+
+
+                    <span>
+                        Telefon
+                    </span>
+
+
+                    <strong>
+                        +998 90 123 45 67
+                    </strong>
+
+
+                </a>
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    href="https://instagram.com/USERNAME"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-instagram">
+
+
+                    <span>
+                        Instagram
+                    </span>
+
+
+                    <strong>
+                        @USERNAME
+                    </strong>
+
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- DIRECT CONTACT -->
+
+        <div class="contact-direct reveal">
+
+
+            <div>
+
+
+                <span class="section-label">
+
+                    BEVOSITA ALOQA
+
+                </span>
+
+
+                <h3>
+
+                    Savolingiz bormi?
+
+                </h3>
+
+
+                <p>
+
+                    Telegram yoki telefon orqali
+                    to‘g‘ridan-to‘g‘ri murojaat qilishingiz
+                    mumkin.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="direct-links">
+
+
+                <a
+                    href="tel:+998901234567">
+
+
+                    📞
+
+                    <span>
+
+                        Qo‘ng‘iroq qilish
+
+                    </span>
+
+
+                </a>
+
+
+
+                <a
+                    href="https://t.me/USERNAME"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+
+                    ✈
+
+                    <span>
+
+                        Telegram
+
+                    </span>
+
+
+                </a>
+
+
+
+                <a
+                    href="https://instagram.com/USERNAME"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+
+                    ◎
+
+                    <span>
+
+                        Instagram
+
+                    </span>
+
+
+                </a>
+
+
+            </div>
 
 
         </div>
@@ -1495,35 +1507,41 @@
      PERSON MODAL
 ========================================================= -->
 
-<div class="person-modal"
-     id="personModal">
+<div
+    class="person-modal"
+    id="personModal"
+    aria-hidden="true">
 
 
     <div class="person-modal-box">
 
 
-        <button class="person-close"
-                type="button"
-                onclick="closePerson()"
-                aria-label="Yopish">
+        <button
+            type="button"
+            class="person-close"
+            onclick="closePerson()"
+            aria-label="Yopish">
 
             ×
 
         </button>
 
 
+
         <div class="person-modal-content">
 
 
-            <span class="modal-role"
-                  id="personModalRole">
+            <span
+                class="modal-role"
+                id="personModalRole">
 
                 DIREKTOR
 
             </span>
 
 
-            <h2 id="personModalName">
+            <h2
+                id="personModalName">
 
                 Ism Familiya
 
@@ -1533,9 +1551,11 @@
             <div class="person-line"></div>
 
 
-            <p id="personModalText">
+            <p
+                id="personModalText">
 
-                Rahbariyat a’zosi haqida ma’lumot.
+                Bu yerda rahbariyat a’zosi haqida
+                batafsil ma’lumot beriladi.
 
             </p>
 
@@ -1545,16 +1565,19 @@
 
                 <div>
 
-                    <span data-i18n="modal_position">
+
+                    <span>
                         Lavozimi
                     </span>
 
 
-                    <strong id="personModalPosition">
+                    <strong
+                        id="personModalPosition">
 
                         Direktor
 
                     </strong>
+
 
                 </div>
 
@@ -1563,6 +1586,7 @@
 
 
         </div>
+
 
     </div>
 
@@ -1582,59 +1606,23 @@
 
         <div>
 
+
             <h3>
                 BESHA GROUP
             </h3>
 
 
-            <p data-i18n="footer_text">
-
-                Korxonalar uchun ishchi kuchi
-                yechimlari.
-
+            <p>
+                Insonlar va imkoniyatlarni bog‘laymiz.
             </p>
 
-        </div>
-
-
-
-        <div class="footer-links">
-
-
-            <a href="#about"
-               data-i18n="footer_about">
-
-                Biz haqimizda
-
-            </a>
-
-
-            <a href="#services"
-               data-i18n="footer_services">
-
-                Faoliyatimiz
-
-            </a>
-
-
-            <a href="#contact"
-               data-i18n="footer_contact">
-
-                Bog‘lanish
-
-            </a>
-
 
         </div>
 
 
-        <a href="#home"
-           class="footer-top">
+        <a href="#home">
 
-            ↑
-            <span data-i18n="footer_top">
-                Yuqoriga
-            </span>
+            ↑ Yuqoriga
 
         </a>
 
@@ -1646,9 +1634,7 @@
     <div class="copyright">
 
         © 2026 BESHA GROUP.
-        <span data-i18n="copyright">
-            Barcha huquqlar himoyalangan.
-        </span>
+        Barcha huquqlar himoyalangan.
 
     </div>
 
@@ -1658,7 +1644,7 @@
 
 
 <!-- =========================================================
-     SCRIPT
+     JAVASCRIPT
 ========================================================= -->
 
 <script src="script.js"></script>
