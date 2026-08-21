@@ -589,53 +589,182 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initLanguageMenu() {
 
-    const languageSelector =
-        document.querySelector(".language-selector");
+    const languageSwitcher =
+        document.querySelector(".language-switcher");
 
-    if (!languageSelector) return;
+    if (!languageSwitcher) return;
+
 
     const languageButton =
-        languageSelector.querySelector(".language-current");
+        languageSwitcher.querySelector(".language-current");
 
     const dropdown =
-        languageSelector.querySelector(".language-dropdown");
+        languageSwitcher.querySelector(".language-dropdown");
+
+    const currentLanguage =
+        document.getElementById("currentLanguage");
+
 
     if (!languageButton || !dropdown) return;
 
 
-    // Boshlanishida yopiq
+    // Boshlanishida menyu yopiq
     dropdown.classList.remove("open");
+
     languageButton.classList.remove("open");
-    languageButton.setAttribute("aria-expanded", "false");
+
+    languageButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
 
 
-    // Til tugmasi
-    languageButton.addEventListener("click", function (event) {
+    // =====================================================
+    // TIL TUGMASI
+    // =====================================================
 
-        event.stopPropagation();
+    languageButton.addEventListener(
+        "click",
+        function (event) {
 
-        const isOpen =
-            dropdown.classList.contains("open");
+            event.preventDefault();
+            event.stopPropagation();
 
 
-        // Avval barcha til menyularini yopamiz
-        document
-            .querySelectorAll(".language-dropdown")
-            .forEach(function (item) {
-                item.classList.remove("open");
-            });
+            const isOpen =
+                dropdown.classList.contains("open");
 
-        document
-            .querySelectorAll(".language-current")
-            .forEach(function (button) {
-                button.classList.remove("open");
-                button.setAttribute(
+
+            // Barcha til menyularini yopish
+            document
+                .querySelectorAll(".language-dropdown")
+                .forEach(function (item) {
+
+                    item.classList.remove("open");
+
+                });
+
+
+            document
+                .querySelectorAll(".language-current")
+                .forEach(function (button) {
+
+                    button.classList.remove("open");
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                });
+
+
+            // Agar oldin yopiq bo'lsa — ochamiz
+            if (!isOpen) {
+
+                dropdown.classList.add("open");
+
+                languageButton.classList.add("open");
+
+                languageButton.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            }
+
+        }
+    );
+
+
+    // =====================================================
+    // TIL TANLASH
+    // =====================================================
+
+    const options =
+        dropdown.querySelectorAll(
+            ".language-option[data-lang]"
+        );
+
+
+    options.forEach(function (option) {
+
+        option.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                const language =
+                    option.getAttribute("data-lang");
+
+
+                // Tilni o'zgartirish
+                setLanguage(language);
+
+
+                // =================================================
+                // ENG MUHIM QISM
+                // TIL TANLANGANDAN KEYIN DARHOL YOPILADI
+                // =================================================
+
+                dropdown.classList.remove("open");
+
+                languageButton.classList.remove("open");
+
+                languageButton.setAttribute(
                     "aria-expanded",
                     "false"
                 );
-            });
 
 
+                // Active til
+                options.forEach(function (item) {
+
+                    item.classList.remove("active");
+
+                });
+
+
+                option.classList.add("active");
+
+            }
+        );
+
+    });
+
+
+    // =====================================================
+    // TASHQARIGA BOSILGANDA
+    // =====================================================
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !languageSwitcher.contains(
+                    event.target
+                )
+            ) {
+
+                dropdown.classList.remove("open");
+
+                languageButton.classList.remove("open");
+
+                languageButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+}
         // Agar yopiq bo'lsa ochamiz
         if (!isOpen) {
 
@@ -812,23 +941,31 @@ function setLanguage(language) {
     ];
 
 
-    if (!allowedLanguages.includes(language)) {
+    // Noto'g'ri til bo'lsa UZ
+    if (
+        !allowedLanguages.includes(language)
+    ) {
 
         language = "uz";
 
     }
 
 
-    // Tanlangan tilni saqlash
+    // LocalStorage
     localStorage.setItem(
         "besha-language",
         language
     );
 
 
-    // Tugmadagi tilni o'zgartirish
+    // =====================================================
+    // TUGMADAGI TIL
+    // =====================================================
+
     const currentLanguage =
-        document.querySelector(".language-current");
+        document.getElementById(
+            "currentLanguage"
+        );
 
 
     if (currentLanguage) {
@@ -847,10 +984,37 @@ function setLanguage(language) {
         currentLanguage.textContent =
             labels[language];
 
+    }
 
-        currentLanguage.classList.remove("open");
 
-        currentLanguage.setAttribute(
+    // =====================================================
+    // DROPDOWNNI YOPISH
+    // =====================================================
+
+    const dropdown =
+        document.getElementById(
+            "languageDropdown"
+        );
+
+
+    const button =
+        document.getElementById(
+            "languageButton"
+        );
+
+
+    if (dropdown) {
+
+        dropdown.classList.remove("open");
+
+    }
+
+
+    if (button) {
+
+        button.classList.remove("open");
+
+        button.setAttribute(
             "aria-expanded",
             "false"
         );
@@ -858,37 +1022,18 @@ function setLanguage(language) {
     }
 
 
-    // Dropdownni majburan yopish
+    // =====================================================
+    // ACTIVE TIL
+    // =====================================================
+
     document
-        .querySelectorAll(".language-dropdown")
-        .forEach(function (dropdown) {
-
-            dropdown.classList.remove("open");
-
-        });
-
-
-    // Barcha language buttonlarni yopish
-    document
-        .querySelectorAll(".language-current")
-        .forEach(function (button) {
-
-            button.classList.remove("open");
-
-            button.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        });
-
-
-    // Active tilni belgilash
-    document
-        .querySelectorAll("[data-lang]")
+        .querySelectorAll(
+            ".language-option[data-lang]"
+        )
         .forEach(function (option) {
 
             option.classList.remove("active");
+
 
             if (
                 option.getAttribute("data-lang") ===
@@ -901,6 +1046,7 @@ function setLanguage(language) {
 
         });
 
+}
 
     console.log(
         "BESHA GROUP: tanlangan til ->",
@@ -1028,17 +1174,31 @@ function updatePageTitle(language) {
 
 function closeLanguageDropdown() {
 
-    document
-        .querySelectorAll(
-            ".language-dropdown.open"
-        )
-        .forEach(dropdown => {
+document
+    .querySelectorAll(
+        ".language-dropdown"
+    )
+    .forEach(function (dropdown) {
 
-            dropdown.classList.remove(
-                "open"
-            );
+        dropdown.classList.remove("open");
 
-        });
+    });
+
+
+document
+    .querySelectorAll(
+        ".language-current"
+    )
+    .forEach(function (button) {
+
+        button.classList.remove("open");
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    });
 
 
     const button =
