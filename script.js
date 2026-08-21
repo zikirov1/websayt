@@ -1,8 +1,8 @@
 /* ============================================================
    BESHA GROUP
    MAIN JAVASCRIPT
-   VERSION 3.0
-   UZ / EN / RU LANGUAGE SYSTEM
+   VERSION 4.0
+   UZ / EN / RU
 ============================================================ */
 
 
@@ -187,7 +187,6 @@ const translations = {
 
     en: {
 
-        /* HEADER */
         nav_about: "About us",
         nav_services: "Our activities",
         nav_approach: "Our approach",
@@ -197,7 +196,6 @@ const translations = {
         contact_button: "Contact",
         menu_label: "Menu",
 
-        /* HERO */
         hero_tag: "BESHA GROUP",
         hero_title: "Connecting people and opportunities.",
         hero_text:
@@ -205,7 +203,6 @@ const translations = {
         hero_about: "About us",
         hero_contact: "Contact us",
 
-        /* ABOUT */
         about_label: "WHO ARE WE?",
         about_title: "A reliable solution for companies.",
         about_text_1:
@@ -216,7 +213,6 @@ const translations = {
         about_goal_title:
             "To help companies effectively organize the workforce they need.",
 
-        /* PROBLEM */
         problem_label: "WHY DO COMPANIES CONTACT US?",
         problem_title:
             "A clear and practical approach to workforce needs.",
@@ -235,7 +231,6 @@ const translations = {
         problem_2_text:
             "Our goal is to help companies organize workforce search and recruitment processes in an orderly and efficient way.",
 
-        /* SERVICES */
         services_label: "OUR ACTIVITIES",
         services_title: "What do we do for companies?",
         services_text:
@@ -253,7 +248,6 @@ const translations = {
         service_3_text:
             "We maintain communication with the employer and help coordinate agreed requirements and processes.",
 
-        /* AUDIENCE */
         audience_label: "WHO DO WE WORK WITH?",
         audience_title: "Practical solutions for employers.",
         audience_text:
@@ -267,7 +261,6 @@ const translations = {
         audience_2_text:
             "Organizations that need additional workforce permanently or for a specific period.",
 
-        /* APPROACH */
         approach_label: "OUR APPROACH",
         approach_title:
             "An individual approach for every company.",
@@ -288,7 +281,6 @@ const translations = {
         process_4_text:
             "Throughout the cooperation, we stay in regular contact with the employer and coordinate necessary matters.",
 
-        /* VALUES */
         values_label: "OUR VALUES",
         values_title: "Partnership built on trust.",
 
@@ -308,7 +300,6 @@ const translations = {
         value_4_text:
             "We continuously improve our activities and strive to create more effective solutions for companies.",
 
-        /* TEAM */
         team_label: "MANAGEMENT",
         team_title: "Besha Group management.",
         team_text:
@@ -321,14 +312,12 @@ const translations = {
 
         person_more: "Details →",
 
-        /* FUTURE */
         future_label: "LOOKING AHEAD",
         future_title_1: "From trusted partnerships",
         future_title_2: "to sustainable results.",
         future_text:
             "Besha Group continues to develop more efficient, systematic and convenient workforce organization processes for companies.",
 
-        /* CONTACT */
         contact_label: "CONTACT US",
         contact_title: "Does your company need workforce?",
         contact_text:
@@ -338,7 +327,6 @@ const translations = {
         instagram_button: "Write via Instagram",
         phone_button: "Contact by phone",
 
-        /* MODAL */
         modal_close: "Close",
         modal_position: "Position",
 
@@ -350,7 +338,6 @@ const translations = {
         manager_modal_text:
             "Handles daily communication with partners, reviews requests and coordinates work processes.",
 
-        /* FOOTER */
         footer_text: "Connecting people and opportunities.",
         footer_up: "↑ Back to top",
         copyright: "© 2026 BESHA GROUP. All rights reserved."
@@ -360,7 +347,6 @@ const translations = {
 
     ru: {
 
-        /* HEADER */
         nav_about: "О нас",
         nav_services: "Деятельность",
         nav_approach: "Наш подход",
@@ -370,7 +356,6 @@ const translations = {
         contact_button: "Связаться",
         menu_label: "Меню",
 
-        /* HERO */
         hero_tag: "BESHA GROUP",
         hero_title: "Соединяем людей и возможности.",
         hero_text:
@@ -378,7 +363,6 @@ const translations = {
         hero_about: "О нас",
         hero_contact: "Связаться с нами",
 
-        /* ABOUT */
         about_label: "КТО МЫ?",
         about_title: "Надёжное решение для компаний.",
         about_text_1:
@@ -389,7 +373,6 @@ const translations = {
         about_goal_title:
             "Помогать компаниям эффективно организовывать необходимую рабочую силу.",
 
-        /* PROBLEM */
         problem_label: "ПОЧЕМУ К НАМ ОБРАЩАЮТСЯ?",
         problem_title:
             "Чёткий и практичный подход к вопросам рабочей силы.",
@@ -408,7 +391,6 @@ const translations = {
         problem_2_text:
             "Наша цель — помочь компании организовать поиск и найм работников максимально системно и эффективно.",
 
-        /* SERVICES */
         services_label: "НАША ДЕЯТЕЛЬНОСТЬ",
         services_title: "Что мы делаем для компаний?",
         services_text:
@@ -426,7 +408,6 @@ const translations = {
         service_3_text:
             "Мы поддерживаем постоянную связь с работодателем и помогаем координировать согласованные требования и процессы.",
 
-        /* AUDIENCE */
         audience_label: "С КЕМ МЫ РАБОТАЕМ?",
         audience_title: "Практические решения для работодателей.",
         audience_text:
@@ -440,7 +421,6 @@ const translations = {
         audience_2_text:
             "Организации, которым необходимы дополнительные сотрудники на постоянной основе или на определённый период.",
 
-        /* APPROACH */
         approach_label: "НАШ ПОДХОД",
         approach_title:
             "Индивидуальный подход к каждой компании.",
@@ -461,7 +441,6 @@ const translations = {
         process_4_text:
             "В процессе сотрудничества мы поддерживаем постоянную связь с работодателем и координируем необходимые вопросы.",
 
-        /* VALUES */
         values_label: "НАШИ ЦЕННОСТИ",
         values_title: "Сотрудничество, основанное на доверии.",
 
@@ -481,7 +460,6 @@ const translations = {
         value_4_text:
             "Мы постоянно совершенствуем свою деятельность и стремимся создавать более эффективные решения для компаний.",
 
-        /* TEAM */
         team_label: "РУКОВОДСТВО",
         team_title: "Руководство Besha Group.",
         team_text:
@@ -494,14 +472,12 @@ const translations = {
 
         person_more: "Подробнее →",
 
-        /* FUTURE */
         future_label: "ВЗГЛЯД В БУДУЩЕЕ",
         future_title_1: "От надёжного сотрудничества",
         future_title_2: "к устойчивым результатам.",
         future_text:
             "Besha Group продолжает развивать более эффективные, системные и удобные процессы организации рабочей силы для компаний.",
 
-        /* CONTACT */
         contact_label: "СВЯЖИТЕСЬ С НАМИ",
         contact_title: "Вашей компании нужна рабочая сила?",
         contact_text:
@@ -511,7 +487,6 @@ const translations = {
         instagram_button: "Написать в Instagram",
         phone_button: "Связаться по телефону",
 
-        /* MODAL */
         modal_close: "Закрыть",
         modal_position: "Должность",
 
@@ -523,7 +498,6 @@ const translations = {
         manager_modal_text:
             "Организует ежедневное взаимодействие с партнёрами, рассматривает обращения и координирует рабочие процессы.",
 
-        /* FOOTER */
         footer_text: "Соединяем людей и возможности.",
         footer_up: "↑ Наверх",
         copyright: "© 2026 BESHA GROUP. Все права защищены."
@@ -534,18 +508,52 @@ const translations = {
 
 
 /* ============================================================
-   CURRENT LANGUAGE
+   GLOBAL SETTINGS
 ============================================================ */
 
-let currentLang =
-    localStorage.getItem("besha-language") || "uz";
+const LANGUAGE_STORAGE_KEY = "besha-language";
 
+let currentLang =
+    localStorage.getItem(LANGUAGE_STORAGE_KEY) || "uz";
 
 if (!translations[currentLang]) {
-
     currentLang = "uz";
-
 }
+
+
+/*
+   Telegram username-ni shu yerga yozing.
+   Masalan:
+   const TELEGRAM_USERNAME = "besha_group";
+*/
+const TELEGRAM_USERNAME = "USERNAME";
+
+
+const TELEGRAM_MESSAGE =
+    "Assalomu alaykum. Siz bilan ishlamoqchimiz. Bizga telefon qiling.";
+
+
+/* ============================================================
+   PEOPLE
+============================================================ */
+
+const people = {
+
+    director: {
+        roleKey: "director_role",
+        nameKey: "director_name",
+        positionKey: "director_position",
+        textKey: "director_modal_text"
+    },
+
+    manager: {
+        roleKey: "manager_role",
+        nameKey: "manager_name",
+        positionKey: "manager_position",
+        textKey: "manager_modal_text"
+    }
+
+};
 
 
 /* ============================================================
@@ -553,6 +561,8 @@ if (!translations[currentLang]) {
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    prepareTranslations();
 
     initIntro();
 
@@ -580,199 +590,73 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initButtonEffect();
 
+    initSmoothAnchorScroll();
+
+    initEscapeKey();
+
+    initVisibility();
+
+    console.log(
+        "%cBESHA GROUP",
+        "font-size:24px;font-weight:800;"
+    );
+
+    console.log(
+        "%cLanguage system: UZ / EN / RU",
+        "font-size:14px;"
+    );
+
 });
 
 
 /* ============================================================
-   LANGUAGE SYSTEM
+   LANGUAGE MENU
 ============================================================ */
 
 function initLanguageMenu() {
 
-    const languageSwitcher =
+    const switcher =
         document.querySelector(".language-switcher");
 
-    if (!languageSwitcher) return;
+    if (!switcher) return;
 
 
-    const languageButton =
-        languageSwitcher.querySelector(".language-current");
+    const button =
+        switcher.querySelector(".language-current") ||
+        document.getElementById("languageButton");
 
     const dropdown =
-        languageSwitcher.querySelector(".language-dropdown");
-
-    const currentLanguage =
-        document.getElementById("currentLanguage");
+        switcher.querySelector(".language-dropdown") ||
+        document.getElementById("languageDropdown");
 
 
-    if (!languageButton || !dropdown) return;
+    if (!button || !dropdown) return;
 
 
-    // Boshlanishida menyu yopiq
-    dropdown.classList.remove("open");
-
-    languageButton.classList.remove("open");
-
-    languageButton.setAttribute(
-        "aria-expanded",
-        "false"
-    );
+    button.setAttribute("aria-expanded", "false");
 
 
-    // =====================================================
-    // TIL TUGMASI
-    // =====================================================
+    button.addEventListener("click", event => {
 
-    languageButton.addEventListener(
-        "click",
-        function (event) {
+        event.preventDefault();
 
-            event.preventDefault();
-            event.stopPropagation();
+        event.stopPropagation();
 
 
-            const isOpen =
-                dropdown.classList.contains("open");
+        const isOpen =
+            dropdown.classList.contains("open");
 
 
-            // Barcha til menyularini yopish
-            document
-                .querySelectorAll(".language-dropdown")
-                .forEach(function (item) {
-
-                    item.classList.remove("open");
-
-                });
+        closeAllLanguageDropdowns();
 
 
-            document
-                .querySelectorAll(".language-current")
-                .forEach(function (button) {
-
-                    button.classList.remove("open");
-
-                    button.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                });
-
-
-            // Agar oldin yopiq bo'lsa — ochamiz
-            if (!isOpen) {
-
-                dropdown.classList.add("open");
-
-                languageButton.classList.add("open");
-
-                languageButton.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-
-            }
-
-        }
-    );
-
-
-    // =====================================================
-    // TIL TANLASH
-    // =====================================================
-
-    const options =
-        dropdown.querySelectorAll(
-            ".language-option[data-lang]"
-        );
-
-
-    options.forEach(function (option) {
-
-        option.addEventListener(
-            "click",
-            function (event) {
-
-                event.preventDefault();
-                event.stopPropagation();
-
-
-                const language =
-                    option.getAttribute("data-lang");
-
-
-                // Tilni o'zgartirish
-                setLanguage(language);
-
-
-                // =================================================
-                // ENG MUHIM QISM
-                // TIL TANLANGANDAN KEYIN DARHOL YOPILADI
-                // =================================================
-
-                dropdown.classList.remove("open");
-
-                languageButton.classList.remove("open");
-
-                languageButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-
-                // Active til
-                options.forEach(function (item) {
-
-                    item.classList.remove("active");
-
-                });
-
-
-                option.classList.add("active");
-
-            }
-        );
-
-    });
-
-
-    // =====================================================
-    // TASHQARIGA BOSILGANDA
-    // =====================================================
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                !languageSwitcher.contains(
-                    event.target
-                )
-            ) {
-
-                dropdown.classList.remove("open");
-
-                languageButton.classList.remove("open");
-
-                languageButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        }
-    );
-
-}
-        // Agar yopiq bo'lsa ochamiz
         if (!isOpen) {
 
             dropdown.classList.add("open");
 
-            languageButton.classList.add("open");
+            button.classList.add("open");
 
-            languageButton.setAttribute(
+            button.setAttribute(
                 "aria-expanded",
                 "true"
             );
@@ -782,278 +666,89 @@ function initLanguageMenu() {
     });
 
 
-    // Til tanlash
-    const languageOptions =
-        dropdown.querySelectorAll("[data-lang]");
+    const options =
+        dropdown.querySelectorAll(
+            ".language-option[data-lang], [data-lang]"
+        );
 
 
-    languageOptions.forEach(function (option) {
+    options.forEach(option => {
 
-        option.addEventListener("click", function (event) {
+        option.addEventListener("click", event => {
 
             event.preventDefault();
+
             event.stopPropagation();
+
 
             const language =
                 option.getAttribute("data-lang");
 
 
+            if (!language) return;
+
+
             setLanguage(language);
-
-
-            // ENG MUHIM QISM:
-            // til tanlangandan keyin menyuni yopadi
-            dropdown.classList.remove("open");
-
-            languageButton.classList.remove("open");
-
-            languageButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        });
-
-    });
-
-
-    // Tashqariga bosilganda yopish
-    document.addEventListener("click", function (event) {
-
-        if (!languageSelector.contains(event.target)) {
-
-            dropdown.classList.remove("open");
-
-            languageButton.classList.remove("open");
-
-            languageButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
-
-    });
-
-}
-    languageButton.addEventListener(
-        "click",
-        (event) => {
-
-            event.stopPropagation();
-
-            const isOpen =
-                dropdown.classList.contains("open");
-
 
             closeAllLanguageDropdowns();
 
-
-            if (!isOpen) {
-
-                dropdown.classList.add("open");
-
-                languageButton.classList.add("open");
-
-                languageButton.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-
-            }
-
-        }
-    );
-
-
-const options = dropdown.querySelectorAll("[data-lang]");
-
-options.forEach(function (option) {
-
-    option.addEventListener("click", function (event) {
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        const language =
-            option.getAttribute("data-lang");
-
-        if (!language) return;
-
-        // Tilni saqlash
-        localStorage.setItem(
-            "besha-language",
-            language
-        );
-
-        // Tugmadagi tilni almashtirish
-        updateLanguageButton(language);
-
-        // Tanlangan tilni active qilish
-        options.forEach(function (item) {
-            item.classList.remove("active");
         });
-
-        option.classList.add("active");
-
-        // MENYUNI YOPISH
-        dropdown.classList.remove("open");
-
-        // TUGMANING OPEN HOLATINI HAM O'CHIRISH
-        languageButton.classList.remove("open");
-
-        languageButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
 
     });
 
-});
 
+    document.addEventListener("click", event => {
 
-    document.addEventListener(
-        "click",
-        (event) => {
+        if (!switcher.contains(event.target)) {
 
-            if (
-                !languageSelector.contains(
-                    event.target
-                )
-            ) {
-
-                closeLanguageDropdown();
-
-            }
+            closeAllLanguageDropdowns();
 
         }
-    );
+
+    });
 
 }
 
 
+/* ============================================================
+   SET LANGUAGE
+============================================================ */
+
 function setLanguage(language) {
 
-    const allowedLanguages = [
-        "uz",
-        "en",
-        "ru"
-    ];
-
-
-    // Noto'g'ri til bo'lsa UZ
-    if (
-        !allowedLanguages.includes(language)
-    ) {
+    if (!translations[language]) {
 
         language = "uz";
 
     }
 
 
-    // LocalStorage
+    currentLang = language;
+
+
     localStorage.setItem(
-        "besha-language",
-        language
+        LANGUAGE_STORAGE_KEY,
+        currentLang
     );
 
 
-    // =====================================================
-    // TUGMADAGI TIL
-    // =====================================================
-
-    const currentLanguage =
-        document.getElementById(
-            "currentLanguage"
-        );
+    applyLanguage(currentLang);
 
 
-    if (currentLanguage) {
+    closeAllLanguageDropdowns();
 
-        const labels = {
-
-            uz: "UZ",
-
-            en: "EN",
-
-            ru: "RU"
-
-        };
-
-
-        currentLanguage.textContent =
-            labels[language];
-
-    }
-
-
-    // =====================================================
-    // DROPDOWNNI YOPISH
-    // =====================================================
-
-    const dropdown =
-        document.getElementById(
-            "languageDropdown"
-        );
-
-
-    const button =
-        document.getElementById(
-            "languageButton"
-        );
-
-
-    if (dropdown) {
-
-        dropdown.classList.remove("open");
-
-    }
-
-
-    if (button) {
-
-        button.classList.remove("open");
-
-        button.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-
-    // =====================================================
-    // ACTIVE TIL
-    // =====================================================
-
-    document
-        .querySelectorAll(
-            ".language-option[data-lang]"
-        )
-        .forEach(function (option) {
-
-            option.classList.remove("active");
-
-
-            if (
-                option.getAttribute("data-lang") ===
-                language
-            ) {
-
-                option.classList.add("active");
-
-            }
-
-        });
-
-}
 
     console.log(
         "BESHA GROUP: tanlangan til ->",
-        language
+        currentLang
     );
 
 }
+
+
+/* ============================================================
+   APPLY LANGUAGE
+============================================================ */
 
 function applyLanguage(language) {
 
@@ -1066,16 +761,12 @@ function applyLanguage(language) {
         language;
 
 
-    /* ========================================================
-       ELEMENTS BY DATA-I18N
-    ======================================================== */
-
     document
         .querySelectorAll("[data-i18n]")
         .forEach(element => {
 
             const key =
-                element.dataset.i18n;
+                element.getAttribute("data-i18n");
 
 
             if (
@@ -1099,56 +790,119 @@ function applyLanguage(language) {
 
     updatePageTitle(language);
 
+    updateMenuLabel(language);
+
     updateModalLanguage(language);
 
 }
 
 
+/* ============================================================
+   LANGUAGE BUTTON
+============================================================ */
+
 function updateLanguageButton(language) {
 
-    const currentLanguage =
-        document.getElementById(
-            "currentLanguage"
-        );
+    const element =
+        document.getElementById("currentLanguage");
 
 
-    if (!currentLanguage) return;
+    if (!element) return;
 
 
     const labels = {
 
         uz: "UZ",
-
         en: "EN",
-
         ru: "RU"
 
     };
 
 
-    currentLanguage.textContent =
+    element.textContent =
         labels[language] || "UZ";
 
 }
 
 
+/* ============================================================
+   LANGUAGE OPTIONS
+============================================================ */
+
 function updateLanguageOptions(language) {
 
     document
         .querySelectorAll(
-            ".language-option[data-lang]"
+            ".language-option[data-lang], [data-lang]"
         )
         .forEach(option => {
 
             option.classList.toggle(
                 "active",
-                option.dataset.lang === language
+                option.getAttribute("data-lang") === language
             );
 
         });
 
 }
 
+
+/* ============================================================
+   CLOSE LANGUAGE DROPDOWN
+============================================================ */
+
+function closeAllLanguageDropdowns() {
+
+    document
+        .querySelectorAll(".language-dropdown")
+        .forEach(dropdown => {
+
+            dropdown.classList.remove("open");
+
+        });
+
+
+    document
+        .querySelectorAll(".language-current")
+        .forEach(button => {
+
+            button.classList.remove("open");
+
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
+
+
+    const button =
+        document.getElementById("languageButton");
+
+    if (button) {
+
+        button.classList.remove("open");
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+}
+
+
+function closeLanguageDropdown() {
+
+    closeAllLanguageDropdowns();
+
+}
+
+
+/* ============================================================
+   PAGE TITLE
+============================================================ */
 
 function updatePageTitle(language) {
 
@@ -1172,258 +926,230 @@ function updatePageTitle(language) {
 }
 
 
-function closeLanguageDropdown() {
+/* ============================================================
+   MOBILE MENU LABEL
+============================================================ */
 
-document
-    .querySelectorAll(
-        ".language-dropdown"
-    )
-    .forEach(function (dropdown) {
+function updateMenuLabel(language) {
 
-        dropdown.classList.remove("open");
-
-    });
+    const menuButton =
+        document.querySelector(".menu-btn");
 
 
-document
-    .querySelectorAll(
-        ".language-current"
-    )
-    .forEach(function (button) {
-
-        button.classList.remove("open");
-
-        button.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    });
+    if (!menuButton) return;
 
 
-    const button =
-        document.getElementById(
-            "languageButton"
-        );
-
-
-    if (button) {
-
-        button.classList.remove(
-            "open"
-        );
-
-        button.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-}
-
-
-function closeAllLanguageDropdowns() {
-
-    closeLanguageDropdown();
+    menuButton.setAttribute(
+        "aria-label",
+        translations[language].menu_label
+    );
 
 }
 
 
 /* ============================================================
-   APPLY TRANSLATIONS TO CURRENT HTML
+   MODAL LANGUAGE
+============================================================ */
+
+function updateModalLanguage(language) {
+
+    const lang =
+        translations[language] || translations.uz;
+
+
+    const close =
+        document.getElementById("personModalClose");
+
+
+    const position =
+        document.getElementById("personModalPositionLabel");
+
+
+    if (close) {
+
+        close.textContent =
+            lang.modal_close;
+
+    }
+
+
+    if (position) {
+
+        position.textContent =
+            lang.modal_position;
+
+    }
+
+}
+
+
+/* ============================================================
+   PREPARE TRANSLATIONS
 ============================================================ */
 
 function prepareTranslations() {
 
     /*
-        HEADER
+       HEADER
     */
 
     const menuLinks =
-        document.querySelectorAll(
-            ".menu a"
-        );
+        document.querySelectorAll(".menu a");
 
 
-    if (menuLinks.length >= 6) {
+    const menuKeys = [
 
-        menuLinks[0].dataset.i18n =
-            "nav_about";
+        "nav_about",
+        "nav_services",
+        "nav_approach",
+        "nav_values",
+        "nav_team",
+        "nav_contact"
 
-        menuLinks[1].dataset.i18n =
-            "nav_services";
+    ];
 
-        menuLinks[2].dataset.i18n =
-            "nav_approach";
 
-        menuLinks[3].dataset.i18n =
-            "nav_values";
+    menuLinks.forEach((link, index) => {
 
-        menuLinks[4].dataset.i18n =
-            "nav_team";
+        if (menuKeys[index]) {
 
-        menuLinks[5].dataset.i18n =
-            "nav_contact";
+            link.setAttribute(
+                "data-i18n",
+                menuKeys[index]
+            );
 
-    }
+        }
+
+    });
 
 
     const navButton =
-        document.querySelector(
-            ".nav-btn"
-        );
+        document.querySelector(".nav-btn");
+
 
     if (navButton) {
 
-        navButton.dataset.i18n =
-            "contact_button";
-
-    }
-
-
-    const menuButton =
-        document.querySelector(
-            ".menu-btn"
-        );
-
-    if (menuButton) {
-
-        menuButton.setAttribute(
-            "aria-label",
-            translations[currentLang].menu_label
+        navButton.setAttribute(
+            "data-i18n",
+            "contact_button"
         );
 
     }
 
 
-    /* ========================================================
+    /*
        HERO
-    ======================================================== */
+    */
 
-    const heroTag =
-        document.querySelector(
-            ".hero-tag"
-        );
-
-    if (heroTag)
-        heroTag.dataset.i18n =
-            "hero_tag";
+    const hero =
+        document.querySelector(".hero");
 
 
-    const heroTitle =
-        document.querySelector(
-            ".hero h1"
-        );
+    if (hero) {
 
-    if (heroTitle) {
+        const tag =
+            hero.querySelector(".hero-tag");
 
-        heroTitle.dataset.i18n =
-            "hero_title";
+        const title =
+            hero.querySelector("h1");
+
+        const text =
+            hero.querySelector("p");
+
+        const buttons =
+            hero.querySelectorAll(
+                ".hero-actions a"
+            );
+
+
+        setI18n(tag, "hero_tag");
+
+        setI18n(title, "hero_title");
+
+        setI18n(text, "hero_text");
+
+
+        if (buttons[0]) {
+
+            setI18n(
+                buttons[0],
+                "hero_about"
+            );
+
+        }
+
+
+        if (buttons[1]) {
+
+            setI18n(
+                buttons[1],
+                "hero_contact"
+            );
+
+        }
 
     }
 
 
-    const heroText =
-        document.querySelector(
-            ".hero p"
-        );
-
-    if (heroText)
-        heroText.dataset.i18n =
-            "hero_text";
-
-
-    const heroButtons =
-        document.querySelectorAll(
-            ".hero-actions a"
-        );
-
-
-    if (heroButtons.length >= 2) {
-
-        heroButtons[0].dataset.i18n =
-            "hero_about";
-
-        heroButtons[1].dataset.i18n =
-            "hero_contact";
-
-    }
-
-
-    /* ========================================================
+    /*
        ABOUT
-    ======================================================== */
+    */
 
     const about =
-        document.getElementById(
-            "about"
-        );
+        document.getElementById("about");
 
 
     if (about) {
 
-        const label =
-            about.querySelector(
-                ".section-label"
-            );
+        setI18n(
+            about.querySelector(".section-label"),
+            "about_label"
+        );
 
-        const h2 =
-            about.querySelector(
-                ".reveal h2"
-            );
+        setI18n(
+            about.querySelector(".reveal h2"),
+            "about_title"
+        );
+
 
         const paragraphs =
             about.querySelectorAll(
                 ".reveal > p"
             );
 
-        const goal =
+
+        setI18n(
+            paragraphs[0],
+            "about_text_1"
+        );
+
+        setI18n(
+            paragraphs[1],
+            "about_text_2"
+        );
+
+
+        setI18n(
             about.querySelector(
                 ".about-highlight > span"
-            );
+            ),
+            "about_goal"
+        );
 
-        const goalTitle =
+
+        setI18n(
             about.querySelector(
                 ".about-highlight h3"
-            );
-
-
-        if (label)
-            label.dataset.i18n =
-                "about_label";
-
-
-        if (h2)
-            h2.dataset.i18n =
-                "about_title";
-
-
-        if (paragraphs[0])
-            paragraphs[0].dataset.i18n =
-                "about_text_1";
-
-
-        if (paragraphs[1])
-            paragraphs[1].dataset.i18n =
-                "about_text_2";
-
-
-        if (goal)
-            goal.dataset.i18n =
-                "about_goal";
-
-
-        if (goalTitle)
-            goalTitle.dataset.i18n =
-                "about_goal_title";
+            ),
+            "about_goal_title"
+        );
 
     }
 
 
-    /* ========================================================
+    /*
        PROBLEM
-    ======================================================== */
+    */
 
     const problem =
         document.querySelector(
@@ -1433,35 +1159,20 @@ function prepareTranslations() {
 
     if (problem) {
 
-        const label =
-            problem.querySelector(
-                ".section-label"
-            );
+        setI18n(
+            problem.querySelector(".section-label"),
+            "problem_label"
+        );
 
-        const h2 =
-            problem.querySelector(
-                ".section-heading h2"
-            );
+        setI18n(
+            problem.querySelector(".section-heading h2"),
+            "problem_title"
+        );
 
-        const intro =
-            problem.querySelector(
-                ".section-heading p"
-            );
-
-
-        if (label)
-            label.dataset.i18n =
-                "problem_label";
-
-
-        if (h2)
-            h2.dataset.i18n =
-                "problem_title";
-
-
-        if (intro)
-            intro.dataset.i18n =
-                "problem_text";
+        setI18n(
+            problem.querySelector(".section-heading p"),
+            "problem_text"
+        );
 
 
         const cards =
@@ -1470,86 +1181,59 @@ function prepareTranslations() {
             );
 
 
-        if (cards.length >= 3) {
+        const cardKeys = [
 
-            cards[0]
-                .querySelector("h3")
-                .dataset.i18n =
-                "problem_1_title";
+            ["problem_1_title", "problem_1_text"],
+            ["solution_title", "solution_text"],
+            ["problem_2_title", "problem_2_text"]
 
-            cards[0]
-                .querySelector("p")
-                .dataset.i18n =
-                "problem_1_text";
+        ];
 
 
-            cards[1]
-                .querySelector("h3")
-                .dataset.i18n =
-                "solution_title";
+        cards.forEach((card, index) => {
 
-            cards[1]
-                .querySelector("p")
-                .dataset.i18n =
-                "solution_text";
+            if (!cardKeys[index]) return;
 
 
-            cards[2]
-                .querySelector("h3")
-                .dataset.i18n =
-                "problem_2_title";
+            setI18n(
+                card.querySelector("h3"),
+                cardKeys[index][0]
+            );
 
-            cards[2]
-                .querySelector("p")
-                .dataset.i18n =
-                "problem_2_text";
+            setI18n(
+                card.querySelector("p"),
+                cardKeys[index][1]
+            );
 
-        }
+        });
 
     }
 
 
-    /* ========================================================
+    /*
        SERVICES
-    ======================================================== */
+    */
 
     const services =
-        document.getElementById(
-            "services"
-        );
+        document.getElementById("services");
 
 
     if (services) {
 
-        const label =
-            services.querySelector(
-                ".section-label"
-            );
+        setI18n(
+            services.querySelector(".section-label"),
+            "services_label"
+        );
 
-        const h2 =
-            services.querySelector(
-                ".section-heading h2"
-            );
+        setI18n(
+            services.querySelector(".section-heading h2"),
+            "services_title"
+        );
 
-        const intro =
-            services.querySelector(
-                ".section-heading p"
-            );
-
-
-        if (label)
-            label.dataset.i18n =
-                "services_label";
-
-
-        if (h2)
-            h2.dataset.i18n =
-                "services_title";
-
-
-        if (intro)
-            intro.dataset.i18n =
-                "services_text";
+        setI18n(
+            services.querySelector(".section-heading p"),
+            "services_text"
+        );
 
 
         const cards =
@@ -1558,99 +1242,59 @@ function prepareTranslations() {
             );
 
 
+        const keys = [
+
+            ["service_1_title", "service_1_text"],
+            ["service_2_title", "service_2_text"],
+            ["service_3_title", "service_3_text"]
+
+        ];
+
+
         cards.forEach((card, index) => {
 
-            const h3 =
-                card.querySelector("h3");
-
-            const p =
-                card.querySelector("p");
+            if (!keys[index]) return;
 
 
-            if (index === 0) {
+            setI18n(
+                card.querySelector("h3"),
+                keys[index][0]
+            );
 
-                if (h3)
-                    h3.dataset.i18n =
-                        "service_1_title";
-
-                if (p)
-                    p.dataset.i18n =
-                        "service_1_text";
-
-            }
-
-
-            if (index === 1) {
-
-                if (h3)
-                    h3.dataset.i18n =
-                        "service_2_title";
-
-                if (p)
-                    p.dataset.i18n =
-                        "service_2_text";
-
-            }
-
-
-            if (index === 2) {
-
-                if (h3)
-                    h3.dataset.i18n =
-                        "service_3_title";
-
-                if (p)
-                    p.dataset.i18n =
-                        "service_3_text";
-
-            }
+            setI18n(
+                card.querySelector("p"),
+                keys[index][1]
+            );
 
         });
 
     }
 
 
-    /* ========================================================
+    /*
        AUDIENCE
-    ======================================================== */
+    */
 
     const audience =
-        document.querySelector(
-            ".audience"
-        );
+        document.querySelector(".audience");
 
 
     if (audience) {
 
-        const label =
-            audience.querySelector(
-                ".section-label"
-            );
+        setI18n(
+            audience.querySelector(".section-label"),
+            "audience_label"
+        );
 
-        const h2 =
-            audience.querySelector(
-                ".section-heading h2"
-            );
+        setI18n(
+            audience.querySelector(".section-heading h2"),
+            "audience_title"
+        );
 
-        const intro =
-            audience.querySelector(
-                ".section-heading p"
-            );
-
-
-        if (label)
-            label.dataset.i18n =
-                "audience_label";
-
-
-        if (h2)
-            h2.dataset.i18n =
-                "audience_title";
-
-
-        if (intro)
-            intro.dataset.i18n =
-                "audience_text";
+        setI18n(
+            audience.querySelector(".section-heading p"),
+            "audience_text"
+        );
 
 
         const cards =
@@ -1659,69 +1303,53 @@ function prepareTranslations() {
             );
 
 
-        if (cards[0]) {
+        const keys = [
 
-            cards[0]
-                .querySelector("h3")
-                .dataset.i18n =
-                "audience_1_title";
+            ["audience_1_title", "audience_1_text"],
+            ["audience_2_title", "audience_2_text"]
 
-            cards[0]
-                .querySelector("p")
-                .dataset.i18n =
-                "audience_1_text";
-
-        }
+        ];
 
 
-        if (cards[1]) {
+        cards.forEach((card, index) => {
 
-            cards[1]
-                .querySelector("h3")
-                .dataset.i18n =
-                "audience_2_title";
+            if (!keys[index]) return;
 
-            cards[1]
-                .querySelector("p")
-                .dataset.i18n =
-                "audience_2_text";
 
-        }
+            setI18n(
+                card.querySelector("h3"),
+                keys[index][0]
+            );
+
+            setI18n(
+                card.querySelector("p"),
+                keys[index][1]
+            );
+
+        });
 
     }
 
 
-    /* ========================================================
+    /*
        APPROACH
-    ======================================================== */
+    */
 
     const approach =
-        document.getElementById(
-            "approach"
-        );
+        document.getElementById("approach");
 
 
     if (approach) {
 
-        const label =
-            approach.querySelector(
-                ".section-label"
-            );
+        setI18n(
+            approach.querySelector(".section-label"),
+            "approach_label"
+        );
 
-        const h2 =
-            approach.querySelector(
-                ".section-heading h2"
-            );
-
-
-        if (label)
-            label.dataset.i18n =
-                "approach_label";
-
-
-        if (h2)
-            h2.dataset.i18n =
-                "approach_title";
+        setI18n(
+            approach.querySelector(".section-heading h2"),
+            "approach_title"
+        );
 
 
         const items =
@@ -1730,340 +1358,228 @@ function prepareTranslations() {
             );
 
 
+        const keys = [
+
+            ["process_1_title", "process_1_text"],
+            ["process_2_title", "process_2_text"],
+            ["process_3_title", "process_3_text"],
+            ["process_4_title", "process_4_text"]
+
+        ];
+
+
         items.forEach((item, index) => {
 
-            const h3 =
-                item.querySelector("h3");
-
-            const p =
-                item.querySelector("p");
+            if (!keys[index]) return;
 
 
-            if (index === 0) {
+            setI18n(
+                item.querySelector("h3"),
+                keys[index][0]
+            );
 
-                h3.dataset.i18n =
-                    "process_1_title";
-
-                p.dataset.i18n =
-                    "process_1_text";
-
-            }
-
-            if (index === 1) {
-
-                h3.dataset.i18n =
-                    "process_2_title";
-
-                p.dataset.i18n =
-                    "process_2_text";
-
-            }
-
-            if (index === 2) {
-
-                h3.dataset.i18n =
-                    "process_3_title";
-
-                p.dataset.i18n =
-                    "process_3_text";
-
-            }
-
-            if (index === 3) {
-
-                h3.dataset.i18n =
-                    "process_4_title";
-
-                p.dataset.i18n =
-                    "process_4_text";
-
-            }
+            setI18n(
+                item.querySelector("p"),
+                keys[index][1]
+            );
 
         });
 
     }
 
 
-    /* ========================================================
+    /*
        VALUES
-    ======================================================== */
+    */
 
     const values =
-        document.getElementById(
-            "values"
-        );
+        document.getElementById("values");
 
 
     if (values) {
 
-        const label =
-            values.querySelector(
-                ".section-label"
-            );
+        setI18n(
+            values.querySelector(".section-label"),
+            "values_label"
+        );
 
-        const h2 =
-            values.querySelector(
-                ".section-heading h2"
-            );
-
-
-        if (label)
-            label.dataset.i18n =
-                "values_label";
-
-
-        if (h2)
-            h2.dataset.i18n =
-                "values_title";
+        setI18n(
+            values.querySelector(".section-heading h2"),
+            "values_title"
+        );
 
 
         const cards =
-            values.querySelectorAll(
-                ".value"
-            );
+            values.querySelectorAll(".value");
+
+
+        const keys = [
+
+            ["value_1_title", "value_1_text"],
+            ["value_2_title", "value_2_text"],
+            ["value_3_title", "value_3_text"],
+            ["value_4_title", "value_4_text"]
+
+        ];
 
 
         cards.forEach((card, index) => {
 
-            const h3 =
-                card.querySelector("h3");
-
-            const p =
-                card.querySelector("p");
+            if (!keys[index]) return;
 
 
-            if (index === 0) {
+            setI18n(
+                card.querySelector("h3"),
+                keys[index][0]
+            );
 
-                h3.dataset.i18n =
-                    "value_1_title";
-
-                p.dataset.i18n =
-                    "value_1_text";
-
-            }
-
-            if (index === 1) {
-
-                h3.dataset.i18n =
-                    "value_2_title";
-
-                p.dataset.i18n =
-                    "value_2_text";
-
-            }
-
-            if (index === 2) {
-
-                h3.dataset.i18n =
-                    "value_3_title";
-
-                p.dataset.i18n =
-                    "value_3_text";
-
-            }
-
-            if (index === 3) {
-
-                h3.dataset.i18n =
-                    "value_4_title";
-
-                p.dataset.i18n =
-                    "value_4_text";
-
-            }
+            setI18n(
+                card.querySelector("p"),
+                keys[index][1]
+            );
 
         });
 
     }
 
 
-    /* ========================================================
+    /*
        TEAM
-    ======================================================== */
+    */
 
     const team =
-        document.getElementById(
-            "team"
-        );
+        document.getElementById("team");
 
 
     if (team) {
 
-        const label =
-            team.querySelector(
-                ".section-label"
+        setI18n(
+            team.querySelector(".section-label"),
+            "team_label"
+        );
+
+        setI18n(
+            team.querySelector(".section-heading h2"),
+            "team_title"
+        );
+
+        setI18n(
+            team.querySelector(".section-heading p"),
+            "team_text"
+        );
+
+
+        const cards =
+            team.querySelectorAll(".person-card");
+
+
+        const peopleKeys = [
+
+            [
+                "director_role",
+                "director_name",
+                "person_more"
+            ],
+
+            [
+                "manager_role",
+                "manager_name",
+                "person_more"
+            ]
+
+        ];
+
+
+        cards.forEach((card, index) => {
+
+            if (!peopleKeys[index]) return;
+
+
+            setI18n(
+                card.querySelector(".person-role"),
+                peopleKeys[index][0]
             );
 
-        const h2 =
-            team.querySelector(
-                ".section-heading h2"
+            setI18n(
+                card.querySelector("h3"),
+                peopleKeys[index][1]
             );
 
-        const intro =
-            team.querySelector(
-                ".section-heading p"
+            setI18n(
+                card.querySelector(".person-more"),
+                peopleKeys[index][2]
             );
 
-
-        if (label)
-            label.dataset.i18n =
-                "team_label";
-
-
-        if (h2)
-            h2.dataset.i18n =
-                "team_title";
-
-
-        if (intro)
-            intro.dataset.i18n =
-                "team_text";
-
-
-        const peopleCards =
-            team.querySelectorAll(
-                ".person-card"
-            );
-
-
-        if (peopleCards[0]) {
-
-            peopleCards[0]
-                .querySelector(".person-role")
-                .dataset.i18n =
-                "director_role";
-
-            peopleCards[0]
-                .querySelector("h3")
-                .dataset.i18n =
-                "director_name";
-
-            peopleCards[0]
-                .querySelector(".person-more")
-                .dataset.i18n =
-                "person_more";
-
-        }
-
-
-        if (peopleCards[1]) {
-
-            peopleCards[1]
-                .querySelector(".person-role")
-                .dataset.i18n =
-                "manager_role";
-
-            peopleCards[1]
-                .querySelector("h3")
-                .dataset.i18n =
-                "manager_name";
-
-            peopleCards[1]
-                .querySelector(".person-more")
-                .dataset.i18n =
-                "person_more";
-
-        }
+        });
 
     }
 
 
-    /* ========================================================
+    /*
        FUTURE
-    ======================================================== */
+    */
 
     const future =
-        document.querySelector(
-            ".future"
-        );
+        document.querySelector(".future");
 
 
     if (future) {
 
-        const label =
+        setI18n(
             future.querySelector(
                 ".future-content > span"
-            );
+            ),
+            "future_label"
+        );
+
 
         const title =
-            future.querySelector(
-                ".future h2"
-            );
-
-        const paragraph =
-            future.querySelector(
-                ".future p"
-            );
-
-
-        if (label)
-            label.dataset.i18n =
-                "future_label";
+            future.querySelector("h2");
 
 
         if (title) {
 
             title.innerHTML = `
-                <span data-i18n="future_title_1">
-                    ${translations.uz.future_title_1}
-                </span>
+                <span data-i18n="future_title_1"></span>
                 <br>
-                <strong data-i18n="future_title_2">
-                    ${translations.uz.future_title_2}
-                </strong>
+                <strong data-i18n="future_title_2"></strong>
             `;
 
         }
 
 
-        if (paragraph)
-            paragraph.dataset.i18n =
-                "future_text";
+        setI18n(
+            future.querySelector("p"),
+            "future_text"
+        );
 
     }
 
 
-    /* ========================================================
+    /*
        CONTACT
-    ======================================================== */
+    */
 
     const contact =
-        document.getElementById(
-            "contact"
-        );
+        document.getElementById("contact");
 
 
     if (contact) {
 
-        const label =
-            contact.querySelector(
-                ".section-label"
-            );
+        setI18n(
+            contact.querySelector(".section-label"),
+            "contact_label"
+        );
 
-        const h2 =
-            contact.querySelector(
-                ".contact-box h2"
-            );
+        setI18n(
+            contact.querySelector(".contact-box h2"),
+            "contact_title"
+        );
 
-        const p =
-            contact.querySelector(
-                ".contact-box p"
-            );
-
-
-        if (label)
-            label.dataset.i18n =
-                "contact_label";
-
-
-        if (h2)
-            h2.dataset.i18n =
-                "contact_title";
-
-
-        if (p)
-            p.dataset.i18n =
-                "contact_text";
+        setI18n(
+            contact.querySelector(".contact-box p"),
+            "contact_text"
+        );
 
 
         const buttons =
@@ -2072,85 +1588,90 @@ function prepareTranslations() {
             );
 
 
-        if (buttons[0])
-            buttons[0].dataset.i18n =
-                "telegram_button";
+        setI18n(
+            buttons[0],
+            "telegram_button"
+        );
 
+        setI18n(
+            buttons[1],
+            "instagram_button"
+        );
 
-        if (buttons[1])
-            buttons[1].dataset.i18n =
-                "instagram_button";
-
-
-        if (buttons[2])
-            buttons[2].dataset.i18n =
-                "phone_button";
+        setI18n(
+            buttons[2],
+            "phone_button"
+        );
 
     }
 
 
-    /* ========================================================
+    /*
        FOOTER
-    ======================================================== */
+    */
 
     const footer =
-        document.querySelector(
-            "footer"
-        );
+        document.querySelector("footer");
 
 
     if (footer) {
 
-        const footerParagraph =
-            footer.querySelector(
-                ".footer p"
-            );
+        setI18n(
+            footer.querySelector(".footer p"),
+            "footer_text"
+        );
 
-        const footerLinks =
+
+        const links =
             footer.querySelectorAll(
                 ".footer-links a"
             );
 
-        const footerTop =
-            footer.querySelector(
-                ".footer > a"
-            );
 
-        const copyright =
-            footer.querySelector(
-                ".copyright"
-            );
+        setI18n(
+            links[0],
+            "nav_about"
+        );
 
+        setI18n(
+            links[1],
+            "nav_services"
+        );
 
-        if (footerParagraph)
-            footerParagraph.dataset.i18n =
-                "footer_text";
-
-
-        if (footerLinks.length >= 3) {
-
-            footerLinks[0].dataset.i18n =
-                "nav_about";
-
-            footerLinks[1].dataset.i18n =
-                "nav_services";
-
-            footerLinks[2].dataset.i18n =
-                "nav_contact";
-
-        }
+        setI18n(
+            links[2],
+            "nav_contact"
+        );
 
 
-        if (footerTop)
-            footerTop.dataset.i18n =
-                "footer_up";
+        setI18n(
+            footer.querySelector(".footer > a"),
+            "footer_up"
+        );
 
 
-        if (copyright)
-            copyright.dataset.i18n =
-                "copyright";
+        setI18n(
+            footer.querySelector(".copyright"),
+            "copyright"
+        );
 
     }
+
+}
+
+
+/* ============================================================
+   HELPER
+============================================================ */
+
+function setI18n(element, key) {
+
+    if (!element) return;
+
+    element.setAttribute(
+        "data-i18n",
+        key
+    );
 
 }
 
@@ -2197,15 +1718,13 @@ function initIntro() {
 function initHeader() {
 
     const header =
-        document.querySelector(
-            ".header"
-        );
+        document.querySelector(".header");
 
 
     if (!header) return;
 
 
-    function updateHeader() {
+    const updateHeader = () => {
 
         if (window.scrollY > 30) {
 
@@ -2221,7 +1740,7 @@ function initHeader() {
 
         }
 
-    }
+    };
 
 
     updateHeader();
@@ -2243,63 +1762,55 @@ function initHeader() {
 function initMobileMenu() {
 
     const menu =
-        document.getElementById(
-            "menu"
-        );
+        document.getElementById("menu");
+
 
     const menuButton =
-        document.querySelector(
-            ".menu-btn"
-        );
+        document.querySelector(".menu-btn");
 
 
     if (!menu || !menuButton) return;
 
 
-    function openMenu() {
+    const openMenu = () => {
 
-        menu.classList.add(
-            "open"
-        );
+        menu.classList.add("open");
 
         menuButton.setAttribute(
             "aria-expanded",
             "true"
         );
 
-        menuButton.innerHTML =
-            "×";
+        menuButton.innerHTML = "×";
 
-    }
+    };
 
 
-    function closeMenu() {
+    const closeMenu = () => {
 
-        menu.classList.remove(
-            "open"
-        );
+        menu.classList.remove("open");
 
         menuButton.setAttribute(
             "aria-expanded",
             "false"
         );
 
-        menuButton.innerHTML =
-            "☰";
+        menuButton.innerHTML = "☰";
 
-    }
+    };
 
 
     menuButton.addEventListener(
         "click",
-        (event) => {
+        event => {
+
+            event.preventDefault();
 
             event.stopPropagation();
 
+
             if (
-                menu.classList.contains(
-                    "open"
-                )
+                menu.classList.contains("open")
             ) {
 
                 closeMenu();
@@ -2327,12 +1838,10 @@ function initMobileMenu() {
 
     document.addEventListener(
         "click",
-        (event) => {
+        event => {
 
             if (
-                !menu.classList.contains(
-                    "open"
-                )
+                !menu.classList.contains("open")
             ) {
 
                 return;
@@ -2357,9 +1866,7 @@ function initMobileMenu() {
         "resize",
         () => {
 
-            if (
-                window.innerWidth > 900
-            ) {
+            if (window.innerWidth > 900) {
 
                 closeMenu();
 
@@ -2372,15 +1879,13 @@ function initMobileMenu() {
 
 
 /* ============================================================
-   REVEAL ANIMATION
+   REVEAL ANIMATIONS
 ============================================================ */
 
 function initRevealAnimations() {
 
     const elements =
-        document.querySelectorAll(
-            ".reveal"
-        );
+        document.querySelectorAll(".reveal");
 
 
     if (!elements.length) return;
@@ -2390,15 +1895,11 @@ function initRevealAnimations() {
         !("IntersectionObserver" in window)
     ) {
 
-        elements.forEach(
-            element => {
+        elements.forEach(element => {
 
-                element.classList.add(
-                    "visible"
-                );
+            element.classList.add("visible");
 
-            }
-        );
+        });
 
         return;
 
@@ -2409,25 +1910,23 @@ function initRevealAnimations() {
         new IntersectionObserver(
             (entries, obs) => {
 
-                entries.forEach(
-                    entry => {
+                entries.forEach(entry => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
+                        entry.target.classList.add(
+                            "visible"
+                        );
 
-                            obs.unobserve(
-                                entry.target
-                            );
-
-                        }
+                        obs.unobserve(
+                            entry.target
+                        );
 
                     }
-                );
+
+                });
 
             },
             {
@@ -2438,15 +1937,11 @@ function initRevealAnimations() {
         );
 
 
-    elements.forEach(
-        element => {
+    elements.forEach(element => {
 
-            observer.observe(
-                element
-            );
+        observer.observe(element);
 
-        }
-    );
+    });
 
 }
 
@@ -2483,48 +1978,42 @@ function initActiveNavigation() {
         new IntersectionObserver(
             entries => {
 
-                entries.forEach(
-                    entry => {
+                entries.forEach(entry => {
+
+                    if (
+                        !entry.isIntersecting
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const id =
+                        entry.target.id;
+
+
+                    links.forEach(link => {
+
+                        link.classList.remove(
+                            "active"
+                        );
+
 
                         if (
-                            !entry.isIntersecting
+                            link.getAttribute("href") ===
+                            `#${id}`
                         ) {
 
-                            return;
+                            link.classList.add(
+                                "active"
+                            );
 
                         }
 
+                    });
 
-                        const id =
-                            entry.target.id;
-
-
-                        links.forEach(
-                            link => {
-
-                                link.classList.remove(
-                                    "active"
-                                );
-
-
-                                if (
-                                    link.getAttribute(
-                                        "href"
-                                    ) ===
-                                    `#${id}`
-                                ) {
-
-                                    link.classList.add(
-                                        "active"
-                                    );
-
-                                }
-
-                            }
-                        );
-
-                    }
-                );
+                });
 
             },
             {
@@ -2535,52 +2024,13 @@ function initActiveNavigation() {
         );
 
 
-    sections.forEach(
-        section => {
+    sections.forEach(section => {
 
-            observer.observe(
-                section
-            );
+        observer.observe(section);
 
-        }
-    );
+    });
 
 }
-
-
-/* ============================================================
-   PERSON DATA
-============================================================ */
-
-const people = {
-
-    director: {
-
-        role: "DIREKTOR",
-
-        name: "Ism Familiya",
-
-        position: "Direktor",
-
-        text:
-            "Besha Group faoliyatining strategik yo‘nalishlarini belgilaydi, kompaniyaning rivojlanishi va hamkorlar bilan munosabatlarini boshqaradi."
-
-    },
-
-    manager: {
-
-        role: "MENEJER",
-
-        name: "Ism Familiya",
-
-        position: "Menejer",
-
-        text:
-            "Hamkorlar bilan kundalik muloqotni tashkil etish, murojaatlarni ko‘rib chiqish va ish jarayonlarini muvofiqlashtirish bilan shug‘ullanadi."
-
-    }
-
-};
 
 
 /* ============================================================
@@ -2616,6 +2066,10 @@ function initPersonModal() {
 }
 
 
+/* ============================================================
+   OPEN PERSON
+============================================================ */
+
 function openPerson(personId) {
 
     const modal =
@@ -2634,20 +2088,27 @@ function openPerson(personId) {
     if (!person) return;
 
 
+    const lang =
+        translations[currentLang];
+
+
     const role =
         document.getElementById(
             "personModalRole"
         );
+
 
     const name =
         document.getElementById(
             "personModalName"
         );
 
+
     const text =
         document.getElementById(
             "personModalText"
         );
+
 
     const position =
         document.getElementById(
@@ -2655,18 +2116,10 @@ function openPerson(personId) {
         );
 
 
-    const lang =
-        translations[currentLang];
-
-
     if (role) {
 
         role.textContent =
-            lang[
-                personId === "director"
-                    ? "director_role"
-                    : "manager_role"
-            ];
+            lang[person.roleKey];
 
     }
 
@@ -2674,11 +2127,7 @@ function openPerson(personId) {
     if (name) {
 
         name.textContent =
-            lang[
-                personId === "director"
-                    ? "director_name"
-                    : "manager_name"
-            ];
+            lang[person.nameKey];
 
     }
 
@@ -2686,11 +2135,7 @@ function openPerson(personId) {
     if (text) {
 
         text.textContent =
-            lang[
-                personId === "director"
-                    ? "director_modal_text"
-                    : "manager_modal_text"
-            ];
+            lang[person.textKey];
 
     }
 
@@ -2698,19 +2143,12 @@ function openPerson(personId) {
     if (position) {
 
         position.textContent =
-            lang[
-                personId === "director"
-                    ? "director_position"
-                    : "manager_position"
-            ];
+            lang[person.positionKey];
 
     }
 
 
-    modal.classList.add(
-        "open"
-    );
-
+    modal.classList.add("open");
 
     document.body.classList.add(
         "modal-open"
@@ -2718,6 +2156,10 @@ function openPerson(personId) {
 
 }
 
+
+/* ============================================================
+   CLOSE PERSON
+============================================================ */
 
 function closePerson() {
 
@@ -2730,10 +2172,7 @@ function closePerson() {
     if (!modal) return;
 
 
-    modal.classList.remove(
-        "open"
-    );
-
+    modal.classList.remove("open");
 
     document.body.classList.remove(
         "modal-open"
@@ -2746,14 +2185,6 @@ function closePerson() {
    TELEGRAM
 ============================================================ */
 
-const TELEGRAM_USERNAME =
-    "USERNAME";
-
-
-const TELEGRAM_MESSAGE =
-    "Assalomu alaykum. Siz bilan ishlamoqchimiz. Bizga telefon qiling.";
-
-
 function createTelegramLink() {
 
     const username =
@@ -2762,16 +2193,29 @@ function createTelegramLink() {
             .trim();
 
 
+    if (!username) {
+
+        return "#";
+
+    }
+
+
     const message =
         encodeURIComponent(
             TELEGRAM_MESSAGE
         );
 
 
-    return `https://t.me/${username}?text=${message}`;
+    return (
+        `https://t.me/${username}?text=${message}`
+    );
 
 }
 
+
+/* ============================================================
+   TELEGRAM LINKS
+============================================================ */
 
 function initTelegramLinks() {
 
@@ -2917,16 +2361,13 @@ function initButtonEffect() {
                 );
 
 
-                setTimeout(
-                    () => {
+                setTimeout(() => {
 
-                        button.classList.remove(
-                            "clicked"
-                        );
+                    button.classList.remove(
+                        "clicked"
+                    );
 
-                    },
-                    250
-                );
+                }, 250);
 
             }
         );
@@ -2940,187 +2381,208 @@ function initButtonEffect() {
    SMOOTH ANCHOR SCROLL
 ============================================================ */
 
-document.addEventListener(
-    "click",
-    event => {
+function initSmoothAnchorScroll() {
 
-        const link =
-            event.target.closest(
-                'a[href^="#"]'
-            );
+    document.addEventListener(
+        "click",
+        event => {
 
-
-        if (!link) return;
-
-
-        const href =
-            link.getAttribute(
-                "href"
-            );
+            const link =
+                event.target.closest(
+                    'a[href^="#"]'
+                );
 
 
-        if (
-            !href ||
-            href === "#"
-        ) {
+            if (!link) return;
 
-            return;
+
+            const href =
+                link.getAttribute("href");
+
+
+            if (
+                !href ||
+                href === "#"
+            ) {
+
+                return;
+
+            }
+
+
+            let target;
+
+
+            try {
+
+                target =
+                    document.querySelector(href);
+
+            } catch (error) {
+
+                return;
+
+            }
+
+
+            if (!target) return;
+
+
+            event.preventDefault();
+
+
+            const header =
+                document.querySelector(".header");
+
+
+            const headerHeight =
+                header
+                    ? header.offsetHeight
+                    : 0;
+
+
+            const targetPosition =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                headerHeight -
+                15;
+
+
+            window.scrollTo({
+
+                top: targetPosition,
+
+                behavior: "smooth"
+
+            });
 
         }
+    );
 
-
-        const target =
-            document.querySelector(
-                href
-            );
-
-
-        if (!target) return;
-
-
-        event.preventDefault();
-
-
-        const header =
-            document.querySelector(
-                ".header"
-            );
-
-
-        const headerHeight =
-            header
-                ? header.offsetHeight
-                : 0;
-
-
-        const targetPosition =
-            target.getBoundingClientRect()
-                .top +
-            window.scrollY -
-            headerHeight -
-            15;
-
-
-        window.scrollTo({
-
-            top: targetPosition,
-
-            behavior: "smooth"
-
-        });
-
-    }
-);
+}
 
 
 /* ============================================================
    ESC KEY
 ============================================================ */
 
-document.addEventListener(
-    "keydown",
-    event => {
+function initEscapeKey() {
 
-        if (
-            event.key !==
-            "Escape"
-        ) {
+    document.addEventListener(
+        "keydown",
+        event => {
 
-            return;
+            if (
+                event.key !== "Escape"
+            ) {
+
+                return;
+
+            }
+
+
+            closePerson();
+
+            closeAllLanguageDropdowns();
+
+
+            const menu =
+                document.getElementById(
+                    "menu"
+                );
+
+
+            const menuButton =
+                document.querySelector(
+                    ".menu-btn"
+                );
+
+
+            if (menu) {
+
+                menu.classList.remove(
+                    "open"
+                );
+
+            }
+
+
+            if (menuButton) {
+
+                menuButton.innerHTML =
+                    "☰";
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
 
         }
+    );
 
-
-        closePerson();
-
-        closeLanguageDropdown();
-
-
-        const menu =
-            document.getElementById(
-                "menu"
-            );
-
-        const menuButton =
-            document.querySelector(
-                ".menu-btn"
-            );
-
-
-        if (menu) {
-
-            menu.classList.remove(
-                "open"
-            );
-
-        }
-
-
-        if (menuButton) {
-
-            menuButton.innerHTML =
-                "☰";
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
-
-    }
-);
+}
 
 
 /* ============================================================
    PAGE VISIBILITY
 ============================================================ */
 
-document.addEventListener(
-    "visibilitychange",
-    () => {
+function initVisibility() {
 
-        if (
-            document.visibilityState ===
-            "visible"
-        ) {
+    document.addEventListener(
+        "visibilitychange",
+        () => {
 
-            document.body.classList.add(
-                "page-visible"
-            );
+            if (
+                document.visibilityState ===
+                "visible"
+            ) {
+
+                document.body.classList.add(
+                    "page-visible"
+                );
+
+            }
 
         }
-
-    }
-);
+    );
 
 
-/* ============================================================
-   PREPARE TRANSLATIONS
-============================================================ */
+    document.body.classList.add(
+        "page-visible"
+    );
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        prepareTranslations();
-
-        applyLanguage(currentLang);
-
-    }
-);
+}
 
 
 /* ============================================================
-   CONSOLE
+   GLOBAL FUNCTIONS
+============================================================ */
+
+/*
+   HTML ichidan onclick="openPerson('director')"
+   ishlashi uchun global qilib qo‘yamiz.
+*/
+
+window.openPerson =
+    openPerson;
+
+
+window.closePerson =
+    closePerson;
+
+
+window.setLanguage =
+    setLanguage;
+
+
+/* ============================================================
+   END
 ============================================================ */
 
 console.log(
-    "%cBESHA GROUP",
-    "font-size:24px;font-weight:800;"
-);
-
-console.log(
-    "%cLanguage system: UZ / EN / RU",
-    "font-size:14px;"
+    "%cBESHA GROUP JS LOADED SUCCESSFULLY",
+    "font-size:16px;font-weight:700;"
 );
