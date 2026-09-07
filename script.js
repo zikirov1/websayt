@@ -1,190 +1,341 @@
-/* =========================================================
-   BESHA GROUP
-   SCRIPT.JS
-   Clean • Responsive • Working
-========================================================= */
-
 "use strict";
 
 
 /* =========================================================
-   ELEMENTS
+   BESHA GROUP
+   SCRIPT.JS
 ========================================================= */
-
-const header = document.getElementById("header");
-const menuBtn = document.getElementById("menuBtn");
-const mainMenu = document.getElementById("mainMenu");
-
-const pageLoader = document.getElementById("pageLoader");
-
-const contactModal = document.getElementById("contactModal");
-const contactForm = document.getElementById("contactForm");
-
-const nameInput = document.getElementById("name");
-const phoneInput = document.getElementById("phone");
-const organizationInput = document.getElementById("organization");
-const messageInput = document.getElementById("message");
-
-const currentYear = document.getElementById("currentYear");
 
 
 /* =========================================================
-   PAGE INITIALIZATION
+   GOOGLE APPS SCRIPT API
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+const FORM_API_URL =
+    "https://script.google.com/macros/s/AKfycbyPEIgSm1vkoRct-meyXGEe8mMM217snTGEawr9Q82eSQiP78r60TtWUhQ3Qb-T-Htz/exec";
 
-    if (pageLoader) {
-        document.body.classList.add("no-scroll");
+
+/* =========================================================
+   DOM ELEMENTS
+========================================================= */
+
+const header =
+    document.getElementById("header");
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const mainMenu =
+    document.getElementById("mainMenu");
+
+const pageLoader =
+    document.getElementById("pageLoader");
+
+const contactModal =
+    document.getElementById("contactModal");
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const nameInput =
+    document.getElementById("name");
+
+const phoneInput =
+    document.getElementById("phone");
+
+const organizationInput =
+    document.getElementById("organization");
+
+const messageInput =
+    document.getElementById("message");
+
+const currentYear =
+    document.getElementById("currentYear");
+
+
+/* =========================================================
+   PAGE READY
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        if (pageLoader) {
+            document.body.classList.add("no-scroll");
+        }
+
+
+        if (mainMenu) {
+            mainMenu.classList.remove("active");
+        }
+
+
+        if (menuBtn) {
+            menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuBtn.textContent = "☰";
+        }
+
+
+        if (contactModal) {
+            contactModal.classList.remove(
+                "active"
+            );
+
+            contactModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+        }
+
+
+        if (currentYear) {
+            currentYear.textContent =
+                new Date().getFullYear();
+        }
+
     }
-
-    if (mainMenu) {
-        mainMenu.classList.remove("active");
-    }
-
-    if (menuBtn) {
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.textContent = "☰";
-    }
-
-    if (contactModal) {
-        contactModal.classList.remove("active");
-        contactModal.setAttribute("aria-hidden", "true");
-    }
-
-    if (currentYear) {
-        currentYear.textContent = new Date().getFullYear();
-    }
-
-});
+);
 
 
 /* =========================================================
    PAGE LOADER
 ========================================================= */
 
-window.addEventListener("load", function () {
+function hidePageLoader() {
 
     if (!pageLoader) {
-        document.body.classList.remove("no-scroll");
+        document.body.classList.remove(
+            "no-scroll"
+        );
+
         return;
     }
 
-    setTimeout(function () {
 
-        pageLoader.classList.add("hide");
+    pageLoader.classList.add(
+        "hidden"
+    );
 
-        document.body.classList.remove("no-scroll");
 
-    }, 1100);
+    document.body.classList.remove(
+        "no-scroll"
+    );
 
-});
+
+    setTimeout(
+        function () {
+
+            if (pageLoader) {
+                pageLoader.style.display =
+                    "none";
+            }
+
+        },
+        500
+    );
+
+}
+
+
+window.addEventListener(
+    "load",
+    function () {
+
+        setTimeout(
+            function () {
+                hidePageLoader();
+            },
+            700
+        );
+
+    }
+);
+
+
+/* Loader xavfsizlik fallback */
+
+setTimeout(
+    function () {
+
+        if (
+            pageLoader &&
+            !pageLoader.classList.contains(
+                "hidden"
+            )
+        ) {
+            hidePageLoader();
+        }
+
+    },
+    4000
+);
 
 
 /* =========================================================
    MOBILE MENU
 ========================================================= */
 
-function closeMobileMenu() {
-
-    if (!mainMenu || !menuBtn) {
-        return;
-    }
-
-    mainMenu.classList.remove("active");
-
-    menuBtn.setAttribute("aria-expanded", "false");
-
-    menuBtn.textContent = "☰";
-}
-
-
 function openMobileMenu() {
 
-    if (!mainMenu || !menuBtn) {
+    if (
+        !mainMenu ||
+        !menuBtn
+    ) {
         return;
     }
 
-    mainMenu.classList.add("active");
 
-    menuBtn.setAttribute("aria-expanded", "true");
+    mainMenu.classList.add(
+        "active"
+    );
+
+
+    menuBtn.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
 
     menuBtn.textContent = "×";
+
 }
 
 
-if (menuBtn && mainMenu) {
+function closeMobileMenu() {
 
-    menuBtn.addEventListener("click", function (event) {
+    if (
+        !mainMenu ||
+        !menuBtn
+    ) {
+        return;
+    }
 
-        event.stopPropagation();
 
-        const menuIsOpen =
-            mainMenu.classList.contains("active");
+    mainMenu.classList.remove(
+        "active"
+    );
 
-        if (menuIsOpen) {
-            closeMobileMenu();
-        } else {
-            openMobileMenu();
+
+    menuBtn.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+
+    menuBtn.textContent = "☰";
+
+}
+
+
+if (
+    menuBtn &&
+    mainMenu
+) {
+
+    menuBtn.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+
+            if (
+                mainMenu.classList.contains(
+                    "active"
+                )
+            ) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+
+        }
+    );
+
+
+    mainMenu
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+                        closeMobileMenu();
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* Menyu tashqarisini bosganda yopish */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            !mainMenu ||
+            !menuBtn
+        ) {
+            return;
         }
 
-    });
+
+        if (
+            !mainMenu.classList.contains(
+                "active"
+            )
+        ) {
+            return;
+        }
 
 
-    const menuLinks =
-        mainMenu.querySelectorAll("a");
+        const clickedMenu =
+            mainMenu.contains(
+                event.target
+            );
 
 
-    menuLinks.forEach(function (link) {
+        const clickedButton =
+            menuBtn.contains(
+                event.target
+            );
 
-        link.addEventListener("click", function () {
+
+        if (
+            !clickedMenu &&
+            !clickedButton
+        ) {
             closeMobileMenu();
-        });
+        }
 
-    });
-
-}
-
-
-/* =========================================================
-   CLICK OUTSIDE MOBILE MENU
-========================================================= */
-
-document.addEventListener("click", function (event) {
-
-    if (!mainMenu || !menuBtn) {
-        return;
     }
+);
 
-    if (!mainMenu.classList.contains("active")) {
-        return;
+
+/* Katta ekranga o'tganda menyuni yopish */
+
+window.addEventListener(
+    "resize",
+    function () {
+
+        if (
+            window.innerWidth > 760
+        ) {
+            closeMobileMenu();
+        }
+
     }
-
-    const clickedMenu =
-        mainMenu.contains(event.target);
-
-    const clickedButton =
-        menuBtn.contains(event.target);
-
-
-    if (!clickedMenu && !clickedButton) {
-        closeMobileMenu();
-    }
-
-});
-
-
-/* =========================================================
-   WINDOW RESIZE
-========================================================= */
-
-window.addEventListener("resize", function () {
-
-    if (window.innerWidth > 760) {
-        closeMobileMenu();
-    }
-
-});
+);
 
 
 /* =========================================================
@@ -197,25 +348,41 @@ function updateHeader() {
         return;
     }
 
-    if (window.scrollY > 30) {
 
-        header.classList.add("scrolled");
+    if (
+        window.scrollY > 30
+    ) {
+
+        header.classList.add(
+            "scrolled"
+        );
+
 
         header.style.boxShadow =
-            "0 10px 35px rgba(30, 65, 120, 0.10)";
+            "0 10px 35px rgba(15, 23, 42, 0.07)";
 
     } else {
 
-        header.classList.remove("scrolled");
+        header.classList.remove(
+            "scrolled"
+        );
 
-        header.style.boxShadow = "none";
+
+        header.style.boxShadow =
+            "none";
+
     }
+
 }
 
 
-window.addEventListener("scroll", updateHeader, {
-    passive: true
-});
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    {
+        passive: true
+    }
+);
 
 
 updateHeader();
@@ -231,22 +398,37 @@ function openForm() {
         return;
     }
 
+
     closeMobileMenu();
 
-    contactModal.classList.add("active");
 
-    contactModal.setAttribute("aria-hidden", "false");
+    contactModal.classList.add(
+        "active"
+    );
 
-    document.body.classList.add("no-scroll");
+
+    contactModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
 
-    setTimeout(function () {
+    document.body.classList.add(
+        "no-scroll"
+    );
 
-        if (nameInput) {
-            nameInput.focus();
-        }
 
-    }, 200);
+    setTimeout(
+        function () {
+
+            if (nameInput) {
+                nameInput.focus();
+            }
+
+        },
+        200
+    );
+
 }
 
 
@@ -256,152 +438,217 @@ function closeForm() {
         return;
     }
 
-    contactModal.classList.remove("active");
 
-    contactModal.setAttribute("aria-hidden", "true");
+    contactModal.classList.remove(
+        "active"
+    );
 
-    document.body.classList.remove("no-scroll");
+
+    contactModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
+
 }
 
 
-/*
-   openForm va closeForm HTML ichidagi
-   onclick atributlari uchun global bo‘lishi kerak.
-*/
+/* HTML onclick uchun global */
 
 window.openForm = openForm;
 window.closeForm = closeForm;
 
 
-/* =========================================================
-   CLOSE MODAL BY BACKDROP
-========================================================= */
+/* Modal tashqarisini bosganda yopish */
 
 if (contactModal) {
 
-    contactModal.addEventListener("click", function (event) {
+    contactModal.addEventListener(
+        "click",
+        function (event) {
 
-        if (event.target === contactModal) {
-            closeForm();
+            if (
+                event.target ===
+                contactModal
+            ) {
+                closeForm();
+            }
+
         }
-
-    });
+    );
 
 }
 
 
+/* ESC orqali yopish */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key !== "Escape"
+        ) {
+            return;
+        }
+
+
+        if (
+            contactModal &&
+            contactModal.classList.contains(
+                "active"
+            )
+        ) {
+            closeForm();
+        }
+
+
+        if (
+            mainMenu &&
+            mainMenu.classList.contains(
+                "active"
+            )
+        ) {
+            closeMobileMenu();
+        }
+
+    }
+);
+
+
 /* =========================================================
-   ESCAPE KEY
-========================================================= */
-
-document.addEventListener("keydown", function (event) {
-
-    if (event.key !== "Escape") {
-        return;
-    }
-
-    if (
-        contactModal &&
-        contactModal.classList.contains("active")
-    ) {
-        closeForm();
-    }
-
-    if (
-        mainMenu &&
-        mainMenu.classList.contains("active")
-    ) {
-        closeMobileMenu();
-    }
-
-});
-
-
-/* =========================================================
-   PHONE FORMAT
+   PHONE FORMATTER
    +998 XX XXX XX XX
 ========================================================= */
 
 function formatUzbekPhone(value) {
 
     let digits =
-        String(value).replace(/\D/g, "");
+        String(value || "")
+            .replace(/\D/g, "");
 
 
-    if (digits.startsWith("998")) {
-        digits = digits.slice(3);
+    if (
+        digits.startsWith("998")
+    ) {
+        digits =
+            digits.slice(3);
     }
 
 
-    digits = digits.slice(0, 9);
+    digits =
+        digits.slice(0, 9);
 
 
     let formatted = "+998";
 
 
-    if (digits.length > 0) {
-        formatted += " " + digits.slice(0, 2);
+    if (
+        digits.length > 0
+    ) {
+        formatted +=
+            " " +
+            digits.slice(0, 2);
     }
 
-    if (digits.length > 2) {
-        formatted += " " + digits.slice(2, 5);
+
+    if (
+        digits.length > 2
+    ) {
+        formatted +=
+            " " +
+            digits.slice(2, 5);
     }
 
-    if (digits.length > 5) {
-        formatted += " " + digits.slice(5, 7);
+
+    if (
+        digits.length > 5
+    ) {
+        formatted +=
+            " " +
+            digits.slice(5, 7);
     }
 
-    if (digits.length > 7) {
-        formatted += " " + digits.slice(7, 9);
+
+    if (
+        digits.length > 7
+    ) {
+        formatted +=
+            " " +
+            digits.slice(7, 9);
     }
 
 
     return formatted;
+
 }
 
 
 if (phoneInput) {
 
-    phoneInput.addEventListener("focus", function () {
+    phoneInput.addEventListener(
+        "focus",
+        function () {
 
-        if (!this.value.trim()) {
-            this.value = "+998 ";
+            if (
+                !this.value.trim()
+            ) {
+                this.value = "+998";
+            }
+
         }
-
-    });
-
-
-    phoneInput.addEventListener("input", function () {
-
-        this.value =
-            formatUzbekPhone(this.value);
-
-    });
+    );
 
 
-    phoneInput.addEventListener("blur", function () {
+    phoneInput.addEventListener(
+        "input",
+        function () {
 
-        const digits =
-            this.value.replace(/\D/g, "");
+            this.value =
+                formatUzbekPhone(
+                    this.value
+                );
 
-
-        if (
-            digits.length <= 3
-        ) {
-            this.value = "";
         }
+    );
 
-    });
+
+    phoneInput.addEventListener(
+        "blur",
+        function () {
+
+            const digits =
+                this.value.replace(
+                    /\D/g,
+                    ""
+                );
+
+
+            if (
+                digits.length <= 3
+            ) {
+                this.value = "";
+            }
+
+        }
+    );
 
 }
 
 
 /* =========================================================
-   FORM VALIDATION HELPERS
+   FORM HELPERS
 ========================================================= */
 
 function getPhoneDigits(phone) {
-    return String(phone).replace(/\D/g, "");
+
+    return String(phone || "")
+        .replace(/\D/g, "");
+
 }
 
 
@@ -410,15 +657,68 @@ function isValidPhone(phone) {
     const digits =
         getPhoneDigits(phone);
 
+
     return (
         digits.length === 12 &&
         digits.startsWith("998")
     );
+
+}
+
+
+function setSubmitLoading(
+    button,
+    loading
+) {
+
+    if (!button) {
+        return;
+    }
+
+
+    if (loading) {
+
+        button.disabled = true;
+
+
+        if (
+            !button.dataset.originalHtml
+        ) {
+            button.dataset.originalHtml =
+                button.innerHTML;
+        }
+
+
+        button.innerHTML =
+            "Yuborilmoqda <span>...</span>";
+
+        return;
+    }
+
+
+    button.disabled = false;
+
+
+    button.innerHTML =
+        button.dataset.originalHtml ||
+        'Murojaat yuborish <span>→</span>';
+
 }
 
 
 /* =========================================================
-   CONTACT FORM SUBMISSION
+   FORM MESSAGE
+========================================================= */
+
+function showMessage(message) {
+
+    alert(message);
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
 ========================================================= */
 
 if (contactForm) {
@@ -430,159 +730,200 @@ if (contactForm) {
             event.preventDefault();
 
 
-            const name =
-                nameInput
-                    ? nameInput.value.trim()
-                    : "";
-
-            const phone =
-                phoneInput
-                    ? phoneInput.value.trim()
-                    : "";
-
-            const organization =
-                organizationInput
-                    ? organizationInput.value.trim()
-                    : "";
-
-            const message =
-                messageInput
-                    ? messageInput.value.trim()
-                    : "";
-
-
-            /* -----------------------------------------
-               NAME VALIDATION
-            ----------------------------------------- */
-
-            if (name.length < 2) {
-
-                alert(
-                    "Iltimos, ism va familiyangizni to‘g‘ri kiriting."
-                );
-
-                if (nameInput) {
-                    nameInput.focus();
-                }
-
-                return;
-            }
-
-
-            /* -----------------------------------------
-               PHONE VALIDATION
-            ----------------------------------------- */
-
-            if (!isValidPhone(phone)) {
-
-                alert(
-                    "Iltimos, telefon raqamingizni to‘liq kiriting.\nMasalan: +998 90 123 45 67"
-                );
-
-                if (phoneInput) {
-                    phoneInput.focus();
-                }
-
-                return;
-            }
-
-
-            /* -----------------------------------------
-               SUBMIT BUTTON
-            ----------------------------------------- */
-
             const submitButton =
                 contactForm.querySelector(
                     'button[type="submit"]'
                 );
 
 
-            const originalButtonContent =
-                submitButton
-                    ? submitButton.innerHTML
+            const nameValue =
+                nameInput
+                    ? nameInput.value.trim()
                     : "";
 
 
-            if (submitButton) {
+            const phoneValue =
+                phoneInput
+                    ? phoneInput.value.trim()
+                    : "";
 
-                submitButton.disabled = true;
 
-                submitButton.innerHTML =
-                    "<span>Yuborilmoqda...</span>";
+            const organizationValue =
+                organizationInput
+                    ? organizationInput.value.trim()
+                    : "";
+
+
+            const messageValue =
+                messageInput
+                    ? messageInput.value.trim()
+                    : "";
+
+
+            /* -------------------------
+               ISM TEKSHIRISH
+            ------------------------- */
+
+            if (
+                nameValue.length < 2
+            ) {
+
+                showMessage(
+                    "Iltimos, ism va familiyangizni to‘g‘ri kiriting."
+                );
+
+
+                if (nameInput) {
+                    nameInput.focus();
+                }
+
+
+                return;
             }
 
 
-            /* -----------------------------------------
-               DATA OBJECT
+            /* -------------------------
+               TELEFON TEKSHIRISH
+            ------------------------- */
 
-               Keyinchalik Cloudflare Worker
-               yoki boshqa backendga shu ma'lumot
-               yuboriladi.
-            ----------------------------------------- */
+            if (
+                !isValidPhone(
+                    phoneValue
+                )
+            ) {
+
+                showMessage(
+                    "Iltimos, telefon raqamingizni to‘liq kiriting.\nMasalan: +998 90 123 45 67"
+                );
+
+
+                if (phoneInput) {
+                    phoneInput.focus();
+                }
+
+
+                return;
+            }
+
+
+            /* -------------------------
+               YUBORILADIGAN DATA
+            ------------------------- */
 
             const formData = {
-                name: name,
-                phone: phone,
-                organization: organization,
-                message: message
+
+                name:
+                    nameValue,
+
+                phone:
+                    phoneValue,
+
+                organization:
+                    organizationValue,
+
+                message:
+                    messageValue
+
             };
 
 
             try {
 
-                /*
-                 =================================================
-                 HOZIRCHA DEMO REJIM
-
-                 Telegram backend ulangandan keyin
-                 pastdagi demoTimeout o‘rniga fetch()
-                 yoziladi.
-
-                 Masalan:
-
-                 const response = await fetch(
-                     "YOUR_CLOUDFLARE_WORKER_URL",
-                     {
-                         method: "POST",
-                         headers: {
-                             "Content-Type": "application/json"
-                         },
-                         body: JSON.stringify(formData)
-                     }
-                 );
-
-                 if (!response.ok) {
-                     throw new Error(
-                         "Server xatosi"
-                     );
-                 }
-
-                 =================================================
-                */
-
-
-                console.log(
-                    "BESHA GROUP murojaat:",
-                    formData
+                setSubmitLoading(
+                    submitButton,
+                    true
                 );
 
 
-                await new Promise(function (resolve) {
+                /* -------------------------
+                   GOOGLE APPS SCRIPT
+                ------------------------- */
 
-                    setTimeout(resolve, 700);
+                const response =
+                    await fetch(
+                        FORM_API_URL,
+                        {
+                            method:
+                                "POST",
 
-                });
+                            headers: {
+                                "Content-Type":
+                                    "text/plain;charset=utf-8"
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    formData
+                                )
+                        }
+                    );
 
 
-                alert(
-                    "Rahmat, " +
-                    name +
-                    "!\n\n" +
-                    "Murojaatingiz qabul qilindi."
+                if (
+                    !response.ok
+                ) {
+
+                    throw new Error(
+                        "Server javobi: " +
+                        response.status
+                    );
+
+                }
+
+
+                const responseText =
+                    await response.text();
+
+
+                let result;
+
+
+                try {
+
+                    result =
+                        JSON.parse(
+                            responseText
+                        );
+
+                } catch (parseError) {
+
+                    console.error(
+                        "JSON parse xatosi:",
+                        parseError,
+                        responseText
+                    );
+
+
+                    throw new Error(
+                        "Serverdan noto‘g‘ri javob qaytdi."
+                    );
+
+                }
+
+
+                if (
+                    !result.success
+                ) {
+
+                    throw new Error(
+                        result.message ||
+                        "Murojaat yuborilmadi."
+                    );
+
+                }
+
+
+                /* -------------------------
+                   MUVAFFAQIYAT
+                ------------------------- */
+
+                showMessage(
+                    "Murojaatingiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog‘lanamiz."
                 );
 
 
                 contactForm.reset();
+
 
                 closeForm();
 
@@ -590,26 +931,25 @@ if (contactForm) {
             } catch (error) {
 
                 console.error(
-                    "Murojaat yuborishda xatolik:",
+                    "Forma yuborish xatosi:",
                     error
                 );
 
 
-                alert(
-                    "Murojaat yuborishda xatolik yuz berdi. " +
-                    "Iltimos, qaytadan urinib ko‘ring."
+                showMessage(
+                    "Murojaatni yuborishda xatolik yuz berdi.\n\n" +
+                    "Telefon: +998 77 387 10 10\n" +
+                    "Telefon: +998 90 024 46 46\n" +
+                    "Telegram: @Beshagroupuz"
                 );
 
 
             } finally {
 
-                if (submitButton) {
-
-                    submitButton.disabled = false;
-
-                    submitButton.innerHTML =
-                        originalButtonContent;
-                }
+                setSubmitLoading(
+                    submitButton,
+                    false
+                );
 
             }
 
@@ -624,63 +964,88 @@ if (contactForm) {
 ========================================================= */
 
 const internalLinks =
-    document.querySelectorAll('a[href^="#"]');
+    document.querySelectorAll(
+        'a[href^="#"]'
+    );
 
 
-internalLinks.forEach(function (link) {
+internalLinks.forEach(
+    function (link) {
 
-    link.addEventListener("click", function (event) {
+        link.addEventListener(
+            "click",
+            function (event) {
 
-        const href =
-            this.getAttribute("href");
-
-
-        if (!href || href === "#") {
-            return;
-        }
-
-
-        let target;
+                const href =
+                    this.getAttribute(
+                        "href"
+                    );
 
 
-        try {
-            target = document.querySelector(href);
-        } catch (error) {
-            return;
-        }
+                if (
+                    !href ||
+                    href === "#"
+                ) {
+                    return;
+                }
 
 
-        if (!target) {
-            return;
-        }
+                let target;
 
 
-        event.preventDefault();
+                try {
+
+                    target =
+                        document.querySelector(
+                            href
+                        );
+
+                } catch (error) {
+
+                    return;
+
+                }
 
 
-        closeMobileMenu();
+                if (!target) {
+                    return;
+                }
 
 
-        const headerHeight =
-            header
-                ? header.offsetHeight
-                : 0;
+                event.preventDefault();
 
 
-        const targetTop =
-            target.getBoundingClientRect().top +
-            window.scrollY -
-            headerHeight;
+                closeMobileMenu();
 
 
-        window.scrollTo({
-            top: targetTop,
-            behavior: "smooth"
-        });
+                const headerHeight =
+                    header
+                        ? header.offsetHeight
+                        : 0;
 
-    });
 
-});
+                const targetTop =
+                    target
+                        .getBoundingClientRect()
+                        .top +
+                    window.scrollY -
+                    headerHeight -
+                    10;
+
+
+                window.scrollTo({
+                    top:
+                        targetTop,
+
+                    behavior:
+                        "smooth"
+                });
+
+            }
+        );
+
+    }
+);
 
 
 /* =========================================================
@@ -689,62 +1054,99 @@ internalLinks.forEach(function (link) {
 
 const revealElements =
     document.querySelectorAll(
-        ".hero-card, " +
-        ".about-main, " +
-        ".about-info, " +
-        ".service-card, " +
-        ".advantage, " +
-        ".process-item, " +
-        ".contact-item, " +
-        ".contact-form-button"
+        [
+            ".hero-card",
+            ".about-main",
+            ".about-info",
+            ".service-card",
+            ".advantage",
+            ".process-item",
+            ".contact-content",
+            ".contact-list"
+        ].join(",")
     );
 
 
+revealElements.forEach(
+    function (element) {
+
+        element.classList.add(
+            "reveal"
+        );
+
+    }
+);
+
+
 if (
-    "IntersectionObserver" in window &&
-    revealElements.length > 0
+    "IntersectionObserver"
+    in window
 ) {
 
-    revealElements.forEach(function (element) {
-        element.classList.add("animate-on-scroll");
-    });
-
-
-    const observer =
+    const revealObserver =
         new IntersectionObserver(
-            function (entries, currentObserver) {
+            function (
+                entries,
+                observer
+            ) {
 
-                entries.forEach(function (entry) {
+                entries.forEach(
+                    function (entry) {
 
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
+                        }
 
-                    entry.target.classList.add("show");
 
-                    currentObserver.unobserve(
                         entry.target
-                    );
+                            .classList
+                            .add(
+                                "show"
+                            );
 
-                });
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+                );
 
             },
             {
-                threshold: 0.12,
-                rootMargin: "0px 0px -30px 0px"
+                threshold:
+                    0.12,
+
+                rootMargin:
+                    "0px 0px -40px 0px"
             }
         );
 
 
-    revealElements.forEach(function (element) {
-        observer.observe(element);
-    });
+    revealElements.forEach(
+        function (element) {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
 
 } else {
 
-    revealElements.forEach(function (element) {
-        element.classList.add("show");
-    });
+    revealElements.forEach(
+        function (element) {
+
+            element.classList.add(
+                "show"
+            );
+
+        }
+    );
 
 }
 
@@ -755,99 +1157,131 @@ if (
 
 const rippleButtons =
     document.querySelectorAll(
-        ".primary-btn, " +
-        ".secondary-btn, " +
-        ".nav-contact, " +
-        ".contact-form-button, " +
-        ".service-card button"
+        [
+            ".primary-btn",
+            ".secondary-btn",
+            ".nav-contact",
+            ".contact-form-button",
+            ".service-card button"
+        ].join(",")
     );
 
 
-rippleButtons.forEach(function (button) {
+rippleButtons.forEach(
+    function (button) {
 
-    button.addEventListener("click", function (event) {
+        button.addEventListener(
+            "click",
+            function (event) {
 
-        const rect =
-            button.getBoundingClientRect();
-
-
-        const size =
-            Math.max(
-                rect.width,
-                rect.height
-            );
+                const rect =
+                    this.getBoundingClientRect();
 
 
-        const ripple =
-            document.createElement("span");
+                if (
+                    rect.width === 0 ||
+                    rect.height === 0
+                ) {
+                    return;
+                }
 
 
-        ripple.classList.add("ripple");
+                const size =
+                    Math.max(
+                        rect.width,
+                        rect.height
+                    );
 
 
-        ripple.style.width =
-            size + "px";
-
-        ripple.style.height =
-            size + "px";
-
-
-        /*
-           Klaviatura orqali bosilganda
-           clientX/clientY 0 bo‘lishi mumkin.
-        */
-
-        let x =
-            event.clientX - rect.left;
-
-        let y =
-            event.clientY - rect.top;
+                const ripple =
+                    document.createElement(
+                        "span"
+                    );
 
 
-        if (
-            event.clientX === 0 &&
-            event.clientY === 0
-        ) {
-
-            x = rect.width / 2;
-            y = rect.height / 2;
-        }
+                ripple.className =
+                    "ripple-effect";
 
 
-        ripple.style.left =
-            x - size / 2 + "px";
-
-        ripple.style.top =
-            y - size / 2 + "px";
-
-
-        const oldRipple =
-            button.querySelector(".ripple");
+                let x =
+                    event.clientX -
+                    rect.left -
+                    size / 2;
 
 
-        if (oldRipple) {
-            oldRipple.remove();
-        }
+                let y =
+                    event.clientY -
+                    rect.top -
+                    size / 2;
 
 
-        button.appendChild(ripple);
+                if (
+                    event.clientX === 0 &&
+                    event.clientY === 0
+                ) {
+
+                    x =
+                        rect.width / 2 -
+                        size / 2;
 
 
-        setTimeout(function () {
+                    y =
+                        rect.height / 2 -
+                        size / 2;
 
-            if (ripple.parentNode) {
-                ripple.remove();
+                }
+
+
+                ripple.style.width =
+                    size + "px";
+
+
+                ripple.style.height =
+                    size + "px";
+
+
+                ripple.style.left =
+                    x + "px";
+
+
+                ripple.style.top =
+                    y + "px";
+
+
+                const oldRipple =
+                    this.querySelector(
+                        ".ripple-effect"
+                    );
+
+
+                if (oldRipple) {
+                    oldRipple.remove();
+                }
+
+
+                this.appendChild(
+                    ripple
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        ripple.remove();
+
+                    },
+                    650
+                );
+
             }
+        );
 
-        }, 600);
-
-    });
-
-});
+    }
+);
 
 
 /* =========================================================
-   ACTIVE NAVIGATION LINK
+   ACTIVE NAVIGATION
 ========================================================= */
 
 const sections =
@@ -858,13 +1292,18 @@ const sections =
 
 const navLinks =
     mainMenu
-        ? mainMenu.querySelectorAll("a[href^='#']")
+        ? mainMenu.querySelectorAll(
+            'a[href^="#"]'
+        )
         : [];
 
 
 function updateActiveNavigation() {
 
-    if (!sections.length || !navLinks.length) {
+    if (
+        !sections.length ||
+        !navLinks.length
+    ) {
         return;
     }
 
@@ -873,53 +1312,65 @@ function updateActiveNavigation() {
         window.scrollY +
         (
             header
-                ? header.offsetHeight + 60
+                ? header.offsetHeight + 80
                 : 100
         );
 
 
-    let currentSectionId = "";
+    let currentSectionId =
+        "home";
 
 
-    sections.forEach(function (section) {
+    sections.forEach(
+        function (section) {
 
-        const sectionTop =
-            section.offsetTop;
-
-        const sectionHeight =
-            section.offsetHeight;
+            const sectionTop =
+                section.offsetTop;
 
 
-        if (
-            scrollPosition >= sectionTop &&
-            scrollPosition <
-            sectionTop + sectionHeight
-        ) {
+            if (
+                scrollPosition >=
+                sectionTop
+            ) {
 
-            currentSectionId =
-                section.getAttribute("id");
+                currentSectionId =
+                    section.getAttribute(
+                        "id"
+                    );
+
+            }
+
         }
-
-    });
-
-
-    navLinks.forEach(function (link) {
-
-        link.classList.remove("active");
+    );
 
 
-        const href =
-            link.getAttribute("href");
+    navLinks.forEach(
+        function (link) {
+
+            link.classList.remove(
+                "active"
+            );
 
 
-        if (
-            href === "#" + currentSectionId
-        ) {
+            const href =
+                link.getAttribute(
+                    "href"
+                );
 
-            link.classList.add("active");
+
+            if (
+                href ===
+                "#" + currentSectionId
+            ) {
+
+                link.classList.add(
+                    "active"
+                );
+
+            }
+
         }
-
-    });
+    );
 
 }
 
@@ -939,21 +1390,9 @@ window.addEventListener(
 );
 
 
+updateActiveNavigation();
+
+
 /* =========================================================
-   SAFETY FALLBACK
-   Loader hech qachon ekranda qolib ketmasin.
+   END
 ========================================================= */
-
-setTimeout(function () {
-
-    if (
-        pageLoader &&
-        !pageLoader.classList.contains("hide")
-    ) {
-
-        pageLoader.classList.add("hide");
-
-        document.body.classList.remove("no-scroll");
-    }
-
-}, 4000);
