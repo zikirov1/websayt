@@ -912,75 +912,49 @@ if (contactForm) {
   );
 
 
-  window.addEventListener(
-    "message",
-    function (event) {
+window.addEventListener("message", function (event) {
+  const data = event.data;
 
-      const data =
-        event.data;
+  if (!data) {
+    return;
+  }
 
+  if (data.source !== "besha-group-form") {
+    return;
+  }
 
-      if (
-        !data ||
-        data.source !==
-          "besha-group-form"
-      ) {
-        return;
-      }
+  const submitButton =
+    contactForm.querySelector(
+      'button[type="submit"]'
+    );
 
+  if (responseTimer) {
+    clearTimeout(responseTimer);
+    responseTimer = null;
+  }
 
-      const submitButton =
-        contactForm.querySelector(
-          'button[type="submit"]'
-        );
+  formSubmitting = false;
 
-
-      if (responseTimer) {
-
-        clearTimeout(
-          responseTimer
-        );
-
-        responseTimer =
-          null;
-
-      }
-
-
-      formSubmitting =
-        false;
-
-
-      setSubmitLoading(
-        submitButton,
-        false
-      );
-
-
-      if (data.success) {
-
-        alert(
-          "Murojaatingiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog‘lanamiz."
-        );
-
-        contactForm.reset();
-
-        closeForm();
-
-      } else {
-
-        alert(
-          data.message ||
-          "Murojaatni yuborishda xatolik yuz berdi."
-        );
-
-      }
-
-    }
+  setSubmitLoading(
+    submitButton,
+    false
   );
 
-}
+  if (data.success === true) {
+    alert(
+      "Murojaatingiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog‘lanamiz."
+    );
 
+    contactForm.reset();
+    closeForm();
+
+  } else {
+    alert(
+      data.message ||
+      "Murojaatni yuborishda xatolik yuz berdi."
+    );
+  }
+});
 
 /* =========================================================
    SMOOTH SCROLL
