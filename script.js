@@ -722,239 +722,428 @@ function showMessage(message) {
 ========================================================= */
 
 
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
 if (contactForm) {
 
-  let formSubmitting = false;
-  let responseTimer = null;
+    let formSubmitting = false;
+    let responseTimer = null;
+    let statusInterval = null;
 
-  contactForm.addEventListener(
-    "submit",
-    function (event) {
 
-      event.preventDefault();
+    function createRequestId() {
 
-      if (formSubmitting) {
-        return;
-      }
-
-      const submitButton =
-        contactForm.querySelector(
-          'button[type="submit"]'
+        return (
+            Date.now().toString(36) +
+            Math.random()
+                .toString(36)
+                .slice(2, 10)
         );
-
-      const nameValue =
-        nameInput
-          ? nameInput.value.trim()
-          : "";
-
-      const phoneValue =
-        phoneInput
-          ? phoneInput.value.trim()
-          : "";
-
-      const organizationValue =
-        organizationInput
-          ? organizationInput.value.trim()
-          : "";
-
-      const messageValue =
-        messageInput
-          ? messageInput.value.trim()
-          : "";
-
-
-      if (nameValue.length < 2) {
-
-        alert(
-          "Iltimos, ismingizni to‘g‘ri kiriting."
-        );
-
-        if (nameInput) {
-          nameInput.focus();
-        }
-
-        return;
-      }
-
-
-      if (!isValidPhone(phoneValue)) {
-
-        alert(
-          "Telefon raqamini to‘liq kiriting.\nMasalan: +998 90 123 45 67"
-        );
-
-        if (phoneInput) {
-          phoneInput.focus();
-        }
-
-        return;
-      }
-
-
-      formSubmitting = true;
-
-      setSubmitLoading(
-        submitButton,
-        true
-      );
-
-
-      let iframe =
-        document.getElementById(
-          "beshaFormFrame"
-        );
-
-
-      if (!iframe) {
-
-        iframe =
-          document.createElement(
-            "iframe"
-          );
-
-        iframe.id =
-          "beshaFormFrame";
-
-        iframe.name =
-          "beshaFormFrame";
-
-        iframe.style.display =
-          "none";
-
-        document.body.appendChild(
-          iframe
-        );
-
-      }
-
-
-      const form =
-        document.createElement(
-          "form"
-        );
-
-      form.method = "POST";
-      form.action = FORM_API_URL;
-      form.target = "beshaFormFrame";
-      form.style.display = "none";
-
-
-      const fields = {
-        name: nameValue,
-        phone: phoneValue,
-        organization:
-          organizationValue,
-        message:
-          messageValue
-      };
-
-
-      Object.keys(fields).forEach(
-        function (key) {
-
-          const input =
-            document.createElement(
-              "input"
-            );
-
-          input.type = "hidden";
-          input.name = key;
-          input.value =
-            fields[key];
-
-          form.appendChild(
-            input
-          );
-
-        }
-      );
-
-
-      document.body.appendChild(
-        form
-      );
-
-
-      responseTimer =
-        setTimeout(
-          function () {
-
-            if (!formSubmitting) {
-              return;
-            }
-
-            formSubmitting = false;
-
-            setSubmitLoading(
-              submitButton,
-              false
-            );
-
-            alert(
-              "Serverdan javob kelmadi. Iltimos, qayta urinib ko‘ring."
-            );
-
-          },
-          15000
-        );
-
-
-      form.submit();
-
-      setTimeout(
-        function () {
-          form.remove();
-        },
-        1000
-      );
 
     }
-  );
 
 
-window.addEventListener("message", function (event) {
-  const data = event.data;
+    function stopStatusCheck() {
 
-  if (!data) {
-    return;
-  }
+        if (statusInterval) {
+            clearInterval(statusInterval);
+            statusInterval = null;
+        }
 
-  if (data.source !== "besha-group-form") {
-    return;
-  }
 
-  const submitButton =
-    contactForm.querySelector(
-      'button[type="submit"]'
+        if (responseTimer) {
+            clearTimeout(responseTimer);
+            responseTimer = null;
+        }
+
+    }
+
+
+    function checkFormStatus(
+        requestId,
+        submitButton
+    ) {
+
+        const callbackName =
+            "beshaCallback_" +
+            Date.now() +
+            "_" +
+            Math.random()
+                .toString(36)
+                .slice(2, 8);
+
+
+        const script =
+            document.createElement(
+                "script"
+            );
+
+
+        window[callbackName] =
+            function (data) {
+
+                try {
+
+                    if (
+                        !data ||
+                        data.ready !== true
+                    ) {
+                        return;
+                    }
+
+
+                    stopStatusCheck();
+
+                    formSubmitting = false;
+
+                    setSubmitLoading(
+                        submitButton,
+                        false
+                    );
+
+
+                    if (
+                        data.success === true
+                    ) {
+
+                        alert(
+                            "Murojaatingiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog‘lanamiz."
+                        );
+
+                        contactForm.reset();
+
+                        closeForm();
+
+                    } else {
+
+                        alert(
+                            data.message ||
+                            "Murojaatni yuborishda xatolik yuz berdi."
+                        );
+
+                    }
+
+                } finally {
+
+                    delete window[
+                        callbackName
+                    ];
+
+                    script.remove();
+
+                }
+
+            };
+
+
+        script.onerror =
+            function () {
+
+                delete window[
+                    callbackName
+                ];
+
+                script.remove();
+
+            };
+
+
+        script.src =
+            FORM_API_URL +
+            "?action=status" +
+            "&requestId=" +
+            encodeURIComponent(
+                requestId
+            ) +
+            "&callback=" +
+            encodeURIComponent(
+                callbackName
+            ) +
+            "&_=" +
+            Date.now();
+
+
+        document.body.appendChild(
+            script
+        );
+
+    }
+
+
+    contactForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            if (formSubmitting) {
+                return;
+            }
+
+
+            const submitButton =
+                contactForm.querySelector(
+                    'button[type="submit"]'
+                );
+
+
+            const nameValue =
+                nameInput
+                    ? nameInput.value.trim()
+                    : "";
+
+
+            const phoneValue =
+                phoneInput
+                    ? phoneInput.value.trim()
+                    : "";
+
+
+            const organizationValue =
+                organizationInput
+                    ? organizationInput.value.trim()
+                    : "";
+
+
+            const messageValue =
+                messageInput
+                    ? messageInput.value.trim()
+                    : "";
+
+
+            if (
+                nameValue.length < 2
+            ) {
+
+                alert(
+                    "Iltimos, ismingizni to‘g‘ri kiriting."
+                );
+
+
+                if (nameInput) {
+                    nameInput.focus();
+                }
+
+
+                return;
+
+            }
+
+
+            if (
+                !isValidPhone(
+                    phoneValue
+                )
+            ) {
+
+                alert(
+                    "Telefon raqamini to‘liq kiriting.\nMasalan: +998 90 123 45 67"
+                );
+
+
+                if (phoneInput) {
+                    phoneInput.focus();
+                }
+
+
+                return;
+
+            }
+
+
+            formSubmitting = true;
+
+
+            setSubmitLoading(
+                submitButton,
+                true
+            );
+
+
+            const requestId =
+                createRequestId();
+
+
+            let iframe =
+                document.getElementById(
+                    "beshaFormFrame"
+                );
+
+
+            if (!iframe) {
+
+                iframe =
+                    document.createElement(
+                        "iframe"
+                    );
+
+
+                iframe.id =
+                    "beshaFormFrame";
+
+                iframe.name =
+                    "beshaFormFrame";
+
+                iframe.style.display =
+                    "none";
+
+
+                document.body.appendChild(
+                    iframe
+                );
+
+            }
+
+
+            const form =
+                document.createElement(
+                    "form"
+                );
+
+
+            form.method = "POST";
+
+            form.action =
+                FORM_API_URL;
+
+            form.target =
+                "beshaFormFrame";
+
+            form.style.display =
+                "none";
+
+
+            const fields = {
+
+                requestId:
+                    requestId,
+
+                name:
+                    nameValue,
+
+                phone:
+                    phoneValue,
+
+                organization:
+                    organizationValue,
+
+                message:
+                    messageValue
+
+            };
+
+
+            Object.keys(
+                fields
+            ).forEach(
+                function (key) {
+
+                    const input =
+                        document.createElement(
+                            "input"
+                        );
+
+
+                    input.type =
+                        "hidden";
+
+                    input.name =
+                        key;
+
+                    input.value =
+                        fields[key];
+
+
+                    form.appendChild(
+                        input
+                    );
+
+                }
+            );
+
+
+            document.body.appendChild(
+                form
+            );
+
+
+            form.submit();
+
+
+            setTimeout(
+                function () {
+
+                    form.remove();
+
+                },
+                1000
+            );
+
+
+            setTimeout(
+                function () {
+
+                    checkFormStatus(
+                        requestId,
+                        submitButton
+                    );
+
+                },
+                1200
+            );
+
+
+            statusInterval =
+                setInterval(
+                    function () {
+
+                        checkFormStatus(
+                            requestId,
+                            submitButton
+                        );
+
+                    },
+                    1500
+                );
+
+
+            responseTimer =
+                setTimeout(
+                    function () {
+
+                        if (
+                            !formSubmitting
+                        ) {
+                            return;
+                        }
+
+
+                        stopStatusCheck();
+
+                        formSubmitting =
+                            false;
+
+
+                        setSubmitLoading(
+                            submitButton,
+                            false
+                        );
+
+
+                        alert(
+                            "Server javobini olishda kechikish bo‘ldi. Iltimos, qayta urinib ko‘ring."
+                        );
+
+                    },
+                    20000
+                );
+
+        }
     );
 
-  if (responseTimer) {
-    clearTimeout(responseTimer);
-    responseTimer = null;
-  }
-
-  formSubmitting = false;
-
-  setSubmitLoading(
-    submitButton,
-    false
-  );
-
-  if (data.success === true) {
-    alert(
-      "Murojaatingiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog‘lanamiz."
-    );
-
-    contactForm.reset();
-    closeForm();
-
-  } else {
-    alert(
-      data.message ||
-      "Murojaatni yuborishda xatolik yuz berdi."
-    );
-  }
-});
 }
 /* =========================================================
    SMOOTH SCROLL
