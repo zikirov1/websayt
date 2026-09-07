@@ -721,240 +721,263 @@ function showMessage(message) {
    CONTACT FORM
 ========================================================= */
 
+
 if (contactForm) {
 
-    contactForm.addEventListener(
-        "submit",
-        async function (event) {
+  let formSubmitting = false;
+  let responseTimer = null;
 
-            event.preventDefault();
+  contactForm.addEventListener(
+    "submit",
+    function (event) {
 
+      event.preventDefault();
 
-            const submitButton =
-                contactForm.querySelector(
-                    'button[type="submit"]'
-                );
+      if (formSubmitting) {
+        return;
+      }
 
+      const submitButton =
+        contactForm.querySelector(
+          'button[type="submit"]'
+        );
 
-            const nameValue =
-                nameInput
-                    ? nameInput.value.trim()
-                    : "";
+      const nameValue =
+        nameInput
+          ? nameInput.value.trim()
+          : "";
 
+      const phoneValue =
+        phoneInput
+          ? phoneInput.value.trim()
+          : "";
 
-            const phoneValue =
-                phoneInput
-                    ? phoneInput.value.trim()
-                    : "";
+      const organizationValue =
+        organizationInput
+          ? organizationInput.value.trim()
+          : "";
 
+      const messageValue =
+        messageInput
+          ? messageInput.value.trim()
+          : "";
 
-            const organizationValue =
-                organizationInput
-                    ? organizationInput.value.trim()
-                    : "";
 
+      if (nameValue.length < 2) {
 
-            const messageValue =
-                messageInput
-                    ? messageInput.value.trim()
-                    : "";
+        alert(
+          "Iltimos, ismingizni to‘g‘ri kiriting."
+        );
 
+        if (nameInput) {
+          nameInput.focus();
+        }
 
-            /* -------------------------
-               ISM TEKSHIRISH
-            ------------------------- */
+        return;
+      }
 
-            if (
-                nameValue.length < 2
-            ) {
 
-                showMessage(
-                    "Iltimos, ism va familiyangizni to‘g‘ri kiriting."
-                );
+      if (!isValidPhone(phoneValue)) {
 
+        alert(
+          "Telefon raqamini to‘liq kiriting.\nMasalan: +998 90 123 45 67"
+        );
 
-                if (nameInput) {
-                    nameInput.focus();
-                }
+        if (phoneInput) {
+          phoneInput.focus();
+        }
 
+        return;
+      }
 
-                return;
-            }
 
+      formSubmitting = true;
 
-            /* -------------------------
-               TELEFON TEKSHIRISH
-            ------------------------- */
+      setSubmitLoading(
+        submitButton,
+        true
+      );
 
-            if (
-                !isValidPhone(
-                    phoneValue
-                )
-            ) {
 
-                showMessage(
-                    "Iltimos, telefon raqamingizni to‘liq kiriting.\nMasalan: +998 90 123 45 67"
-                );
+      let iframe =
+        document.getElementById(
+          "beshaFormFrame"
+        );
 
 
-                if (phoneInput) {
-                    phoneInput.focus();
-                }
+      if (!iframe) {
 
+        iframe =
+          document.createElement(
+            "iframe"
+          );
 
-                return;
-            }
+        iframe.id =
+          "beshaFormFrame";
 
+        iframe.name =
+          "beshaFormFrame";
 
-            /* -------------------------
-               YUBORILADIGAN DATA
-            ------------------------- */
+        iframe.style.display =
+          "none";
 
-            const formData = {
+        document.body.appendChild(
+          iframe
+        );
 
-                name:
-                    nameValue,
+      }
 
-                phone:
-                    phoneValue,
 
-                organization:
-                    organizationValue,
+      const form =
+        document.createElement(
+          "form"
+        );
 
-                message:
-                    messageValue
+      form.method = "POST";
+      form.action = FORM_API_URL;
+      form.target = "beshaFormFrame";
+      form.style.display = "none";
 
-            };
 
+      const fields = {
+        name: nameValue,
+        phone: phoneValue,
+        organization:
+          organizationValue,
+        message:
+          messageValue
+      };
 
-            try {
 
-                setSubmitLoading(
-                    submitButton,
-                    true
-                );
+      Object.keys(fields).forEach(
+        function (key) {
 
+          const input =
+            document.createElement(
+              "input"
+            );
 
-                /* -------------------------
-                   GOOGLE APPS SCRIPT
-                ------------------------- */
+          input.type = "hidden";
+          input.name = key;
+          input.value =
+            fields[key];
 
-                const response =
-                    await fetch(
-                        FORM_API_URL,
-                        {
-                            method:
-                                "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "text/plain;charset=utf-8"
-                            },
-
-                            body:
-                                JSON.stringify(
-                                    formData
-                                )
-                        }
-                    );
-
-
-                if (
-                    !response.ok
-                ) {
-
-                    throw new Error(
-                        "Server javobi: " +
-                        response.status
-                    );
-
-                }
-
-
-                const responseText =
-                    await response.text();
-
-
-                let result;
-
-
-                try {
-
-                    result =
-                        JSON.parse(
-                            responseText
-                        );
-
-                } catch (parseError) {
-
-                    console.error(
-                        "JSON parse xatosi:",
-                        parseError,
-                        responseText
-                    );
-
-
-                    throw new Error(
-                        "Serverdan noto‘g‘ri javob qaytdi."
-                    );
-
-                }
-
-
-                if (
-                    !result.success
-                ) {
-
-                    throw new Error(
-                        result.message ||
-                        "Murojaat yuborilmadi."
-                    );
-
-                }
-
-
-                /* -------------------------
-                   MUVAFFAQIYAT
-                ------------------------- */
-
-                showMessage(
-                    "Murojaatingiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog‘lanamiz."
-                );
-
-
-                contactForm.reset();
-
-
-                closeForm();
-
-
-            } catch (error) {
-
-                console.error(
-                    "Forma yuborish xatosi:",
-                    error
-                );
-
-
-                showMessage(
-                    "Murojaatni yuborishda xatolik yuz berdi.\n\n" +
-                    "Telefon: +998 77 387 10 10\n" +
-                    "Telefon: +998 90 024 46 46\n" +
-                    "Telegram: @Beshagroupuz"
-                );
-
-
-            } finally {
-
-                setSubmitLoading(
-                    submitButton,
-                    false
-                );
-
-            }
+          form.appendChild(
+            input
+          );
 
         }
-    );
+      );
+
+
+      document.body.appendChild(
+        form
+      );
+
+
+      responseTimer =
+        setTimeout(
+          function () {
+
+            if (!formSubmitting) {
+              return;
+            }
+
+            formSubmitting = false;
+
+            setSubmitLoading(
+              submitButton,
+              false
+            );
+
+            alert(
+              "Serverdan javob kelmadi. Iltimos, qayta urinib ko‘ring."
+            );
+
+          },
+          15000
+        );
+
+
+      form.submit();
+
+      setTimeout(
+        function () {
+          form.remove();
+        },
+        1000
+      );
+
+    }
+  );
+
+
+  window.addEventListener(
+    "message",
+    function (event) {
+
+      const data =
+        event.data;
+
+
+      if (
+        !data ||
+        data.source !==
+          "besha-group-form"
+      ) {
+        return;
+      }
+
+
+      const submitButton =
+        contactForm.querySelector(
+          'button[type="submit"]'
+        );
+
+
+      if (responseTimer) {
+
+        clearTimeout(
+          responseTimer
+        );
+
+        responseTimer =
+          null;
+
+      }
+
+
+      formSubmitting =
+        false;
+
+
+      setSubmitLoading(
+        submitButton,
+        false
+      );
+
+
+      if (data.success) {
+
+        alert(
+          "Murojaatingiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog‘lanamiz."
+        );
+
+        contactForm.reset();
+
+        closeForm();
+
+      } else {
+
+        alert(
+          data.message ||
+          "Murojaatni yuborishda xatolik yuz berdi."
+        );
+
+      }
+
+    }
+  );
 
 }
 
