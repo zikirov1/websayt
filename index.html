@@ -1,1279 +1,282 @@
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Besha Group — Insonlar va imkoniyatlarni bog‘laymiz</title>
+    <title>BESHA GROUP — Ishchi kuchi va hamkorlik</title>
 
-    <meta name="description"
-        content="Besha Group — korxonalar uchun ishchi kuchi bilan ta'minlash va ishga qabul qilish jarayonlarini tashkil etishga ko‘maklashuvchi kompaniya.">
+    <meta
+        name="description"
+        content="BESHA GROUP — korxonalar uchun ishchi kuchini tanlash, jalb qilish va ishga qabul qilish jarayonlarini tashkil etishga ko‘maklashuvchi kompaniya."
+    >
 
-    <meta name="keywords"
-        content="Besha Group, ishchi kuchi, recruitment, staffing, Uzbekistan, factory workers">
-
-    <meta name="author" content="Besha Group">
+    <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =====================================================
-         INTRO
-    ====================================================== -->
+<!-- =========================
+     PAGE LOADER
+========================= -->
 
-    <div class="intro" id="intro">
-
-        <div class="intro-content">
-
-            <div class="intro-logo">
-                <span>BESHA</span>
-                <strong>GROUP</strong>
-            </div>
-
-            <p>INSONLAR VA IMKONIYATLARNI BOG‘LAYMIZ</p>
-
-        </div>
-
+<div class="page-loader" id="pageLoader">
+    <div class="loader-logo">
+        <span>BESHA</span>
+        <strong>GROUP</strong>
     </div>
 
-
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
-    <header class="header">
-
-        <div class="container nav">
-
-            <!-- LOGO -->
-
-            <a href="#home" class="logo">
-                <span>BESHA</span> GROUP
-            </a>
+    <div class="loader-line">
+        <span></span>
+    </div>
+</div>
 
 
-            <!-- NAVIGATION -->
+<!-- =========================
+     HEADER
+========================= -->
 
-            <nav class="menu" id="menu">
+<header class="header" id="header">
 
-                <a href="#about">
-                    Biz haqimizda
-                </a>
+    <div class="container nav">
 
-                <a href="#services">
-                    Faoliyatimiz
-                </a>
-
-                <a href="#approach">
-                    Yondashuv
-                </a>
-
-                <a href="#values">
-                    Qadriyatlar
-                </a>
-
-                <a href="#team">
-                    Rahbariyat
-                </a>
-
-                <a href="#contact">
-                    Bog‘lanish
-                </a>
-
-            </nav>
+        <a href="#home" class="logo">
+            <span class="logo-main">BESHA</span>
+            <span class="logo-sub">GROUP</span>
+        </a>
 
 
-            <!-- LANGUAGE -->
+        <nav class="menu" id="mainMenu">
 
-            <div class="language-switcher">
+            <a href="#home">Bosh sahifa</a>
 
-                <button
-                    type="button"
-                    class="language-current"
-                    id="languageButton"
-                    aria-expanded="false"
-                    aria-haspopup="true">
+            <a href="#about">Biz haqimizda</a>
 
-                    <span id="currentLanguage">
-                        UZ
-                    </span>
+            <a href="#services">Xizmatlar</a>
 
-                    <span class="language-arrow">
-                        ▾
-                    </span>
+            <a href="#why-us">Nega biz?</a>
 
-                </button>
+            <a href="#contact">Bog‘lanish</a>
+
+        </nav>
 
 
-                <div
-                    class="language-dropdown"
-                    id="languageDropdown">
+        <div class="nav-actions">
 
-                    <button
-                        type="button"
-                        class="language-option active"
-                        data-lang="uz">
-
-                        <span>
-                            O‘zbekcha
-                        </span>
-
-                        <strong>
-                            UZ
-                        </strong>
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="language-option"
-                        data-lang="en">
-
-                        <span>
-                            English
-                        </span>
-
-                        <strong>
-                            EN
-                        </strong>
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="language-option"
-                        data-lang="ru">
-
-                        <span>
-                            Русский
-                        </span>
-
-                        <strong>
-                            RU
-                        </strong>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- HEADER BUTTON -->
-
-            <a
-                href="#contact"
-                class="nav-btn">
-
-                Bog‘lanish
-
-            </a>
-
-
-            <!-- MOBILE MENU -->
+            <button
+                type="button"
+                class="nav-contact"
+                onclick="openForm()"
+            >
+                Murojaat qoldirish
+            </button>
 
             <button
                 type="button"
                 class="menu-btn"
-                id="menuButton"
-                aria-label="Menyu">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
+                id="menuBtn"
+                aria-label="Menyuni ochish"
+                aria-expanded="false"
+            >
+                ☰
             </button>
 
         </div>
 
-    </header>
+    </div>
+
+</header>
 
 
-    <!-- =====================================================
-         MAIN
-    ====================================================== -->
+<!-- =========================
+     HERO
+========================= -->
 
-    <main>
+<main>
 
+<section class="hero" id="home">
 
-        <!-- =================================================
-             HERO
-        ================================================== -->
+    <div class="hero-shape hero-shape-one"></div>
+    <div class="hero-shape hero-shape-two"></div>
 
-        <section
-            class="hero"
-            id="home">
+    <div class="container hero-container">
 
-            <div class="hero-shape shape-1"></div>
-            <div class="hero-shape shape-2"></div>
-            <div class="hero-shape shape-3"></div>
+        <div class="hero-content">
 
+            <div class="section-label">
+                BESHA GROUP
+            </div>
 
-            <div class="container hero-content">
+            <h1>
+                Insonlar va
+                <span>imkoniyatlarni</span>
+                bog‘laymiz
+            </h1>
 
-                <div class="hero-tag">
-                    BESHA GROUP
-                </div>
+            <p>
+                Biz korxonalar ehtiyojiga mos ishchi kuchini
+                izlash, tanlash va ishga jalb qilish jarayonlarini
+                tashkil etishga ko‘maklashamiz.
+            </p>
 
+            <div class="hero-buttons">
 
-                <h1>
+                <button
+                    type="button"
+                    class="primary-btn"
+                    onclick="openForm()"
+                >
+                    Biz bilan bog‘lanish
+                    <span>→</span>
+                </button>
 
-                    Insonlar va
-                    <span>imkoniyatlarni</span>
-                    bog‘laymiz.
-
-                </h1>
-
-
-                <p>
-
-                    Korxonalar uchun ishchi kuchiga bo‘lgan
-                    ehtiyojni qondirish jarayonini samarali
-                    tashkil etishga ko‘maklashamiz.
-
-                </p>
-
-
-                <div class="hero-actions">
-
-                    <a
-                        href="#about"
-                        class="primary-btn">
-
-                        Biz haqimizda
-
-                    </a>
-
-
-                    <a
-                        href="#contact"
-                        class="secondary-btn">
-
-                        Biz bilan bog‘laning
-
-                    </a>
-
-                </div>
+                <a href="#about" class="secondary-btn">
+                    Biz haqimizda
+                    <span>↓</span>
+                </a>
 
             </div>
 
-        </section>
-
-
-
-        <!-- =================================================
-             ABOUT
-        ================================================== -->
-
-        <section
-            class="section about"
-            id="about">
-
-            <div class="container about-grid">
-
-
-                <div class="reveal">
-
-                    <span class="section-label">
-                        BIZ KIMMIZ?
-                    </span>
-
-
-                    <h2>
-
-                        Korxonalar uchun
-                        <span>ishonchli yechim.</span>
-
-                    </h2>
-
-
-                    <p>
-
-                        Besha Group korxonalar va tashkilotlarning
-                        ishchi kuchiga bo‘lgan ehtiyojini qondirish
-                        jarayonini tashkil etishga ixtisoslashgan
-                        kompaniya sifatida faoliyat yuritadi.
-
-                    </p>
-
-
-                    <p>
-
-                        Biz ish beruvchilarning talablarini o‘rganish,
-                        zarur ishchi kuchini shakllantirish va
-                        ishga qabul qilish jarayonlarini samarali
-                        tashkil etishga ko‘maklashamiz.
-
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="about-highlight reveal">
-
-                    <div class="highlight-line"></div>
-
-
-                    <span>
-                        ASOSIY MAQSADIMIZ
-                    </span>
-
-
-                    <h3>
-
-                        Korxonalar uchun
-                        kerakli ishchi kuchini
-                        samarali tashkil etishga
-                        ko‘maklashish.
-
-                    </h3>
-
-                </div>
-
+            <div class="hero-note">
+                <span class="note-dot"></span>
+                Hamkorlik uchun ochiqmiz
             </div>
 
-        </section>
+        </div>
 
 
+        <div class="hero-card">
 
-        <!-- =================================================
-             WHY BESHA
-        ================================================== -->
+            <div class="hero-card-top">
 
-        <section
-            class="section problem-section">
-
-            <div class="container">
-
-
-                <div class="section-heading reveal">
-
-                    <span class="section-label">
-                        BIZGA NIMA UCHUN MUROJAAT QILISHADI?
-                    </span>
-
-
-                    <h2>
-
-                        Ishchi kuchi masalasida
-                        <span>aniq va amaliy yondashuv.</span>
-
-                    </h2>
-
-
-                    <p>
-
-                        Korxonalarda ishchi kuchiga bo‘lgan ehtiyoj
-                        turlicha bo‘lishi mumkin. Biz har bir
-                        murojaatni korxonaning real ehtiyojidan
-                        kelib chiqib ko‘rib chiqamiz.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="problem-grid">
-
-
-                    <div class="problem-card reveal">
-
-                        <div class="card-number">
-                            01
-                        </div>
-
-
-                        <h3>
-                            Ishchi kuchiga ehtiyoj
-                        </h3>
-
-
-                        <p>
-
-                            Ishlab chiqarish yoki boshqa faoliyat
-                            yo‘nalishlarida qo‘shimcha ishchi kuchiga
-                            ehtiyoj sezayotgan korxonalar biz bilan
-                            bog‘lanishlari mumkin.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="solution-card reveal">
-
-                        <div class="card-number">
-                            BG
-                        </div>
-
-
-                        <h3>
-                            Bizning yondashuv
-                        </h3>
-
-
-                        <p>
-
-                            Avvalo korxonaning talablarini,
-                            ish sharoitlarini va zarur ishchi
-                            kuchi parametrlarini tushunamiz.
-                            Shundan so‘ng tegishli jarayonni
-                            tashkil etishga kirishamiz.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="problem-card reveal">
-
-                        <div class="card-number">
-                            02
-                        </div>
-
-
-                        <h3>
-                            Jarayonni yengillashtirish
-                        </h3>
-
-
-                        <p>
-
-                            Maqsadimiz — korxona uchun ishchi
-                            kuchini izlash va ishga qabul qilish
-                            bilan bog‘liq jarayonlarni imkon qadar
-                            tartibli va samarali tashkil etishga
-                            ko‘maklashish.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             SERVICES
-        ================================================== -->
-
-        <section
-            class="section services"
-            id="services">
-
-            <div class="container">
-
-
-                <div class="section-heading reveal">
-
-                    <span class="section-label">
-                        FAOLIYATIMIZ
-                    </span>
-
-
-                    <h2>
-
-                        Korxonalar uchun
-                        <span>nimalar qilamiz?</span>
-
-                    </h2>
-
-
-                    <p>
-
-                        Bizning faoliyatimiz ish beruvchining
-                        ehtiyojini tushunishdan boshlab, zarur
-                        ishchi kuchini tashkil etish jarayonigacha
-                        bo‘lgan bosqichlarni qamrab oladi.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="service-grid">
-
-
-                    <article
-                        class="service-card reveal">
-
-                        <span>
-                            01
-                        </span>
-
-
-                        <h3>
-                            Ehtiyojni o‘rganish
-                        </h3>
-
-
-                        <p>
-
-                            Korxonaning ishchi kuchiga bo‘lgan
-                            ehtiyoji, talab qilinadigan yo‘nalish,
-                            ish sharoitlari va boshqa muhim
-                            mezonlarini o‘rganamiz.
-
-                        </p>
-
-                    </article>
-
-
-
-                    <article
-                        class="service-card reveal">
-
-                        <span>
-                            02
-                        </span>
-
-
-                        <h3>
-                            Ishchi kuchini tashkil etish
-                        </h3>
-
-
-                        <p>
-
-                            Belgilangan talablar asosida zarur
-                            ishchi kuchini shakllantirish va
-                            tegishli jarayonlarni tashkil etishga
-                            ko‘maklashamiz.
-
-                        </p>
-
-                    </article>
-
-
-
-                    <article
-                        class="service-card reveal">
-
-                        <span>
-                            03
-                        </span>
-
-
-                        <h3>
-                            Hamkorlikni muvofiqlashtirish
-                        </h3>
-
-
-                        <p>
-
-                            Ish beruvchi bilan doimiy muloqot
-                            qilib, kelishilgan talablar va
-                            jarayonlarning bajarilishini
-                            muvofiqlashtirishga yordam beramiz.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             WHO WE WORK WITH
-        ================================================== -->
-
-        <section class="section audience">
-
-            <div class="container">
-
-
-                <div
-                    class="section-heading center reveal">
-
-                    <span class="section-label">
-                        KIMLAR BILAN ISHLAYMIZ?
-                    </span>
-
-
-                    <h2>
-
-                        Ish beruvchilar uchun
-                        amaliy yechimlar.
-
-                    </h2>
-
-
-                    <p>
-
-                        Bizning asosiy yo‘nalishimiz —
-                        ishchi kuchiga ehtiyoj sezayotgan
-                        korxonalar bilan ishlash.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="audience-grid">
-
-
-                    <div class="audience-card reveal">
-
-                        <div class="audience-icon">
-                            01
-                        </div>
-
-
-                        <h3>
-                            Ishlab chiqarish korxonalari
-                        </h3>
-
-
-                        <p>
-
-                            Ishlab chiqarish jarayonlarida
-                            ishchi kuchiga ehtiyoj sezayotgan
-                            zavod va korxonalar.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="audience-card reveal">
-
-                        <div class="audience-icon">
-                            02
-                        </div>
-
-
-                        <h3>
-                            Yirik tashkilotlar
-                        </h3>
-
-
-                        <p>
-
-                            Doimiy yoki ma'lum davr uchun
-                            qo‘shimcha ishchi kuchiga ehtiyoj
-                            sezayotgan tashkilotlar.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             APPROACH
-        ================================================== -->
-
-        <section
-            class="section approach"
-            id="approach">
-
-            <div class="container">
-
-
-                <div class="section-heading reveal">
-
-                    <span class="section-label">
-                        YONDASHUVIMIZ
-                    </span>
-
-
-                    <h2>
-
-                        Har bir korxona uchun
-                        <span>alohida yondashuv.</span>
-
-                    </h2>
-
-                </div>
-
-
-
-                <div class="process">
-
-
-                    <div class="process-item reveal">
-
-                        <span>
-                            01
-                        </span>
-
-
-                        <div>
-
-                            <h3>
-                                Ehtiyojni tushunamiz
-                            </h3>
-
-
-                            <p>
-
-                                Korxona tomonidan qo‘yilgan
-                                talablar va ehtiyojlarni
-                                batafsil o‘rganamiz.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="process-item reveal">
-
-                        <span>
-                            02
-                        </span>
-
-
-                        <div>
-
-                            <h3>
-                                Talablarni aniqlaymiz
-                            </h3>
-
-
-                            <p>
-
-                                Lavozim, ish sharoiti, ish vaqti
-                                va boshqa muhim mezonlarni
-                                aniqlashtiramiz.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="process-item reveal">
-
-                        <span>
-                            03
-                        </span>
-
-
-                        <div>
-
-                            <h3>
-                                Jarayonni tashkil qilamiz
-                            </h3>
-
-
-                            <p>
-
-                                Kelishilgan talablar asosida
-                                zarur ishchi kuchini tashkil
-                                etish jarayonini amalga oshiramiz.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="process-item reveal">
-
-                        <span>
-                            04
-                        </span>
-
-
-                        <div>
-
-                            <h3>
-                                Muloqotni davom ettiramiz
-                            </h3>
-
-
-                            <p>
-
-                                Hamkorlik davomida ish beruvchi
-                                bilan muntazam aloqada bo‘lib,
-                                zarur masalalarni muvofiqlashtiramiz.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             VALUES
-        ================================================== -->
-
-        <section
-            class="section values"
-            id="values">
-
-            <div class="container">
-
-
-                <div
-                    class="section-heading center reveal">
-
-                    <span class="section-label">
-                        QADRIYATLARIMIZ
-                    </span>
-
-
-                    <h2>
-                        Ishonch asosidagi hamkorlik.
-                    </h2>
-
-                </div>
-
-
-
-                <div class="values-grid">
-
-
-                    <div class="value reveal">
-
-                        <h3>
-                            Ishonch
-                        </h3>
-
-
-                        <p>
-
-                            Biznes hamkorlikda ishonch va
-                            o‘zaro hurmatni asosiy tamoyillardan
-                            biri deb bilamiz.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="value reveal">
-
-                        <h3>
-                            Mas'uliyat
-                        </h3>
-
-
-                        <p>
-
-                            Kelishilgan vazifalar va
-                            majburiyatlarga mas'uliyat bilan
-                            yondashamiz.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="value reveal">
-
-                        <h3>
-                            Aniqlik
-                        </h3>
-
-
-                        <p>
-
-                            Talablar, shartlar va jarayonlar
-                            bo‘yicha imkon qadar aniq va
-                            tushunarli muloqotni ta'minlaymiz.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="value reveal">
-
-                        <h3>
-                            Rivojlanish
-                        </h3>
-
-
-                        <p>
-
-                            Faoliyatimizni takomillashtirish
-                            va korxonalar uchun yanada samarali
-                            yechimlar yaratishga intilamiz.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             MANAGEMENT
-        ================================================== -->
-
-        <section
-            class="section team"
-            id="team">
-
-            <div class="container">
-
-
-                <div
-                    class="section-heading center reveal">
-
-                    <span class="section-label">
-                        RAHBARIYAT
-                    </span>
-
-
-                    <h2>
-                        Besha Group rahbariyati.
-                    </h2>
-
-
-                    <p>
-
-                        Rahbariyat haqida ma'lumot olish
-                        uchun tegishli kartani tanlang.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="team-grid">
-
-
-                    <button
-                        type="button"
-                        class="person-card reveal"
-                        onclick="openPerson('director')">
-
-
-                        <div class="person-icon">
-                            BG
-                        </div>
-
-
-                        <span class="person-role">
-                            DIREKTOR
-                        </span>
-
-
-                        <h3>
-                            Ism Familiya
-                        </h3>
-
-
-                        <span class="person-more">
-                            Batafsil →
-                        </span>
-
-                    </button>
-
-
-
-                    <button
-                        type="button"
-                        class="person-card reveal"
-                        onclick="openPerson('manager')">
-
-
-                        <div class="person-icon">
-                            BG
-                        </div>
-
-
-                        <span class="person-role">
-                            MENEJER
-                        </span>
-
-
-                        <h3>
-                            Ism Familiya
-                        </h3>
-
-
-                        <span class="person-more">
-                            Batafsil →
-                        </span>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             FUTURE
-        ================================================== -->
-
-        <section class="future">
-
-            <div
-                class="container future-content reveal">
-
-
-                <span>
-                    KELAJAKKA QARASH
+                <span class="hero-card-number">
+                    01
                 </span>
 
+                <span class="hero-card-line"></span>
+
+            </div>
+
+            <h3>
+                Korxona uchun
+                <br>
+                kerakli inson
+            </h3>
+
+            <p>
+                To‘g‘ri ishchi kuchini topish va ishga
+                qabul qilish jarayonini tartibli tashkil etish.
+            </p>
+
+            <a href="#services">
+                Biz nima qilamiz →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section about" id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">
+                    BIZ HAQIMIZDA
+                </span>
 
                 <h2>
-
-                    Ishonchli hamkorlikdan
-                    <br>
-
-                    <strong>
-                        barqaror natijalar sari.
-                    </strong>
-
+                    Ish beruvchi va
+                    ish izlovchini
+                    bog‘laymiz
                 </h2>
+            </div>
 
+            <p>
+                BESHA GROUP ishchi kuchiga ehtiyoj sezayotgan
+                korxonalar va mehnat qilish istagidagi insonlar
+                o‘rtasidagi aloqani tashkil etishga yo‘naltirilgan.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-main">
 
                 <p>
+                    Korxonalar uchun kerakli mutaxassis va
+                    ishchilarni izlash, nomzodlarni dastlabki
+                    saralash hamda ishga jalb qilish jarayonlarini
+                    tizimli tashkil etishga yordam beramiz.
+                </p>
 
-                    Besha Group korxonalar uchun ishchi
-                    kuchini tashkil etish jarayonlarini
-                    yanada samarali, tizimli va qulay
-                    qilish yo‘lida rivojlanib boradi.
+                <p>
+                    Bizning yondashuvimiz — ish beruvchining
+                    ehtiyojini tushunish, unga mos nomzodlarni
+                    topish va tomonlar o‘rtasidagi muloqotni
+                    samarali tashkil etish.
+                </p>
 
+                <p>
+                    Kompaniyamiz faoliyatini bosqichma-bosqich
+                    rivojlantirib, hamkorlarimiz uchun ishonchli
+                    va qulay xizmat yaratishni maqsad qilgan.
                 </p>
 
             </div>
 
-        </section>
 
+            <div class="about-info">
 
-
-        <!-- =================================================
-             CONTACT
-        ================================================== -->
-
-        <section
-            class="section contact"
-            id="contact">
-
-            <div class="container">
-
-
-                <div class="contact-box reveal">
-
+                <div class="info-item">
+                    <span>01</span>
 
                     <div>
-
-                        <span class="section-label">
-                            BIZ BILAN BOG‘LANING
-                        </span>
-
-
-                        <h2>
-                            Korxonangiz uchun
-                            ishchi kuchi kerakmi?
-                        </h2>
-
-
+                        <h3>Inson</h3>
                         <p>
-
-                            Biz bilan telefon, Telegram yoki
-                            Instagram orqali bog‘lanishingiz mumkin.
-                            Murojaatingizni ko‘rib chiqamiz va
-                            keyingi hamkorlik masalalarini
-                            bevosita muhokama qilamiz.
-
+                            Har bir nomzodning imkoniyatlari
+                            va maqsadlarini hisobga olamiz.
                         </p>
-
                     </div>
-
-
-                    <div class="contact-actions">
-
-
-                        <!-- TELEGRAM -->
-
-                        <a
-                            href="https://t.me/USERNAME?text=Assalomu%20alaykum.%20Siz%20bilan%20ishlamoqchimiz.%20Bizga%20telefon%20qiling."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="telegram-btn">
-
-                            <span>
-                                Telegram orqali yozish
-                            </span>
-
-                            <strong>
-                                →
-                            </strong>
-
-                        </a>
-
-
-                        <!-- INSTAGRAM -->
-
-                        <a
-                            href="https://instagram.com/USERNAME"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="instagram-btn">
-
-                            <span>
-                                Instagram orqali yozish
-                            </span>
-
-                            <strong>
-                                →
-                            </strong>
-
-                        </a>
-
-
-                        <!-- PHONE -->
-
-                        <a
-                            href="tel:+998901234567"
-                            class="phone-btn">
-
-                            <span>
-                                Telefon orqali bog‘lanish
-                            </span>
-
-                            <strong>
-                                +998 90 123 45 67
-                            </strong>
-
-                        </a>
-
-                    </div>
-
                 </div>
 
-            </div>
 
-        </section>
-
-    </main>
-
-
-
-    <!-- =====================================================
-         PERSON MODAL
-    ====================================================== -->
-
-    <div
-        class="person-modal"
-        id="personModal"
-        aria-hidden="true">
-
-
-        <div class="person-modal-box">
-
-
-            <button
-                type="button"
-                class="person-close"
-                onclick="closePerson()"
-                aria-label="Yopish">
-
-                ×
-
-            </button>
-
-
-            <div class="person-modal-content">
-
-
-                <span
-                    class="modal-role"
-                    id="personModalRole">
-
-                    DIREKTOR
-
-                </span>
-
-
-                <h2 id="personModalName">
-
-                    Ism Familiya
-
-                </h2>
-
-
-                <div class="person-line"></div>
-
-
-                <p id="personModalText">
-
-                    Rahbariyat a'zosi haqida
-                    batafsil ma'lumot.
-
-                </p>
-
-
-                <div class="person-details">
-
+                <div class="info-item">
+                    <span>02</span>
 
                     <div>
-
-                        <span>
-                            Lavozimi
-                        </span>
-
-
-                        <strong
-                            id="personModalPosition">
-
-                            Direktor
-
-                        </strong>
-
+                        <h3>Korxona</h3>
+                        <p>
+                            Ish beruvchining real ehtiyojiga
+                            mos yechim izlaymiz.
+                        </p>
                     </div>
+                </div>
 
+
+                <div class="info-item">
+                    <span>03</span>
+
+                    <div>
+                        <h3>Hamkorlik</h3>
+                        <p>
+                            Uzoq muddatli va o‘zaro manfaatli
+                            munosabatlarni qadrlaymiz.
+                        </p>
+                    </div>
                 </div>
 
             </div>
@@ -1282,74 +285,791 @@
 
     </div>
 
+</section>
 
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
+<!-- =========================
+     SERVICES
+========================= -->
 
-    <footer>
+<section class="section services" id="services">
 
-        <div class="container footer">
+    <div class="container">
 
+        <div class="section-heading">
 
             <div>
 
+                <span class="section-label">
+                    XIZMATLAR
+                </span>
+
+                <h2>
+                    Biz nimalar
+                    qila olamiz?
+                </h2>
+
+            </div>
+
+            <p>
+                Korxonaning ishchi kuchiga bo‘lgan ehtiyojidan
+                kelib chiqib, ishga jalb qilish jarayonini
+                tashkil etishga ko‘maklashamiz.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <div class="service-icon">
+                    👥
+                </div>
+
                 <h3>
-                    BESHA GROUP
+                    Ishchi kuchini izlash
                 </h3>
 
+                <p>
+                    Korxona uchun zarur bo‘lgan ishchi va
+                    nomzodlarni izlash jarayonini tashkil qilamiz.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="openForm()"
+                >
+                    Murojaat qilish →
+                </button>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <div class="service-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Nomzodlarni tanlash
+                </h3>
 
                 <p>
-                    Insonlar va imkoniyatlarni bog‘laymiz.
+                    Ish o‘rnining talablari va korxona ehtiyojidan
+                    kelib chiqib, mos nomzodlarni aniqlashga
+                    ko‘maklashamiz.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="openForm()"
+                >
+                    Murojaat qilish →
+                </button>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <div class="service-icon">
+                    ↗
+                </div>
+
+                <h3>
+                    Ishga jalb qilish
+                </h3>
+
+                <p>
+                    Nomzod va ish beruvchi o‘rtasidagi
+                    bog‘lanish hamda keyingi jarayonlarni
+                    tashkil etishga yordam beramiz.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="openForm()"
+                >
+                    Murojaat qilish →
+                </button>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    04
+                </div>
+
+                <div class="service-icon">
+                    ◎
+                </div>
+
+                <h3>
+                    Korxona ehtiyojini o‘rganish
+                </h3>
+
+                <p>
+                    Qaysi lavozim va qancha ishchi kerakligini
+                    aniqlash uchun ish beruvchi bilan
+                    muloqot qilamiz.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="openForm()"
+                >
+                    Murojaat qilish →
+                </button>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    05
+                </div>
+
+                <div class="service-icon">
+                    +
+                </div>
+
+                <h3>
+                    Ish izlovchilar bilan aloqa
+                </h3>
+
+                <p>
+                    Ish izlayotgan fuqarolardan murojaatlarni
+                    qabul qilib, mavjud imkoniyatlar bo‘yicha
+                    muloqot olib boramiz.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="openForm()"
+                >
+                    Murojaat qilish →
+                </button>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    06
+                </div>
+
+                <div class="service-icon">
+                    →
+                </div>
+
+                <h3>
+                    Hamkorlikni tashkil etish
+                </h3>
+
+                <p>
+                    Ish beruvchi va ish izlovchi o‘rtasida
+                    samarali aloqa o‘rnatilishiga
+                    ko‘maklashamiz.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="openForm()"
+                >
+                    Murojaat qilish →
+                </button>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY US
+========================= -->
+
+<section class="section why-us" id="why-us">
+
+    <div class="container">
+
+        <div class="center-heading">
+
+            <span class="section-label">
+                NIMA UCHUN BESHA GROUP?
+            </span>
+
+            <h2>
+                Bizning yondashuvimiz
+            </h2>
+
+            <p>
+                Biz uchun asosiy maqsad — ish beruvchining
+                ehtiyojini tushunish va ish izlovchi uchun
+                munosib imkoniyat topishga ko‘maklashish.
+            </p>
+
+        </div>
+
+
+        <div class="advantages">
+
+
+            <div class="advantage">
+
+                <span>01</span>
+
+                <h3>
+                    Ehtiyojga mos
+                </h3>
+
+                <p>
+                    Har bir hamkor bilan uning ehtiyojidan
+                    kelib chiqib ishlashga intilamiz.
                 </p>
 
             </div>
 
 
-            <div class="footer-links">
+            <div class="advantage">
 
-                <a href="#about">
-                    Biz haqimizda
-                </a>
+                <span>02</span>
 
+                <h3>
+                    Tizimli yondashuv
+                </h3>
 
-                <a href="#services">
-                    Faoliyatimiz
-                </a>
-
-
-                <a href="#contact">
-                    Bog‘lanish
-                </a>
+                <p>
+                    Ishchi kuchini izlash va jalb qilish
+                    jarayonlarini tartibli tashkil etamiz.
+                </p>
 
             </div>
 
 
-            <a href="#home">
-                ↑ Yuqoriga
+            <div class="advantage">
+
+                <span>03</span>
+
+                <h3>
+                    Ochiq muloqot
+                </h3>
+
+                <p>
+                    Hamkorlarimiz bilan aniq va tushunarli
+                    muloqotni yo‘lga qo‘yishga e’tibor beramiz.
+                </p>
+
+            </div>
+
+
+            <div class="advantage">
+
+                <span>04</span>
+
+                <h3>
+                    Rivojlanish
+                </h3>
+
+                <p>
+                    Faoliyatimizni kengaytirish va xizmatlarimizni
+                    takomillashtirish ustida ishlaymiz.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="section process">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    HAMKORLIK JARAYONI
+                </span>
+
+                <h2>
+                    Hamkorlik qanday
+                    boshlanadi?
+                </h2>
+
+            </div>
+
+            <p>
+                Birinchi qadam oddiy — biz bilan bog‘laning,
+                ehtiyojingizni tushuntiring va keyingi
+                jarayonni birgalikda muhokama qilamiz.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Murojaat
+                </h3>
+
+                <p>
+                    Telefon, Telegram, elektron pochta yoki
+                    saytdagi forma orqali biz bilan bog‘lanasiz.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Muloqot
+                </h3>
+
+                <p>
+                    Sizning ehtiyojingiz, talablaringiz va
+                    imkoniyatlaringiz haqida ma’lumot olamiz.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Yechim
+                </h3>
+
+                <p>
+                    Mavjud imkoniyatlardan kelib chiqib,
+                    keyingi hamkorlik yo‘nalishini belgilaymiz.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h3>
+                    Hamkorlik
+                </h3>
+
+                <p>
+                    Kelishilgan yo‘nalish bo‘yicha ishlarni
+                    tashkil etishga kirishamiz.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="container cta-box">
+
+        <div>
+
+            <span class="section-label">
+                HAMKORLIKKA TAYYORMISIZ?
+            </span>
+
+            <h2>
+                Biz bilan bog‘laning.
+            </h2>
+
+            <p>
+                Savolingiz yoki taklifingiz bo‘lsa,
+                bizga murojaat qiling.
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="primary-btn light-btn"
+            onclick="openForm()"
+        >
+            Murojaat yuborish
+            <span>→</span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="section contact" id="contact">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+
+            <div class="contact-content">
+
+                <span class="section-label">
+                    BOG‘LANISH
+                </span>
+
+                <h2>
+                    Keling,
+                    suhbatlashamiz.
+                </h2>
+
+                <p>
+                    Hamkorlik, ishchi kuchi yoki kompaniyamiz
+                    faoliyati bo‘yicha savollaringiz bo‘lsa,
+                    biz bilan qulay usulda bog‘lanishingiz mumkin.
+                </p>
+
+            </div>
+
+
+            <div class="contact-list">
+
+
+                <a
+                    href="tel:+998XXXXXXXXX"
+                    class="contact-item"
+                >
+
+                    <span class="contact-icon">
+                        ☎
+                    </span>
+
+                    <span>
+                        <small>
+                            Telefon
+                        </small>
+
+                        <strong>
+                            +998 XX XXX XX XX
+                        </strong>
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="tel:+998XXXXXXXXX"
+                    class="contact-item"
+                >
+
+                    <span class="contact-icon">
+                        ☎
+                    </span>
+
+                    <span>
+                        <small>
+                            Telefon
+                        </small>
+
+                        <strong>
+                            +998 XX XXX XX XX
+                        </strong>
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="https://t.me/YOUR_USERNAME"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-item"
+                >
+
+                    <span class="contact-icon">
+                        ✈
+                    </span>
+
+                    <span>
+                        <small>
+                            Telegram
+                        </small>
+
+                        <strong>
+                            Telegram orqali yozish
+                        </strong>
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="mailto:info@beshagroup.uz"
+                    class="contact-item"
+                >
+
+                    <span class="contact-icon">
+                        @
+                    </span>
+
+                    <span>
+                        <small>
+                            Elektron pochta
+                        </small>
+
+                        <strong>
+                            info@beshagroup.uz
+                        </strong>
+                    </span>
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="contact-form-button"
+                    onclick="openForm()"
+                >
+                    Sayt orqali murojaat yuborish
+                    <span>→</span>
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container footer">
+
+        <div class="footer-brand">
+
+            <a href="#home" class="logo footer-logo">
+                <span class="logo-main">BESHA</span>
+                <span class="logo-sub">GROUP</span>
+            </a>
+
+            <p>
+                Insonlar va imkoniyatlarni bog‘laymiz.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#about">
+                Biz haqimizda
+            </a>
+
+            <a href="#services">
+                Xizmatlar
+            </a>
+
+            <a href="#why-us">
+                Nega biz?
+            </a>
+
+            <a href="#contact">
+                Bog‘lanish
             </a>
 
         </div>
 
+    </div>
 
-        <div class="copyright">
 
-            © 2026 BESHA GROUP.
-            Barcha huquqlar himoyalangan.
+    <div class="copyright">
+
+        <div class="container">
+
+            © <span id="currentYear"></span>
+            BESHA GROUP. Barcha huquqlar himoyalangan.
 
         </div>
 
-    </footer>
+    </div>
+
+</footer>
 
 
+<!-- =========================
+     CONTACT MODAL
+========================= -->
 
-    <!-- =====================================================
-         SCRIPT
-    ====================================================== -->
+<div
+    class="modal"
+    id="contactModal"
+    aria-hidden="true"
+>
 
-    <script src="script.js"></script>
+    <div class="modal-box">
+
+        <button
+            type="button"
+            class="close-btn"
+            onclick="closeForm()"
+            aria-label="Yopish"
+        >
+            ×
+        </button>
+
+
+        <span class="section-label">
+            MUROJAAT
+        </span>
+
+        <h2>
+            Biz bilan bog‘laning
+        </h2>
+
+        <p>
+            Ma’lumotlaringizni qoldiring.
+            Siz bilan bog‘lanib, murojaatingizni
+            batafsil muhokama qilamiz.
+        </p>
+
+
+        <form id="contactForm">
+
+            <label for="name">
+                Ism va familiya
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Ism va familiyangiz"
+                required
+            >
+
+
+            <label for="phone">
+                Telefon raqami
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+998 XX XXX XX XX"
+                required
+            >
+
+
+            <label for="message">
+                Murojaat
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Murojaatingizni qisqacha yozing..."
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="primary-btn form-submit"
+            >
+                Murojaat yuborish
+                <span>→</span>
+            </button>
+
+        </form>
+
+
+        <div class="form-note">
+
+            Ma’lumotlaringiz faqat murojaatingiz bo‘yicha
+            siz bilan bog‘lanish uchun foydalaniladi.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
