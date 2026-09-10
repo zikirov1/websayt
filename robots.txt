@@ -1,0 +1,11 @@
+# BESHA GROUP
+# https://beshagroup.uz/
+
+User-agent: *
+Allow: /
+
+# Main sitemap
+Sitemap: https://beshagroup.uz/sitemap.xml
+
+# Preferred host
+Host: beshagroup.uz
